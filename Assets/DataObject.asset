@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe120f19966741f4ea8198176b69b4f0, type: 3}
+  m_Name: DataObject
+  m_EditorClassIdentifier: 
+  playerData:
+    username: user
+    highScore: 123
+    deathCount: 0
+    gameData:
+      catName: name
+      breed: breed
+      points: 0
+      difficulty: 1
+      coins: 0
+      stats:
+      - name: Love
+        value: 467
+        maxValue: 750
+        unlocked: 0
+      - name: Hunger
+        value: 943
+        maxValue: 1000
+        unlocked: 0
+      - name: Thirst
+        value: 543
+        maxValue: 600
+        unlocked: 0
+      - name: Energy
+        value: 1543
+        maxValue: 1600
+        unlocked: 0
+      - name: Clean
+        value: 1943
+        maxValue: 2000
+        unlocked: 0
+      - name: Cozy
+        value: 99943
+        maxValue: 100000
+        unlocked: 0
+      - name: Health
+        value: 99943
+        maxValue: 100000
+        unlocked: 0
+      - name: Soul
+        value: 99943
+        maxValue: 100000
+        unlocked: 0
+      - name: Lifeforce
+        value: 99943
+        maxValue: 100000
+        unlocked: 0
