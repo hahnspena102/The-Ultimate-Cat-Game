@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
         List<Stat> stats = dataObject.PlayerData.GameData.Stats;
         foreach (Stat stat in stats) {
-            stat.Value -= (int)decayRate;
+            stat.Value -= (int)decayRate * Random.Range(1,6);
         }
         yield return new WaitForSeconds(1f);
         StartCoroutine(GameCoroutine());

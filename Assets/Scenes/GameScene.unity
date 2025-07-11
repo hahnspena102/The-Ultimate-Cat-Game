@@ -377,6 +377,18 @@ MonoBehaviour:
   dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
   catName: {fileID: 1119065146}
   statMainSlider: {fileID: 1510394753}
+  statMainImage: {fileID: 1746433350}
+  statSummary: {fileID: 357065238}
+  iconSprites:
+  - {fileID: 1161201145128540330, guid: 89659287deca9224ba72537cb197819f, type: 3}
+  - {fileID: 2130535880278150251, guid: 89659287deca9224ba72537cb197819f, type: 3}
+  - {fileID: 184950751378207249, guid: 89659287deca9224ba72537cb197819f, type: 3}
+  - {fileID: 1202984965197363600, guid: 89659287deca9224ba72537cb197819f, type: 3}
+  - {fileID: 5543941588292853863, guid: 89659287deca9224ba72537cb197819f, type: 3}
+  - {fileID: -1863859237976802683, guid: 89659287deca9224ba72537cb197819f, type: 3}
+  - {fileID: 7576617242518483205, guid: 89659287deca9224ba72537cb197819f, type: 3}
+  - {fileID: 7374845061861626600, guid: 89659287deca9224ba72537cb197819f, type: 3}
+  - {fileID: -6931339683150358059, guid: 89659287deca9224ba72537cb197819f, type: 3}
 --- !u!1001 &806838759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1304,6 +1316,10 @@ PrefabInstance:
     - target: {fileID: 6910943217139624573, guid: 0b8ed3497dd3c5245b2126d4b64ed598, type: 3}
       propertyPath: m_Name
       value: Thirst
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910943217139624573, guid: 0b8ed3497dd3c5245b2126d4b64ed598, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8188941383545577787, guid: 0b8ed3497dd3c5245b2126d4b64ed598, type: 3}
       propertyPath: m_Pivot.x

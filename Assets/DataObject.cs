@@ -4,6 +4,8 @@ using UnityEngine;
 public class DataObject : ScriptableObject
 {
     [SerializeField] private PlayerData playerData;
+    [SerializeField] private string currentStat;
 
     public PlayerData PlayerData { get => playerData; set => playerData = value; }
+    public global::System.String CurrentStat { get => currentStat; set => currentStat = value; }
 }

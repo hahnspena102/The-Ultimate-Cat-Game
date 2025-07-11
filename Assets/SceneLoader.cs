@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private DataObject dataObject;
-    private string currentContentScene = "";
+    private string currentContentScene = "LoveScene";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,11 +17,18 @@ public class SceneLoader : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            dataObject.CurrentStat = "Love";
             SwitchToScene("LoveScene");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            dataObject.CurrentStat = "Hunger";
             SwitchToScene("HungerScene");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            dataObject.CurrentStat = "Thirst";
+            //SwitchToScene("ThirstScene");
         }
 
     }
