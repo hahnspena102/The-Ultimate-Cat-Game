@@ -574,6 +574,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
+  heartTransform: {fileID: 1119065145}
+  moveDuration: 0.5
+  canvasRectTransform: {fileID: 1907442708}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

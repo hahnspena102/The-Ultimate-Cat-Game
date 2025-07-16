@@ -11,6 +11,7 @@ public class GameData
     [SerializeField] private int difficulty;
     [SerializeField] private int coins;
     [SerializeField] private List<Stat> stats;
+    [SerializeField] private int appetite, maxAppetite;
 
     public GameData()
     {
@@ -32,6 +33,9 @@ public class GameData
             new Stat ("Soul", 100000),
             new Stat ("Lifeforce", 100000),
         };
+
+        this.MaxAppetite = 100;
+        this.Appetite = this.MaxAppetite;
     }
 
     public override string ToString()
@@ -69,12 +73,13 @@ public class GameData
             }
         }
     }
-     
+
     public global::System.String CatName { get => catName; set => catName = value; }
     public global::System.String Breed { get => breed; set => breed = value; }
     public global::System.Int32 Points { get => points; set => points = value; }
     public global::System.Int32 Difficulty { get => difficulty; set => difficulty = value; }
     public global::System.Int32 Coins { get => coins; set => coins = value; }
     public List<Stat> Stats { get => stats; set => stats = value; }
-
+    public global::System.Int32 Appetite { get => appetite; set => appetite = value; }
+    public global::System.Int32 MaxAppetite { get => maxAppetite; set => maxAppetite = value; }
 }

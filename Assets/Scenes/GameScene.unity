@@ -799,6 +799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
   decayRate: 1
+  hungerTable: {fileID: 11400000, guid: cb3b96d01ef556b458ca4f2c563c7133, type: 2}
 --- !u!4 &1179456751
 Transform:
   m_ObjectHideFlags: 0
