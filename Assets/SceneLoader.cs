@@ -28,7 +28,17 @@ public class SceneLoader : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             dataObject.CurrentStat = "Thirst";
-            //SwitchToScene("ThirstScene");
+            SwitchToScene("ThirstScene");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            dataObject.CurrentStat = "Energy";
+            SwitchToScene("EnergyScene");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            dataObject.CurrentStat = "Clean";
+            SwitchToScene("CleanScene");
         }
 
     }

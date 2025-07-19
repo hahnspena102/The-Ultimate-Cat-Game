@@ -17,6 +17,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HungerScene.unity
     guid: 56f990da0acf36841a64c1c83f322fac
+  - enabled: 1
+    path: Assets/Scenes/ThirstScene.unity
+    guid: 802d062c9e47cdb4a858212b4e9e6968
+  - enabled: 1
+    path: Assets/Scenes/EnergyScene.unity
+    guid: c06fa03e7ed9cc24e8cb95c2d6a54313
+  - enabled: 1
+    path: Assets/Scenes/CleanScene.unity
+    guid: 1e82e120aa3ab874a804b93e2d4e6bcb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: bbe65d5de89abf343af6c2caf1a9650c, type: 3}
   m_UseUCBPForAssetBundles: 0

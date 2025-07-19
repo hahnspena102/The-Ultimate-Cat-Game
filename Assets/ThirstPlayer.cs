@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ThirstPlayer : MonoBehaviour
 {
@@ -7,6 +10,8 @@ public class ThirstPlayer : MonoBehaviour
     private float speed = 8f;
     private float jumpHeight = 10f;
     private bool onGround = true;
+
+    [SerializeField] private DataObject dataObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,15 +29,15 @@ public class ThirstPlayer : MonoBehaviour
             rb.linearVelocity = new Vector2(verticalInput * speed, rb.linearVelocity.y);
         }
 
-        
+
     }
 
     void Update()
     {
-       if (Input.GetKey(KeyCode.Space) && onGround)
+        if (Input.GetKey(KeyCode.Space) && onGround)
         {
             Jump();
-        } 
+        }
     }
 
     void Jump()
@@ -47,6 +52,18 @@ public class ThirstPlayer : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             onGround = true;
+        }
+    }
+    
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "WaterDrop")
+        {
+            WaterDrop wd = collider.GetComponent<WaterDrop>();
+            if (wd == null) return;
+
+            dataObject.PlayerData.GameData.UpdateStat("Thirst", wd.Point);
+            Destroy(collider.gameObject, 0.01f);
         }
     }
 }

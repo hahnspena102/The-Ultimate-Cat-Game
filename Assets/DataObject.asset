@@ -24,41 +24,41 @@ MonoBehaviour:
       coins: 0
       stats:
       - name: Love
-        value: -59
+        value: 549
         maxValue: 750
         unlocked: 0
       - name: Hunger
-        value: 437
+        value: 855
         maxValue: 1000
         unlocked: 0
       - name: Thirst
-        value: -249
+        value: 481
         maxValue: 600
         unlocked: 0
       - name: Energy
-        value: 765
+        value: 0
         maxValue: 1600
         unlocked: 0
       - name: Clean
-        value: -1291
+        value: 0
         maxValue: 2000
         unlocked: 0
       - name: Cozy
-        value: 96620
+        value: 93846
         maxValue: 100000
         unlocked: 0
       - name: Health
-        value: 96658
+        value: 93913
         maxValue: 100000
         unlocked: 0
       - name: Soul
-        value: 96661
+        value: 93924
         maxValue: 100000
         unlocked: 0
       - name: Lifeforce
-        value: 96644
+        value: 93946
         maxValue: 100000
         unlocked: 0
-      appetite: 89
+      appetite: 100
       maxAppetite: 100
-  currentStat: Love
+  currentStat: Hunger

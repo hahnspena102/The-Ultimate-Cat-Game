@@ -68,7 +68,14 @@ public class GameData
         {
             if (stat.Name == statName)
             {
-                stat.Value += delta;
+                if (delta >= 0)
+                {
+                    stat.Value = Mathf.Min(stat.Value + delta, stat.MaxValue);
+                }
+                else
+                {
+                    stat.Value =Mathf.Max(stat.Value + delta, 0);
+                }
                 return;
             }
         }

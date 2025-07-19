@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         List<Stat> stats = dataObject.PlayerData.GameData.Stats;
         foreach (Stat stat in stats)
         {
-            stat.Value -= (int)decayRate * Random.Range(1, 6);
+            stat.Value = Mathf.Max(stat.Value - (int)decayRate * Random.Range(1, 6), 0);
         }
         yield return new WaitForSeconds(1f);
         StartCoroutine(GameCoroutine());
