@@ -456,8 +456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterDrop: {fileID: 7786340199920335610, guid: 478c3836ca6df5249a59866986389d68, type: 3}
-  lowerBound: -50
-  upperBound: 50
+  lowerBound: -100
+  upperBound: 100
   timeMax: 1
 --- !u!1 &1212179947
 GameObject:

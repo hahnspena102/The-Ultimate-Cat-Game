@@ -43,7 +43,7 @@ public class Love : MonoBehaviour
 
     public void HeartPress()
     {
-        dataObject.PlayerData.GameData.UpdateStat("Love", 10);
+        dataObject.PlayerData.GameData.UpdateStat("Love", 20);
 
         StartHeartMove();
     }

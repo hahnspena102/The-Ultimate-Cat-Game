@@ -35,4 +35,16 @@ public class Stat
     {
         return $"Stat(Name: {name}, Value: {value}/{maxValue}, Unlocked: {unlocked})";
     }
+
+    public void Update(int delta)
+    {
+        if (delta >= 0)
+        {
+            this.Value = Mathf.Min(this.Value + delta, this.MaxValue);
+        }
+        else
+        {
+            this.Value =Mathf.Max(this.Value + delta, 0);
+        }
+    }
 }

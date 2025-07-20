@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+    // Coroutine that happens every second
     IEnumerator GameCoroutine()
     {
         List<Stat> stats = dataObject.PlayerData.GameData.Stats;
@@ -30,6 +31,9 @@ public class GameManager : MonoBehaviour
         {
             stat.Value = Mathf.Max(stat.Value - (int)decayRate * Random.Range(1, 6), 0);
         }
+
+        dataObject.PlayerData.GameData.EnergyRespawn.Update(1);
+
         yield return new WaitForSeconds(1f);
         StartCoroutine(GameCoroutine());
     }

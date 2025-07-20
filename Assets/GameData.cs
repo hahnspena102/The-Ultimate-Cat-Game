@@ -12,6 +12,10 @@ public class GameData
     [SerializeField] private int coins;
     [SerializeField] private List<Stat> stats;
     [SerializeField] private int appetite, maxAppetite;
+    [SerializeField] private Stat energyRespawn;
+    [SerializeField] private float cleanTimer;
+    [SerializeField] private int cleanPhase;
+    [SerializeField] private float cleanX;
 
     public GameData()
     {
@@ -36,6 +40,7 @@ public class GameData
 
         this.MaxAppetite = 100;
         this.Appetite = this.MaxAppetite;
+        this.EnergyRespawn = new Stat("EnergyRespawn", 15);
     }
 
     public override string ToString()
@@ -89,4 +94,8 @@ public class GameData
     public List<Stat> Stats { get => stats; set => stats = value; }
     public global::System.Int32 Appetite { get => appetite; set => appetite = value; }
     public global::System.Int32 MaxAppetite { get => maxAppetite; set => maxAppetite = value; }
+    public Stat EnergyRespawn { get => energyRespawn; set => energyRespawn = value; }
+    public global::System.Single CleanTimer { get => cleanTimer; set => cleanTimer = value; }
+    public global::System.Int32 CleanPhase { get => cleanPhase; set => cleanPhase = value; }
+    public global::System.Single CleanX { get => cleanX; set => cleanX = value; }
 }

@@ -1,58 +1,46 @@
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
 
 public class EnergyPlayer : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private float verticalInput, horizontalInput;
-    [SerializeField]private float verticalSpeed = 10f;
-    [SerializeField]private float horizontalSpeed = 10f;
-
     [SerializeField] private DataObject dataObject;
-
-    private float flightHoldTime = 0f;
-    private float flightExponentBase = 1.1f; // Base of exponential growth
+    [SerializeField] private float horizontalSpeed = 6f;
+    [SerializeField] private float verticalSpeed = 8f;
+    private Rigidbody2D rb;
+    private float horizontalInput, verticalInput;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    void FixedUpdate()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-
-        if (rb)
+        if (rb == null)
         {
-            rb.linearVelocity = new Vector2(horizontalInput * horizontalSpeed, rb.linearVelocity.y);
+            Debug.LogError("Rigidbody2D not found on the player.");
         }
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            flightHoldTime += Time.deltaTime;
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+    }
 
-            float exponentialBoost = Mathf.Pow(flightExponentBase, flightHoldTime) * 2f;
-            float newYVelocity = Mathf.Min(exponentialBoost, verticalSpeed);
-
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, newYVelocity);
-        }
-        else
-        {
-            // Reset the flight hold time when space is released
-            flightHoldTime = 0f;
-        }
+    void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(horizontalInput * horizontalSpeed, verticalInput * verticalSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Nightmare")
+        if (collider.CompareTag("EnergyProjectile"))
         {
-            // Handle collision logic here
+            AwakenPlayer();
+        } else if (collider.CompareTag("Ground"))
+        {
+            AwakenPlayer();
         }
+    }
+
+    void AwakenPlayer()
+    {
+        dataObject.PlayerData.GameData.EnergyRespawn.Value = 0;
     }
 }

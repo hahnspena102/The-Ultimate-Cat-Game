@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 public class ThirstPlayer : MonoBehaviour
 {
+    [SerializeField] private DataObject dataObject;
     private Rigidbody2D rb;
     private float verticalInput;
     private float speed = 8f;
     private float jumpHeight = 10f;
     private bool onGround = true;
 
-    [SerializeField] private DataObject dataObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,7 +42,6 @@ public class ThirstPlayer : MonoBehaviour
 
     void Jump()
     {
-        Debug.Log("jmp");
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight);
         onGround = false;
     }
