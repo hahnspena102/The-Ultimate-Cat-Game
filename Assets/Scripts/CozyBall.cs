@@ -8,15 +8,33 @@ public class CozyBall : MonoBehaviour
 
     private HashSet<CozyBall> connectedBalls = new HashSet<CozyBall>();
     private bool checkedConnections = false;
+    private Cozy cozyOwner;
 
-    void Start()
+    public global::System.String Type { get => type; set => type = value; }
+
+    private Dictionary<string, int> labelToIndex = new Dictionary<string, int>
     {
-        // Optionally, check adjacent at start (e.g., if static)
+        { "warmth", 0 },
+        { "bed", 1 },
+        { "tower", 2 },
+        { "yarn", 3 },
+        { "aroma", 4 },
+        { "mouse", 5 },
+        { "brush", 6 },
+        { "blanket", 7 },
+    };
+
+     public void SetOwner(Cozy cozy)
+    {
+        cozyOwner = cozy;
     }
 
-    void Update()
+    private void OnDestroy()
     {
-        // Optional: Visualize or debug connections
+        if (cozyOwner != null)
+        {
+            cozyOwner.RemoveCozyBall(gameObject);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -36,7 +54,30 @@ public class CozyBall : MonoBehaviour
                     {
                         Destroy(ball.gameObject, 0.01f);
                     }
-                    dataObject.PlayerData.GameData.UpdateStat("Cozy", 10 * connectedBalls.Count);
+
+                    bool completeBonus = true;
+                    foreach (bool b in dataObject.PlayerData.GameData.CozyBonus)
+                    {
+                        if (!b)
+                        {
+                            completeBonus = false;
+                            break;
+                        }
+                    }
+                    if (completeBonus)
+                    {
+                        dataObject.PlayerData.GameData.UpdateStat("Cozy", 3 * 10 * connectedBalls.Count);
+                    }
+                    else
+                    {
+                        dataObject.PlayerData.GameData.UpdateStat("Cozy", 10 * connectedBalls.Count);
+                    }
+                    
+
+                    if (type != "star")
+                    {
+                        dataObject.PlayerData.GameData.CozyBonus[labelToIndex[this.type]] = true;
+                    }
                 }
                 checkedConnections = true;
             }

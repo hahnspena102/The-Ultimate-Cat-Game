@@ -40,6 +40,11 @@ public class SceneLoader : MonoBehaviour
             dataObject.CurrentStat = "Clean";
             SwitchToScene("CleanScene");
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            dataObject.CurrentStat = "Clean";
+            SwitchToScene("CozyScene");
+        }
 
     }
 

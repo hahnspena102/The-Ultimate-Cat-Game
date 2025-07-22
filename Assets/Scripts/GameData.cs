@@ -16,6 +16,8 @@ public class GameData
     [SerializeField] private float cleanTimer;
     [SerializeField] private int cleanPhase;
     [SerializeField] private float cleanX;
+    [SerializeField] private List<CozySavedBall> cozySavedBalls;
+    [SerializeField] private List<bool> cozyBonus;
 
     public GameData()
     {
@@ -41,6 +43,8 @@ public class GameData
         this.MaxAppetite = 100;
         this.Appetite = this.MaxAppetite;
         this.EnergyRespawn = new Stat("EnergyRespawn", 15);
+        this.CozySavedBalls = new List<CozySavedBall>();
+        this.cozyBonus = new List<bool>{false, false, false, false, false, false, false, false};
     }
 
     public override string ToString()
@@ -98,4 +102,6 @@ public class GameData
     public global::System.Single CleanTimer { get => cleanTimer; set => cleanTimer = value; }
     public global::System.Int32 CleanPhase { get => cleanPhase; set => cleanPhase = value; }
     public global::System.Single CleanX { get => cleanX; set => cleanX = value; }
+    public List<CozySavedBall> CozySavedBalls { get => cozySavedBalls; set => cozySavedBalls = value; }
+    public List<global::System.Boolean> CozyBonus { get => cozyBonus; set => cozyBonus = value; }
 }

@@ -24,39 +24,39 @@ MonoBehaviour:
       coins: 0
       stats:
       - name: Love
-        value: 206
+        value: 0
         maxValue: 750
         unlocked: 0
       - name: Hunger
-        value: 540
+        value: 0
         maxValue: 1000
         unlocked: 0
       - name: Thirst
-        value: 231
+        value: 0
         maxValue: 600
         unlocked: 0
       - name: Energy
-        value: 1161
+        value: 117
         maxValue: 1600
         unlocked: 0
       - name: Clean
-        value: 1867
+        value: 830
         maxValue: 2000
         unlocked: 0
       - name: Cozy
-        value: 2000
+        value: 1964
         maxValue: 2000
         unlocked: 0
       - name: Health
-        value: 92005
+        value: 90935
         maxValue: 100000
         unlocked: 0
       - name: Soul
-        value: 91942
+        value: 90932
         maxValue: 100000
         unlocked: 0
       - name: Lifeforce
-        value: 91933
+        value: 90883
         maxValue: 100000
         unlocked: 0
       appetite: 100
@@ -66,7 +66,49 @@ MonoBehaviour:
         value: 15
         maxValue: 15
         unlocked: 0
-      cleanTimer: 0.1194216
-      cleanPhase: 0
+      cleanTimer: 1.5484179
+      cleanPhase: 2
       cleanX: -6.0440016
+      cozySavedBalls:
+      - xPos: 2.9368052
+        yPos: 2.202306
+        rotation: -67.768845
+        type: yarn
+      - xPos: 3.6319318
+        yPos: 2.2017996
+        rotation: 170.64374
+        type: brush
+      - xPos: -2.9150229
+        yPos: 2.2017856
+        rotation: 157.19876
+        type: bed
+      - xPos: 1.5468081
+        yPos: 2.2017996
+        rotation: 165.49287
+        type: yarn
+      - xPos: 2.241807
+        yPos: 2.2017994
+        rotation: -83.762276
+        type: bed
+      - xPos: -3.6288562
+        yPos: 2.2017996
+        rotation: 22.359127
+        type: aroma
+      - xPos: -1.2781192
+        yPos: 2.2017996
+        rotation: 0.6968274
+        type: mouse
+      - xPos: 3.2807786
+        yPos: 2.806282
+        rotation: 44.092594
+        type: brush
+      - xPos: 1.8915955
+        yPos: 2.805997
+        rotation: -2.13988
+        type: yarn
+      - xPos: -1.6095803
+        yPos: 5.3748484
+        rotation: -0
+        type: brush
+      cozyBonus: 0001010101010001
   currentStat: Thirst

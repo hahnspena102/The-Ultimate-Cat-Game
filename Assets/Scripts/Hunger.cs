@@ -37,7 +37,7 @@ public class Hunger : MonoBehaviour
                 feedButton.interactable = false;
 
                 ColorBlock colors = appetiteSlider.colors;
-                colors.disabledColor = new Color(0.45490196f, 0f, 0.36470588f, 1f);
+                colors.disabledColor = new Color(0.659f, 0.220f, 0.086f, 1.000f);
                 appetiteSlider.colors = colors;
 
             }
@@ -46,7 +46,7 @@ public class Hunger : MonoBehaviour
                 feedButton.interactable = true;
 
                 ColorBlock colors = appetiteSlider.colors;
-                colors.disabledColor = new Color(0.69803922f, 0.32549020f, 0.86666667f, 1f);
+                colors.disabledColor = new Color(1f, 0.72549020f, 0f, 1f);
 
                 appetiteSlider.colors = colors;
 

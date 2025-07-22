@@ -20,4 +20,9 @@ public class CozySavedBall
         this.rotation = rotation;
         this.type = type;
     }
+
+    public global::System.Single XPos { get => xPos; set => xPos = value; }
+    public global::System.Single YPos { get => yPos; set => yPos = value; }
+    public global::System.Single Rotation { get => rotation; set => rotation = value; }
+    public global::System.String Type { get => type; set => type = value; }
 }
