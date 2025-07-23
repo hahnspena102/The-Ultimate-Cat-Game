@@ -45,6 +45,21 @@ public class SceneLoader : MonoBehaviour
             dataObject.CurrentStat = "Clean";
             SwitchToScene("CozyScene");
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            dataObject.CurrentStat = "Health";
+            SwitchToScene("HealthScene");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            dataObject.CurrentStat = "Soul";
+            SwitchToScene("SoulScene");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            dataObject.CurrentStat = "Lifeforce";
+            SwitchToScene("LifeforceScene");
+        }
 
     }
 

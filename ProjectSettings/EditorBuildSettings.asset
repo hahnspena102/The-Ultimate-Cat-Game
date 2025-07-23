@@ -29,6 +29,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CozyScene.unity
     guid: de2631bdc373ae2438a3b55214fea30a
+  - enabled: 1
+    path: Assets/Scenes/HealthScene.unity
+    guid: 50b59397382a64e48a82e448f3b5f658
+  - enabled: 1
+    path: Assets/Scenes/SoulScene.unity
+    guid: 355454692cf3f094a91af6ea97974112
+  - enabled: 1
+    path: Assets/Scenes/LifeforceScene.unity
+    guid: 6758c4d2572b7624f8d3e06915b51d98
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: bbe65d5de89abf343af6c2caf1a9650c, type: 3}
   m_UseUCBPForAssetBundles: 0
