@@ -36,28 +36,28 @@ MonoBehaviour:
         maxValue: 600
         unlocked: 0
       - name: Energy
-        value: 117
+        value: 0
         maxValue: 1600
         unlocked: 0
       - name: Clean
-        value: 830
+        value: 0
         maxValue: 2000
         unlocked: 0
       - name: Cozy
-        value: 1964
-        maxValue: 2000
+        value: 0
+        maxValue: 2400
         unlocked: 0
       - name: Health
-        value: 90935
-        maxValue: 100000
+        value: 1895
+        maxValue: 3000
         unlocked: 0
       - name: Soul
-        value: 90932
-        maxValue: 100000
+        value: 400
+        maxValue: 4000
         unlocked: 0
       - name: Lifeforce
-        value: 90883
-        maxValue: 100000
+        value: 500
+        maxValue: 5000
         unlocked: 0
       appetite: 100
       maxAppetite: 100

@@ -34,10 +34,10 @@ public class GameData
             new Stat ("Thirst", 600),
             new Stat ("Energy", 1600),
             new Stat ("Clean", 2000),
-            new Stat ("Cozy", 100000),
-            new Stat ("Health", 100000),
-            new Stat ("Soul", 100000),
-            new Stat ("Lifeforce", 100000),
+            new Stat ("Cozy", 2400),
+            new Stat ("Health", 3000),
+            new Stat ("Soul", 4000),
+            new Stat ("Lifeforce", 5000),
         };
 
         this.MaxAppetite = 100;

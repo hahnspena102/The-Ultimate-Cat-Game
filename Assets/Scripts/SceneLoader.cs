@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private DataObject dataObject;
-    private string currentContentScene = "CozyScene";
+    private string currentContentScene = "HealthScene";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

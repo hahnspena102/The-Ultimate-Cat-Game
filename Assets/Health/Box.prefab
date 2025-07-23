@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85797ea98d1305648ac68e895581c74c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
   cover: {fileID: 3850263444559277415}
   type: 
   treatmentSprites:
@@ -69,6 +70,12 @@ MonoBehaviour:
   - {fileID: 1975636261, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
   - {fileID: 1654818166, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
   - {fileID: 266514248, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
+  nullSprite: {fileID: 755241994, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
+  image: {fileID: 2636379468606325906}
+  row: 0
+  col: 0
+  isOpen: 0
+  button: {fileID: 6254299257117954096}
 --- !u!1 &6981163037604031132
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +199,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2083112014272885527}
         m_TargetAssemblyTypeName: HealthBox, Assembly-CSharp
-        m_MethodName: Reveal
+        m_MethodName: OpenBox
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -249,7 +256,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -8, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5433375480493745937
 CanvasRenderer:
@@ -279,7 +286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1975636261, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
+  m_Sprite: {fileID: 755241994, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

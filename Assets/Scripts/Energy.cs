@@ -13,7 +13,7 @@ public class Energy : MonoBehaviour
     private float timeMax = 2f;
     private bool isAlive = true;
     private float timeElapsed;
-    private int growthMax = 10;
+    private int growthMax = 2;
     private float growthRate = 0.5f;
 
     void Start()

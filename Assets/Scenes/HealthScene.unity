@@ -3152,6 +3152,8 @@ MonoBehaviour:
   - {fileID: 44055162}
   - {fileID: 783371072}
   - {fileID: 1145874657}
+  treatmentCount: 0
+  currentTreatmentFound: 0
 --- !u!1 &1951639186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2816755364458074517, guid: f747ebcc6cf64764eb86f9b0db86b3b3, type: 3}
