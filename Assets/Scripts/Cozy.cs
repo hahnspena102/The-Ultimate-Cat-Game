@@ -7,14 +7,13 @@ public class Cozy : MonoBehaviour
 {
     [SerializeField] private DataObject dataObject;
     [SerializeField] private List<GameObject> cozyBallPrefabs = new List<GameObject>();
-    [SerializeField] private GameObject previewBallPrefab;
     [SerializeField] private Collider2D playfieldCollider;
     [SerializeField] private Slider capacitySlider;
     [SerializeField] private List<Image> bonusUI;
     [SerializeField] private GameObject bonusText;
     private List<GameObject> cozyBalls = new List<GameObject>();
 
-    private GameObject previewBall;
+    [SerializeField]private GameObject previewBall;
     private GameObject nextBall;
     private Sprite nextSprite;
     private SpriteRenderer previewSpriteRenderer;
@@ -29,6 +28,14 @@ public class Cozy : MonoBehaviour
     };
     void Awake()
     {
+        if (previewBall != null)
+        {
+            previewSpriteRenderer = previewBall.GetComponent<SpriteRenderer>();
+            nextBall = cozyBallPrefabs[Random.Range(0, cozyBallPrefabs.Count)];
+            SpriteRenderer sr = nextBall.GetComponent<SpriteRenderer>();
+            if (sr) nextSprite = sr.sprite;
+        }
+
         cozyBallMap = new Dictionary<string, GameObject>();
 
         for (int i = 0; i < cozyBallLabels.Length && i < cozyBallPrefabs.Count; i++)
@@ -88,13 +95,6 @@ public class Cozy : MonoBehaviour
         if (nextBall == null)
         {
             nextBall = cozyBallPrefabs[Random.Range(0, cozyBallPrefabs.Count)];
-        }
-
-        if (previewBall == null)
-        {
-            previewBall = Instantiate(previewBallPrefab);
-            previewBall.transform.SetParent(transform);
-            previewSpriteRenderer = previewBall.GetComponent<SpriteRenderer>();
         }
 
         Vector2 clampedPosition = ClampToPlayfield(mouseWorldPos);

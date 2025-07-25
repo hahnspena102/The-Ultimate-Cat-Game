@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
 
         dataObject.PlayerData.GameData.EnergyRespawn.Update(1);
 
+        dataObject.PlayerData.GameData.SoulBullets.Update(1);
+
         yield return new WaitForSeconds(1f);
         StartCoroutine(GameCoroutine());
     }

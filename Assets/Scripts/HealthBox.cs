@@ -31,7 +31,7 @@ public class HealthBox : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameObject go = GameObject.Find("Health");
+        GameObject go = transform.parent.transform.parent.gameObject;
         if (go)
         {
             health = go.GetComponent<Health>();     
@@ -132,6 +132,7 @@ public class HealthBox : MonoBehaviour
         }
 
         if (image == null) return;
+
 
         if (type == "treatment")
         {
