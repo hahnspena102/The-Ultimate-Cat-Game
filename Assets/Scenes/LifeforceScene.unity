@@ -653,7 +653,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 8.4}
+  m_AnchoredPosition: {x: 0, y: 8.400024}
   m_SizeDelta: {x: -99.056885, y: -454.8821}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &508949310
@@ -2301,6 +2301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba60bc9d492a634fb4706f9fba0ad2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
   beats: []
   beatObjects:
   - {fileID: 8827496071699263551}
@@ -2321,7 +2322,10 @@ MonoBehaviour:
   - {fileID: 2011809229}
   audioSource: {fileID: 1907442710}
   slidePrefab: {fileID: 7916223311261418392, guid: 0e3132c00e1081e409b68b8ab00bcf0a, type: 3}
+  xPrefab: {fileID: 6299247235427290548, guid: 3f0aaf1dfdcf03a4f9ef9b7fdf9abb0d, type: 3}
   barSlider: {fileID: 475603090}
+  handle: {fileID: 525048048}
+  animationPlaying: 0
 --- !u!82 &1907442710
 AudioSource:
   m_ObjectHideFlags: 0
