@@ -16,7 +16,6 @@ public class Lifeforce : MonoBehaviour
     [SerializeField] private Transform handle;
 
     [SerializeField]private bool animationPlaying = false;
-    private bool nextSlideGo = false;
     private List<GameObject> slides = new List<GameObject>();
     private List<GameObject> effects = new List<GameObject>();
 
