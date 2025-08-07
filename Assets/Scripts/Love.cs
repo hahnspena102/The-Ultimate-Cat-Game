@@ -1,4 +1,8 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+
 
 public class Love : MonoBehaviour
 {
@@ -6,12 +10,24 @@ public class Love : MonoBehaviour
     [SerializeField] private Transform heartTransform; 
     [SerializeField] private float moveDuration = 0.5f;
     [SerializeField] private RectTransform canvasRectTransform;
+    [SerializeField] private Animator animator;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private List<AudioClip> purrs;
+    [SerializeField] private AudioSource audioSource;
 
     private float canvasXPadding = 64f;
     private float canvasYPadding = 480f; 
     private bool isMoving = false;
     private Vector3 targetPosition;
     private float moveTimer = 0f;
+
+    private UI ui;
+
+    void Start()
+    {
+        GameObject go = GameObject.Find("UI");
+        if (go) ui = go.GetComponent<UI>();
+    }
     void Awake()
     {
         Vector2 randomScreenPoint = new Vector2(
@@ -27,6 +43,7 @@ public class Love : MonoBehaviour
 
     void Update()
     {
+
         if (isMoving)
         {
             moveTimer += Time.deltaTime;
@@ -44,6 +61,19 @@ public class Love : MonoBehaviour
     public void HeartPress()
     {
         dataObject.PlayerData.GameData.UpdateStat("Love", 20);
+
+        if (animator) animator.SetTrigger("purr");
+
+        if (ui) ui.SpawnPopup(heartTransform.position, "Love", 20, canvas.transform);
+
+        if (audioSource)
+        {
+            audioSource.clip = purrs[Random.Range(0, purrs.Count)];
+            audioSource.pitch = Random.Range(1.00f - 0.10f, 1.00f + 0.10f);
+            audioSource.Play();
+        }
+       
+
 
         StartHeartMove();
     }

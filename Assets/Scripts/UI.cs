@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class UI : MonoBehaviour
 {
@@ -11,14 +12,16 @@ public class UI : MonoBehaviour
     [SerializeField] private Image statMainImage;
     [SerializeField] private Transform statSummary;
     [SerializeField] private List<Sprite> iconSprites;
-    private Dictionary<string, Sprite> statToSpriteMap;
-    private Dictionary<string, Color> statToColorMap;
+    [SerializeField] private GameObject popupPrefab;
+    [SerializeField] private TextMeshProUGUI pointTextBox, coinTextBox;
+    public static Dictionary<string, Sprite> StatToSpriteMap;
+    public static Dictionary<string, Color> StatToColorMap;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        statToSpriteMap = new Dictionary<string, Sprite>();
-        statToColorMap = new Dictionary<string, Color>();
+        StatToSpriteMap = new Dictionary<string, Sprite>();
+        StatToColorMap = new Dictionary<string, Color>();
 
         string[] statNames = new string[]
         {
@@ -42,8 +45,8 @@ public class UI : MonoBehaviour
 
         for (int i = 0; i < statNames.Length && i < iconSprites.Count && i < statColors.Count; i++)
         {
-            statToSpriteMap[statNames[i]] = iconSprites[i];
-            statToColorMap[statNames[i]] = statColors[i];
+            StatToSpriteMap[statNames[i]] = iconSprites[i];
+            StatToColorMap[statNames[i]] = statColors[i];
         }
     }
 
@@ -65,11 +68,14 @@ public class UI : MonoBehaviour
             statMainSlider.maxValue = curStat.MaxValue;
 
             ColorBlock colors = statMainSlider.colors;
-            colors.disabledColor = statToColorMap[dataObject.CurrentStat];
+            colors.disabledColor = StatToColorMap[dataObject.CurrentStat];
             statMainSlider.colors = colors;
 
-            statMainImage.sprite = statToSpriteMap[dataObject.CurrentStat];
+            statMainImage.sprite = StatToSpriteMap[dataObject.CurrentStat];
         }
+
+        if (pointTextBox) pointTextBox.text = $"{dataObject.PlayerData.GameData.Points}";
+        if (coinTextBox) coinTextBox.text = $"{dataObject.PlayerData.GameData.Coins}";
 
         if (statSummary)
         {
@@ -87,15 +93,33 @@ public class UI : MonoBehaviour
                         if (percentageText != null)
                         {
                             float percent = (float)stat.Value / (float)stat.MaxValue * 100f;
-            
+
                             percentageText.text = $"{Mathf.Floor(percent)}%";
                         }
                     }
                 }
-            } 
+            }
+        }
+    }
+    
+    public GameObject SpawnPopup(Vector3 position, string stat, int number, Transform parent = null)
+    {
+        GameObject popup = Instantiate(popupPrefab, position, Quaternion.identity, parent);
+
+        if (popup == null)
+        {
+            return null;
         }
 
+        Popup p = popup.GetComponent<Popup>();
 
+        if (!StatToColorMap.TryGetValue(stat, out Color color))
+        {
+            color = Color.black;
+        }
+        p.OutlineColor = color;
+        p.Number = number;
 
+        return popup;
     }
 }

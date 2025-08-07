@@ -21,7 +21,7 @@ MonoBehaviour:
       breed: breed
       points: 0
       difficulty: 1
-      coins: 0
+      coins: 1000
       stats:
       - name: Love
         value: 0
@@ -48,17 +48,18 @@ MonoBehaviour:
         maxValue: 2400
         unlocked: 0
       - name: Health
-        value: 1895
+        value: 0
         maxValue: 3000
         unlocked: 0
       - name: Soul
-        value: 400
+        value: 0
         maxValue: 4000
         unlocked: 0
       - name: Lifeforce
-        value: 500
+        value: 0
         maxValue: 5000
         unlocked: 0
+      upgrades: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
       appetite: 100
       maxAppetite: 100
       energyRespawn:
@@ -66,49 +67,57 @@ MonoBehaviour:
         value: 15
         maxValue: 15
         unlocked: 0
-      cleanTimer: 1.5484179
+      cleanTimer: 1.2540759
       cleanPhase: 2
       cleanX: -6.0440016
       cozySavedBalls:
-      - xPos: 2.9368052
+      - xPos: 2.9361706
         yPos: 2.202306
-        rotation: -67.768845
+        rotation: 0.10457333
         type: yarn
-      - xPos: 3.6319318
+      - xPos: 3.6314895
         yPos: 2.2017996
-        rotation: 170.64374
+        rotation: 0.07290345
         type: brush
       - xPos: -2.9150229
-        yPos: 2.2017856
-        rotation: 157.19876
+        yPos: 2.2017992
+        rotation: -0
         type: bed
-      - xPos: 1.5468081
+      - xPos: 1.5448745
         yPos: 2.2017996
-        rotation: 165.49287
+        rotation: 0.31880647
         type: yarn
-      - xPos: 2.241807
-        yPos: 2.2017994
-        rotation: -83.762276
+      - xPos: 2.2399197
+        yPos: 2.2017996
+        rotation: 0.31118405
         type: bed
       - xPos: -3.6288562
         yPos: 2.2017996
-        rotation: 22.359127
+        rotation: -0
         type: aroma
       - xPos: -1.2781192
         yPos: 2.2017996
-        rotation: 0.6968274
+        rotation: -0
         type: mouse
-      - xPos: 3.2807786
-        yPos: 2.806282
-        rotation: 44.092594
+      - xPos: 3.2803373
+        yPos: 2.8062775
+        rotation: -0.097575426
         type: brush
-      - xPos: 1.8915955
-        yPos: 2.805997
-        rotation: -2.13988
+      - xPos: 1.8895886
+        yPos: 2.8059921
+        rotation: -0.30294266
         type: yarn
       - xPos: -1.6095803
-        yPos: 5.3748484
+        yPos: 4.9628286
         rotation: -0
         type: brush
       cozyBonus: 0001010101010001
-  currentStat: Thirst
+      soulX: 0
+      soulY: 0
+      soulBullets:
+        name: SoulBullets
+        value: 7
+        maxValue: 7
+        unlocked: 0
+  currentStat: Soul
+  selectedUpgrade: {fileID: 11400000, guid: 038360ea9dea42843b725e118ba4e4a2, type: 2}

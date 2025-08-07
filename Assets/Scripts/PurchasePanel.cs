@@ -5,14 +5,16 @@ using System.Collections.Generic;
 using System;
 public class PurchasePanel : MonoBehaviour
 {
-    [SerializeField]private DataObject dataObject;
+    [SerializeField] private DataObject dataObject;
     [SerializeField] private CanvasGroup canvasGroup;
-    [SerializeField] private TMPro.TextMeshProUGUI nameTextBox, descTextBox, costTextBox, prereqTextBox;
+    [SerializeField] private TMPro.TextMeshProUGUI nameTextBox, descTextBox, costTextBox, prereqTextBox, purchaseText;
     [SerializeField] private Image iconImage;
+    [SerializeField] private Button purchaseButton;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -40,10 +42,46 @@ public class PurchasePanel : MonoBehaviour
             {
                 prereqTextBox.text = "";
             }
+
+            bool isPurchased = dataObject.PlayerData.GameData.Upgrades[dataObject.SelectedUpgrade.Id];
+            if (isPurchased)
+            {
+                purchaseButton.interactable = false;
+                purchaseText.text = "Purchased";
+                purchaseButton.image.color = new Color(0.592f, 0.596f, 0.627f, 1.000f);
+                costTextBox.color = Color.white;
+            }
+            else if (dataObject.PlayerData.GameData.Coins < dataObject.SelectedUpgrade.Cost)
+            {
+                purchaseButton.interactable = true;
+                purchaseText.text = "Buy";
+                purchaseButton.image.color = new Color(0.961f, 0.365f, 0.365f, 1.000f);
+                costTextBox.color = new Color(0.961f, 0.365f, 0.365f, 1.000f);
+            }
+            else
+            {
+                purchaseButton.interactable = true;
+                purchaseText.text = "Buy";
+                purchaseButton.image.color = Color.white;
+                costTextBox.color = Color.white;
+            }
         }
         else
         {
             canvasGroup.alpha = 0;
+        }
+    }
+
+    public void Purchase()
+    {
+        if (dataObject.PlayerData.GameData.Coins >= dataObject.SelectedUpgrade.Cost)
+        {
+            List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
+            int selectedId = dataObject.SelectedUpgrade.Id;
+
+            if (selectedId < 0 || selectedId >= upgrades.Count) return;
+
+            upgrades[selectedId] = true;
         }
     }
 }

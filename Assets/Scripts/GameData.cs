@@ -11,6 +11,7 @@ public class GameData
     [SerializeField] private int difficulty;
     [SerializeField] private int coins;
     [SerializeField] private List<Stat> stats;
+    [SerializeField] private List<bool> upgrades;
     [SerializeField] private int appetite, maxAppetite;
     [SerializeField] private Stat energyRespawn;
     [SerializeField] private float cleanTimer;
@@ -42,12 +43,21 @@ public class GameData
             new Stat ("Lifeforce", 5000),
         };
 
+        this.upgrades = new List<bool>();
+        for (int i = 0; i < 9 * 9; i++)
+        {
+            this.upgrades.Add(false);
+        }
+
+
         this.MaxAppetite = 100;
         this.Appetite = this.MaxAppetite;
         this.EnergyRespawn = new Stat("EnergyRespawn", 15);
         this.CozySavedBalls = new List<CozySavedBall>();
         this.cozyBonus = new List<bool> { false, false, false, false, false, false, false, false };
         this.soulBullets = new Stat("SoulBullets", 7);
+
+
     }
 
     public override string ToString()
@@ -93,6 +103,11 @@ public class GameData
         }
     }
 
+    public void SetUpgrade(string id, bool isPurchased = false)
+    {
+        
+    }
+
     public global::System.String CatName { get => catName; set => catName = value; }
     public global::System.String Breed { get => breed; set => breed = value; }
     public global::System.Int32 Points { get => points; set => points = value; }
@@ -110,4 +125,5 @@ public class GameData
     public global::System.Single SoulX { get => soulX; set => soulX = value; }
     public global::System.Single SoulY { get => soulY; set => soulY = value; }
     public Stat SoulBullets { get => soulBullets; set => soulBullets = value; }
+    public List<global::System.Boolean> Upgrades { get => upgrades; set => upgrades = value; }
 }

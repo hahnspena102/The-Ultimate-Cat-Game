@@ -4,17 +4,38 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private DataObject dataObject;
-    private string currentContentScene = "SoulScene";
+    [SerializeField] private CanvasGroup uiCanvasGroup;
+    private string currentContentScene = "";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene.name != "GameScene")
+            {
+                currentContentScene = scene.name;
+            }
+           
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (currentContentScene != "UpgradeScene")
+        {
+            uiCanvasGroup.alpha = 1f;
+            dataObject.IsPaused = false;
+        }
+        else
+        {
+            uiCanvasGroup.alpha = 0f;
+            dataObject.IsPaused = true;
+        }
+
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             dataObject.CurrentStat = "Love";
@@ -60,12 +81,16 @@ public class SceneLoader : MonoBehaviour
             dataObject.CurrentStat = "Lifeforce";
             SwitchToScene("LifeforceScene");
         }
+        else if (Input.GetKeyDown(KeyCode.U))
+        {
+            SwitchToScene("UpgradeScene");
+        }
 
     }
 
     void SwitchToScene(string sceneName)
     {
-        if (currentContentScene == sceneName)
+        if (currentContentScene == sceneName) 
             return;
 
         if (!string.IsNullOrEmpty(currentContentScene) && SceneManager.GetSceneByName(currentContentScene).isLoaded)

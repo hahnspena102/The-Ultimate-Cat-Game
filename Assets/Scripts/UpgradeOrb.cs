@@ -4,31 +4,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
-public class UpgradeOrb : MonoBehaviour, ISelectHandler, IDeselectHandler
+public class UpgradeOrb : MonoBehaviour, ISelectHandler
 {
 
     [SerializeField] private Upgrade upgrade;
     [SerializeField] private bool isPurchased;
     [SerializeField] private DataObject dataObject;
     [SerializeField] private Outline outline;
+    [SerializeField] private Image image;
     [SerializeField] private List<Transform> prerequisiteOrbs;
 
     [SerializeField] private GameObject linePrefab;
+    private List<Image> prereqLines = new List<Image>();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (isPurchased)
-        {
-            outline.effectColor = new Color(1f, 1f, 1f, 1f);
-        }
-
         FindPrerequisiteOrbs();
 
         foreach (Transform prereq in prerequisiteOrbs)
         {
             DrawLine(prereq);
+        }
+    }
+
+    void Update()
+    {
+        isPurchased = dataObject.PlayerData.GameData.Upgrades[upgrade.Id];
+        Color statColor = UI.StatToColorMap[upgrade.Type];
+
+
+        if (isPurchased)
+        {
+            outline.effectColor = statColor;
+            image.color = Color.Lerp(Color.white, statColor, 0.7f);
+            foreach (Image i in prereqLines)
+            {
+                i.color = statColor;
+            }
+        }
+        else
+        {
+            outline.effectColor = new Color(1f, 1f, 1f, 0f);
+            image.color = Color.white;
+            foreach (Image i in prereqLines)
+            {
+                i.color = Color.white;
+            }
         }
     }
 
@@ -38,7 +61,7 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler, IDeselectHandler
 
         //prerequisiteOrbs.Clear();
         if (upgrade.Prerequisites.Count <= 0) return;
-        
+
         foreach (Upgrade u in upgrade.Prerequisites)
         {
             if (u == null) continue;
@@ -68,6 +91,7 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler, IDeselectHandler
 
         Image lineImage = newLine.GetComponent<Image>();
         lineImage.color = lineColor;
+        prereqLines.Add(lineImage);
 
         RectTransform rt = newLine.GetComponent<RectTransform>();
 
@@ -78,8 +102,8 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler, IDeselectHandler
         Vector3 direction = end - start;
         float distance = direction.magnitude;
 
-        rt.sizeDelta = new Vector2(distance, 4f); 
-        rt.anchorMin = rt.anchorMax = new Vector2(0, 0); 
+        rt.sizeDelta = new Vector2(distance, 4f);
+        rt.anchorMin = rt.anchorMax = new Vector2(0, 0);
         rt.pivot = new Vector2(0, 0.5f);
 
         rt.position = start;
@@ -93,9 +117,11 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler, IDeselectHandler
         dataObject.SelectedUpgrade = upgrade;
     }
 
-    public void OnDeselect(BaseEventData eventData)
-    {
-        Debug.Log("bye");
-        dataObject.SelectedUpgrade = null;
-    }
+/*
+            public void OnDeselect(BaseEventData eventData)
+            {
+                Debug.Log("bye");
+                //dataObject.SelectedUpgrade = null;
+            }
+            */
 }

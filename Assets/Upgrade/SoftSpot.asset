@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae322050a58b75241b5d8f8b77757a19, type: 3}
+  m_Name: SoftSpot
+  m_EditorClassIdentifier: 
+  upgradeName: Soft Spot
+  id: 7
+  sprite: {fileID: 2002501571, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
+  description: 'Combines all Love Hearts into 1 giant entity. Additionally, the Love
+    Heart will now remain mostly in the same spot.  '
+  cost: 20000
+  type: Love
+  prerequisites:
+  - {fileID: 11400000, guid: 085b55b575807354e935ce1b569e8754, type: 2}
+  - {fileID: 11400000, guid: 6645f5c2c23cee243adbdff8bf2f82ef, type: 2}
+  - {fileID: 11400000, guid: 321d5f1d6ca40b049ada20ff35b722ef, type: 2}

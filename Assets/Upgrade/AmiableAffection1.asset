@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: AmiableAffection1
   m_EditorClassIdentifier: 
   upgradeName: Amiable Affection I
-  id: amiable_affection_1
+  id: 0
   sprite: {fileID: -1853091812240255975, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
-  description: Increases the amount of Love points and Score Points for every time
-    the user clicks on a heart. Also slightly increases the size of the heart.
+  description: Increases Love per click, Cat Coins per click, maximum Love, and Love
+    Heart size.
   cost: 1000
+  type: Love
   prerequisites: []

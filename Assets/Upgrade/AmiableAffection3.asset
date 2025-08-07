@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae322050a58b75241b5d8f8b77757a19, type: 3}
-  m_Name: AmiableAffection2
+  m_Name: AmiableAffection3
   m_EditorClassIdentifier: 
   upgradeName: Amiable Affection II
-  id: 1
-  sprite: {fileID: -3756019059309665670, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
+  id: 2
+  sprite: {fileID: -164739022, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Increases Love per click, Cat Coins per click, maximum Love, and Love
     Heart size.
-  cost: 2500
+  cost: 5000
   type: Love
   prerequisites:
-  - {fileID: 11400000, guid: 5025fac9dd5d89344ae7f77c406fbbbe, type: 2}
+  - {fileID: 11400000, guid: 038360ea9dea42843b725e118ba4e4a2, type: 2}

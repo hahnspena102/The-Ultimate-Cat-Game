@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
         hungerTable.Initialize();
         StartCoroutine(GameCoroutine());
 
-        StartCoroutine(AppetiteCoroutine());                                                          
+        StartCoroutine(AppetiteCoroutine());
     }
 
     // Update is called once per frame
@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     // Coroutine that happens every second
     IEnumerator GameCoroutine()
     {
+        while (dataObject.IsPaused) yield return null;
+        
         List<Stat> stats = dataObject.PlayerData.GameData.Stats;
         foreach (Stat stat in stats)
         {
@@ -36,10 +38,13 @@ public class GameManager : MonoBehaviour
 
         dataObject.PlayerData.GameData.SoulBullets.Update(1);
 
+        dataObject.PlayerData.GameData.Points += 10;
+        dataObject.PlayerData.GameData.Coins += 1;
+
         yield return new WaitForSeconds(1f);
         StartCoroutine(GameCoroutine());
     }
-    
+
     IEnumerator AppetiteCoroutine()
     {
         dataObject.PlayerData.GameData.Appetite = Mathf.Min(dataObject.PlayerData.GameData.MaxAppetite,
