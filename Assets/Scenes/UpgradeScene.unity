@@ -389,6 +389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeavenlyHearts2
       objectReference: {fileID: 0}
+    - target: {fileID: 815302885972407619, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5557974024281082469, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -493,6 +497,10 @@ PrefabInstance:
     - target: {fileID: 815302885972407619, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
       propertyPath: m_Name
       value: AmorousAssets
+      objectReference: {fileID: 0}
+    - target: {fileID: 815302885972407619, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5557974024281082469, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
       propertyPath: m_Pivot.x
@@ -948,6 +956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeavenlyHearts1
       objectReference: {fileID: 0}
+    - target: {fileID: 815302885972407619, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5557974024281082469, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1393,6 +1405,10 @@ PrefabInstance:
     - target: {fileID: 815302885972407619, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
       propertyPath: m_Name
       value: LoveLimit
+      objectReference: {fileID: 0}
+    - target: {fileID: 815302885972407619, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5557974024281082469, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
       propertyPath: m_Pivot.x
@@ -2122,6 +2138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoftSpot
       objectReference: {fileID: 0}
+    - target: {fileID: 815302885972407619, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5557974024281082469, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2226,6 +2246,10 @@ PrefabInstance:
     - target: {fileID: 815302885972407619, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
       propertyPath: m_Name
       value: BoundlessBond
+      objectReference: {fileID: 0}
+    - target: {fileID: 815302885972407619, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5557974024281082469, guid: 63c4c381f20aab645ac4e950fde917d8, type: 3}
       propertyPath: m_Pivot.x

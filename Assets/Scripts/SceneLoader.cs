@@ -63,7 +63,7 @@ public class SceneLoader : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            dataObject.CurrentStat = "Clean";
+            dataObject.CurrentStat = "Cozy";
             SwitchToScene("CozyScene");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha7))

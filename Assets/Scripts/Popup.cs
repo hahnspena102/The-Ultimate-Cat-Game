@@ -23,14 +23,22 @@ public class Popup : MonoBehaviour
         if (number > 0)
         {
             textMesh.text = $"+{number}";
-        } else if (number < 0) {
-            textMesh.text = $"-{number}";
-        } else {
+            textMesh.fontMaterial.SetColor("_OutlineColor", outlineColor);
+        }
+        else if (number < 0)
+        {
             textMesh.text = $"{number}";
+            textMesh.fontMaterial.SetColor("_FaceColor", new Color(0.788f, 0.247f, 0.247f, 1f));
+            textMesh.fontMaterial.SetColor("_OutlineColor", new Color(0.278f, 0.106f, 0.106f, 1.000f));
+        }
+        else
+        {
+            textMesh.text = $"{number}";
+            textMesh.fontMaterial.SetColor("_OutlineColor", outlineColor);
         }
         
 
-        textMesh.fontMaterial.SetColor("_OutlineColor", outlineColor);
+        
         //textMesh.fontMaterial.SetFloat("_OutlineWidth", 1f);
     }
 

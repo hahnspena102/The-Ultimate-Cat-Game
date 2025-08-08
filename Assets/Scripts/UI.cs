@@ -10,6 +10,7 @@ public class UI : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI catName;
     [SerializeField] private Slider statMainSlider;
     [SerializeField] private Image statMainImage;
+    [SerializeField] private TMPro.TextMeshProUGUI statMainText;
     [SerializeField] private Transform statSummary;
     [SerializeField] private List<Sprite> iconSprites;
     [SerializeField] private GameObject popupPrefab;
@@ -53,6 +54,7 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (dataObject == null)
         {
             return;
@@ -61,7 +63,7 @@ public class UI : MonoBehaviour
         catName.text = dataObject.PlayerData.GameData.CatName;
 
 
-        if (statMainSlider && statMainImage)
+        if (statMainSlider && statMainImage && statMainText)
         {
             Stat curStat = dataObject.PlayerData.GameData.GetStat(dataObject.CurrentStat);
             statMainSlider.value = curStat.Value;
@@ -72,6 +74,8 @@ public class UI : MonoBehaviour
             statMainSlider.colors = colors;
 
             statMainImage.sprite = StatToSpriteMap[dataObject.CurrentStat];
+
+            statMainText.text = $"{curStat.Value}/{curStat.MaxValue}";
         }
 
         if (pointTextBox) pointTextBox.text = $"{dataObject.PlayerData.GameData.Points}";
@@ -101,7 +105,7 @@ public class UI : MonoBehaviour
             }
         }
     }
-    
+
     public GameObject SpawnPopup(Vector3 position, string stat, int number, Transform parent = null)
     {
         GameObject popup = Instantiate(popupPrefab, position, Quaternion.identity, parent);

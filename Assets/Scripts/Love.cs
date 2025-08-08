@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class Love : MonoBehaviour
 {
     [SerializeField] private DataObject dataObject;
-    [SerializeField] private Transform heartTransform; 
+    [SerializeField] private Transform heartTransform;
     [SerializeField] private float moveDuration = 0.5f;
     [SerializeField] private RectTransform canvasRectTransform;
     [SerializeField] private Animator animator;
@@ -16,12 +16,13 @@ public class Love : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
 
     private float canvasXPadding = 64f;
-    private float canvasYPadding = 480f; 
+    private float canvasYPadding = 480f;
     private bool isMoving = false;
     private Vector3 targetPosition;
     private float moveTimer = 0f;
-
     private UI ui;
+
+    private int heartValue;
 
     void Start()
     {
@@ -37,12 +38,13 @@ public class Love : MonoBehaviour
 
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, randomScreenPoint, null, out localPoint);
-        
+
         heartTransform.localPosition = new Vector3(localPoint.x, localPoint.y, 0f);
     }
 
     void Update()
     {
+        UpdateUpgradeValues();
 
         if (isMoving)
         {
@@ -60,11 +62,12 @@ public class Love : MonoBehaviour
 
     public void HeartPress()
     {
-        dataObject.PlayerData.GameData.UpdateStat("Love", 20);
+        dataObject.PlayerData.GameData.UpdateStat("Love", heartValue);
+        dataObject.PlayerData.GameData.Points += heartValue;
 
         if (animator) animator.SetTrigger("purr");
 
-        if (ui) ui.SpawnPopup(heartTransform.position, "Love", 20, canvas.transform);
+        if (ui) ui.SpawnPopup(heartTransform.position, "Love", heartValue, canvas.transform);
 
         if (audioSource)
         {
@@ -72,8 +75,6 @@ public class Love : MonoBehaviour
             audioSource.pitch = Random.Range(1.00f - 0.10f, 1.00f + 0.10f);
             audioSource.Play();
         }
-       
-
 
         StartHeartMove();
     }
@@ -94,5 +95,32 @@ public class Love : MonoBehaviour
             moveTimer = 0f;
             isMoving = true;
         }
+    }
+
+    void UpdateUpgradeValues()
+    {
+        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
+        Stat love = dataObject.PlayerData.GameData.Stats[0];
+        if (upgrades[2])
+        {
+            heartValue = 100;
+            love.MaxValue = 2000;
+        }
+        else if (upgrades[1])
+        {
+            heartValue = 75;
+            love.MaxValue = 1500;
+        }
+        else if (upgrades[0])
+        {
+            love.MaxValue = 1000;
+            heartValue = 50;
+        }
+        else
+        {
+            love.MaxValue = 750;
+            heartValue = 25;
+        }
+        
     }
 }

@@ -19,12 +19,12 @@ MonoBehaviour:
     gameData:
       catName: name
       breed: breed
-      points: 0
+      points: 8125
       difficulty: 1
-      coins: 1000
+      coins: 1363
       stats:
       - name: Love
-        value: 0
+        value: 738
         maxValue: 750
         unlocked: 0
       - name: Hunger
@@ -119,5 +119,6 @@ MonoBehaviour:
         value: 7
         maxValue: 7
         unlocked: 0
-  currentStat: Soul
+  currentStat: Love
   selectedUpgrade: {fileID: 11400000, guid: 038360ea9dea42843b725e118ba4e4a2, type: 2}
+  isPaused: 0

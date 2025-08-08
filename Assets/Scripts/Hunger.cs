@@ -14,10 +14,16 @@ public class Hunger : MonoBehaviour
     [SerializeField] private GameObject receiptBlock;
     [SerializeField] private Slider appetiteSlider;
     [SerializeField] private Button feedButton;
+    [SerializeField] private List<AudioClip> noms;
+    [SerializeField] private AudioSource nomSource;
     private int maxReceiptBlocks = 10;
+    private UI ui;
 
     void Start()
     {
+        GameObject go = GameObject.Find("UI");
+        if (go) ui = go.GetComponent<UI>();
+
         StartCoroutine(GeneratorCoroutine());
     }
 
@@ -127,5 +133,19 @@ public class Hunger : MonoBehaviour
         }
 
         dataObject.PlayerData.GameData.Appetite = Mathf.Max(0, dataObject.PlayerData.GameData.Appetite -= 25);
+
+        // SFX
+        if (nomSource)
+        {
+            nomSource.clip = noms[Random.Range(0, noms.Count)];
+            nomSource.pitch = Random.Range(1.00f - 0.10f, 1.00f + 0.10f);
+            nomSource.Play();
+        }
+
+        float pw = 200f;
+        float ph = 50f;
+        Vector2 spawnPosition = new Vector2(Random.Range(currentComboText.transform.position.x - pw, currentComboText.transform.position.x + pw),
+                                            Random.Range(currentComboText.transform.position.y - ph, currentComboText.transform.position.y + ph));
+        if (ui) ui.SpawnPopup(spawnPosition, "Hunger", pointChange, transform);
     }
 }
