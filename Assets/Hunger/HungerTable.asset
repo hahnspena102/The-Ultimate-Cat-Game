@@ -12,3 +12,4142 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b140b4bddc404c46ac746028f5c610d, type: 3}
   m_Name: HungerTable
   m_EditorClassIdentifier: 
+  foods:
+  - foodName: Alcohol
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Apple
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Apple Pie
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Asparagus
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Avocado
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Bacon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Bagel
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Banana
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Birthday Cake
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Blackberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Blue Cheese
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Blueberries
+    type: Fruit
+    basePoints: 3
+    effect: Good
+  - foodName: Brie
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Broccoli
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Brown Rice
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Camembert
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Cantaloupe
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Carrot
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Cat Food
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Catnip
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Cheddar
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Cherries
+    type: Fruit
+    basePoints: -5
+    effect: Bad
+  - foodName: Chicken
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chicken Liver
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Chicken Tenders
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chives
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Chocolate
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Cinnamon Buns
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Clams
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Cod
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Coffee
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Cooked Bones
+    type: None
+    basePoints: -2
+    effect: Bad
+  - foodName: Corn
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Crab Legs
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Cranberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Cucumber
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Dog Food
+    type: None
+    basePoints: 1
+    effect: Miscellaneous
+  - foodName: Doritos
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Energy Drink
+    type: Miscellaneous
+    basePoints: -4
+    effect: Bad
+  - foodName: Garlic
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Grapefruit
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Grapes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Grass
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Ground Beef
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Honey
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Honeydew
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Jaggery
+    type: Sweet
+    basePoints: -4
+    effect: Bad
+  - foodName: Kibble
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Lamb Chops
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Lemon
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Limes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Lobster
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Mackerel
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Mango
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Marshmallows
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Milk
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Milk Tea Boba
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Molasses
+    type: Sweet
+    basePoints: -3
+    effect: Bad
+  - foodName: Mozerella
+    type: Generic
+    basePoints: -3
+    effect: Bad
+  - foodName: Mysterious Essence
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Mystery Cat Food
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Nothing
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Oatmeal
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Onions
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Orange
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Pancakes
+    type: Sweet
+    basePoints: 1
+    effect: Good
+  - foodName: Peanut Butter
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Peas
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Pigeon
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Pineapple
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Pizza
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Poison
+    type: None
+    basePoints: -5
+    effect: Bad
+  - foodName: Potato
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Pumpkin
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Raisins
+    type: Fruit
+    basePoints: -3
+    effect: Bad
+  - foodName: Raspberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Red Chili
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Roast Beef
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Salami
+    type: Meat
+    basePoints: -1
+    effect: Bad
+  - foodName: Salmon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Salt
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Sardines
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Scrambled Eggs
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Shrimp
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Soda
+    type: Miscellaneous
+    basePoints: -2
+    effect: Bad
+  - foodName: Sour Candy
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Spoonful of Coconut Oil
+    type: None
+    basePoints: 1
+    effect: Good
+  - foodName: Squid
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Sriracha
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Steak
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Strawberries
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Sushi
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Swiss
+    type: Generic
+    basePoints: 4
+    effect: Good
+  - foodName: Takis
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Tomato
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Toothpaste
+    type: None
+    basePoints: -4
+    effect: Bad
+  - foodName: Trout
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Tuna
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Turkey
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Ube
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Veal
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Watermelon
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: White Bread
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: White Rice
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Whitefish
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Winter Squash
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Yams
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Yogurt
+    type: Sweet
+    basePoints: 2
+    effect: Good
+  - foodName: Alcohol
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Apple
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Apple Pie
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Asparagus
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Avocado
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Bacon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Bagel
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Banana
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Birthday Cake
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Blackberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Blue Cheese
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Blueberries
+    type: Fruit
+    basePoints: 3
+    effect: Good
+  - foodName: Brie
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Broccoli
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Brown Rice
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Camembert
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Cantaloupe
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Carrot
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Cat Food
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Catnip
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Cheddar
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Cherries
+    type: Fruit
+    basePoints: -5
+    effect: Bad
+  - foodName: Chicken
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chicken Liver
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Chicken Tenders
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chives
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Chocolate
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Cinnamon Buns
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Clams
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Cod
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Coffee
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Cooked Bones
+    type: None
+    basePoints: -2
+    effect: Bad
+  - foodName: Corn
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Crab Legs
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Cranberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Cucumber
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Dog Food
+    type: None
+    basePoints: 1
+    effect: Miscellaneous
+  - foodName: Doritos
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Energy Drink
+    type: Miscellaneous
+    basePoints: -4
+    effect: Bad
+  - foodName: Garlic
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Grapefruit
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Grapes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Grass
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Ground Beef
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Honey
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Honeydew
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Jaggery
+    type: Sweet
+    basePoints: -4
+    effect: Bad
+  - foodName: Kibble
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Lamb Chops
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Lemon
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Limes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Lobster
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Mackerel
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Mango
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Marshmallows
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Milk
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Milk Tea Boba
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Molasses
+    type: Sweet
+    basePoints: -3
+    effect: Bad
+  - foodName: Mozerella
+    type: Generic
+    basePoints: -3
+    effect: Bad
+  - foodName: Mysterious Essence
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Mystery Cat Food
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Nothing
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Oatmeal
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Onions
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Orange
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Pancakes
+    type: Sweet
+    basePoints: 1
+    effect: Good
+  - foodName: Peanut Butter
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Peas
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Pigeon
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Pineapple
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Pizza
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Poison
+    type: None
+    basePoints: -5
+    effect: Bad
+  - foodName: Potato
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Pumpkin
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Raisins
+    type: Fruit
+    basePoints: -3
+    effect: Bad
+  - foodName: Raspberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Red Chili
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Roast Beef
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Salami
+    type: Meat
+    basePoints: -1
+    effect: Bad
+  - foodName: Salmon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Salt
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Sardines
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Scrambled Eggs
+    type: None
+    basePoints: 1
+    effect: Good
+  - foodName: Shrimp
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Soda
+    type: Miscellaneous
+    basePoints: -2
+    effect: Bad
+  - foodName: Sour Candy
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Spoonful of Coconut Oil
+    type: None
+    basePoints: 1
+    effect: Good
+  - foodName: Squid
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Sriracha
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Steak
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Strawberries
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Sushi
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Swiss
+    type: Generic
+    basePoints: 4
+    effect: Good
+  - foodName: Takis
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Tomato
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Toothpaste
+    type: None
+    basePoints: -4
+    effect: Bad
+  - foodName: Trout
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Tuna
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Turkey
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Ube
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Veal
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Watermelon
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: White Bread
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: White Rice
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Whitefish
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Winter Squash
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Yams
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Yogurt
+    type: Sweet
+    basePoints: 2
+    effect: Good
+  - foodName: Alcohol
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Apple
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Apple Pie
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Asparagus
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Avocado
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Bacon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Bagel
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Banana
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Birthday Cake
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Blackberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Blue Cheese
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Blueberries
+    type: Fruit
+    basePoints: 3
+    effect: Good
+  - foodName: Brie
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Broccoli
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Brown Rice
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Camembert
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Cantaloupe
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Carrot
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Cat Food
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Catnip
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Cheddar
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Cherries
+    type: Fruit
+    basePoints: -5
+    effect: Bad
+  - foodName: Chicken
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chicken Liver
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Chicken Tenders
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chives
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Chocolate
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Cinnamon Buns
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Clams
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Cod
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Coffee
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Cooked Bones
+    type: None
+    basePoints: -2
+    effect: Bad
+  - foodName: Corn
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Crab Legs
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Cranberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Cucumber
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Dog Food
+    type: None
+    basePoints: 1
+    effect: Miscellaneous
+  - foodName: Doritos
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Energy Drink
+    type: Miscellaneous
+    basePoints: -4
+    effect: Bad
+  - foodName: Garlic
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Grapefruit
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Grapes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Grass
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Ground Beef
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Honey
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Honeydew
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Jaggery
+    type: Sweet
+    basePoints: -4
+    effect: Bad
+  - foodName: Kibble
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Lamb Chops
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Lemon
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Limes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Lobster
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Mackerel
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Mango
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Marshmallows
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Milk
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Milk Tea Boba
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Molasses
+    type: Sweet
+    basePoints: -3
+    effect: Bad
+  - foodName: Mozerella
+    type: Generic
+    basePoints: -3
+    effect: Bad
+  - foodName: Mysterious Essence
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Mystery Cat Food
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Nothing
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Oatmeal
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Onions
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Orange
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Pancakes
+    type: Sweet
+    basePoints: 1
+    effect: Good
+  - foodName: Peanut Butter
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Peas
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Pigeon
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Pineapple
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Pizza
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Poison
+    type: None
+    basePoints: -5
+    effect: Bad
+  - foodName: Potato
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Pumpkin
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Raisins
+    type: Fruit
+    basePoints: -3
+    effect: Bad
+  - foodName: Raspberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Red Chili
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Roast Beef
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Salami
+    type: Meat
+    basePoints: -1
+    effect: Bad
+  - foodName: Salmon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Salt
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Sardines
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Scrambled Eggs
+    type: None
+    basePoints: 1
+    effect: Good
+  - foodName: Shrimp
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Soda
+    type: Miscellaneous
+    basePoints: -2
+    effect: Bad
+  - foodName: Sour Candy
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Spoonful of Coconut Oil
+    type: None
+    basePoints: 1
+    effect: Good
+  - foodName: Squid
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Sriracha
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Steak
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Strawberries
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Sushi
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Swiss
+    type: Generic
+    basePoints: 4
+    effect: Good
+  - foodName: Takis
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Tomato
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Toothpaste
+    type: None
+    basePoints: -4
+    effect: Bad
+  - foodName: Trout
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Tuna
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Turkey
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Ube
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Veal
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Watermelon
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: White Bread
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: White Rice
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Whitefish
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Winter Squash
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Yams
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Yogurt
+    type: Sweet
+    basePoints: 2
+    effect: Good
+  - foodName: Alcohol
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Apple
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Apple Pie
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Asparagus
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Avocado
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Bacon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Bagel
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Banana
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Birthday Cake
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Blackberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Blue Cheese
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Blueberries
+    type: Fruit
+    basePoints: 3
+    effect: Good
+  - foodName: Brie
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Broccoli
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Brown Rice
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Camembert
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Cantaloupe
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Carrot
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Cat Food
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Catnip
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Cheddar
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Cherries
+    type: Fruit
+    basePoints: -5
+    effect: Bad
+  - foodName: Chicken
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chicken Liver
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Chicken Tenders
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chives
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Chocolate
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Cinnamon Buns
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Clams
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Cod
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Coffee
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Cooked Bones
+    type: None
+    basePoints: -2
+    effect: Bad
+  - foodName: Corn
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Crab Legs
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Cranberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Cucumber
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Dog Food
+    type: None
+    basePoints: 1
+    effect: Miscellaneous
+  - foodName: Doritos
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Energy Drink
+    type: Miscellaneous
+    basePoints: -4
+    effect: Bad
+  - foodName: Garlic
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Grapefruit
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Grapes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Grass
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Ground Beef
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Honey
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Honeydew
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Jaggery
+    type: Sweet
+    basePoints: -4
+    effect: Bad
+  - foodName: Kibble
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Lamb Chops
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Lemon
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Limes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Lobster
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Mackerel
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Mango
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Marshmallows
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Milk
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Milk Tea Boba
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Molasses
+    type: Sweet
+    basePoints: -3
+    effect: Bad
+  - foodName: Mozerella
+    type: Generic
+    basePoints: -3
+    effect: Bad
+  - foodName: Mysterious Essence
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Mystery Cat Food
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Nothing
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Oatmeal
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Onions
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Orange
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Pancakes
+    type: Sweet
+    basePoints: 1
+    effect: Good
+  - foodName: Peanut Butter
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Peas
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Pigeon
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Pineapple
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Pizza
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Poison
+    type: None
+    basePoints: -5
+    effect: Bad
+  - foodName: Potato
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Pumpkin
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Raisins
+    type: Fruit
+    basePoints: -3
+    effect: Bad
+  - foodName: Raspberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Red Chili
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Roast Beef
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Salami
+    type: Meat
+    basePoints: -1
+    effect: Bad
+  - foodName: Salmon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Salt
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Sardines
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Scrambled Eggs
+    type: None
+    basePoints: 1
+    effect: Good
+  - foodName: Shrimp
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Soda
+    type: Miscellaneous
+    basePoints: -2
+    effect: Bad
+  - foodName: Sour Candy
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Spoonful of Coconut Oil
+    type: None
+    basePoints: 1
+    effect: Good
+  - foodName: Squid
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Sriracha
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Steak
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Strawberries
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Sushi
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Swiss
+    type: Generic
+    basePoints: 4
+    effect: Good
+  - foodName: Takis
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Tomato
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Toothpaste
+    type: None
+    basePoints: -4
+    effect: Bad
+  - foodName: Trout
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Tuna
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Turkey
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Ube
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Veal
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Watermelon
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: White Bread
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: White Rice
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Whitefish
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Winter Squash
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Yams
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Yogurt
+    type: Sweet
+    basePoints: 2
+    effect: Good
+  - foodName: Alcohol
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Apple
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Apple Pie
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Asparagus
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Avocado
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Bacon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Bagel
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Banana
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Birthday Cake
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Blackberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Blue Cheese
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Blueberries
+    type: Fruit
+    basePoints: 3
+    effect: Good
+  - foodName: Brie
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Broccoli
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Brown Rice
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Camembert
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Cantaloupe
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Carrot
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Cat Food
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Catnip
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Cheddar
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Cherries
+    type: Fruit
+    basePoints: -5
+    effect: Bad
+  - foodName: Chicken
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chicken Liver
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Chicken Tenders
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chives
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Chocolate
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Cinnamon Buns
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Clams
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Cod
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Coffee
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Cooked Bones
+    type: None
+    basePoints: -2
+    effect: Bad
+  - foodName: Corn
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Crab Legs
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Cranberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Cucumber
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Dog Food
+    type: None
+    basePoints: 1
+    effect: Miscellaneous
+  - foodName: Doritos
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Energy Drink
+    type: Miscellaneous
+    basePoints: -4
+    effect: Bad
+  - foodName: Garlic
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Grapefruit
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Grapes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Grass
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Ground Beef
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Honey
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Honeydew
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Jaggery
+    type: Sweet
+    basePoints: -4
+    effect: Bad
+  - foodName: Kibble
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Lamb Chops
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Lemon
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Limes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Lobster
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Mackerel
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Mango
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Marshmallows
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Milk
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Milk Tea Boba
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Molasses
+    type: Sweet
+    basePoints: -3
+    effect: Bad
+  - foodName: Mozerella
+    type: Generic
+    basePoints: -3
+    effect: Bad
+  - foodName: Mysterious Essence
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Mystery Cat Food
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Nothing
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Oatmeal
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Onions
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Orange
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Pancakes
+    type: Sweet
+    basePoints: 1
+    effect: Good
+  - foodName: Peanut Butter
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Peas
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Pigeon
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Pineapple
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Pizza
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Poison
+    type: None
+    basePoints: -5
+    effect: Bad
+  - foodName: Potato
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Pumpkin
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Raisins
+    type: Fruit
+    basePoints: -3
+    effect: Bad
+  - foodName: Raspberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Red Chili
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Roast Beef
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Salami
+    type: Meat
+    basePoints: -1
+    effect: Bad
+  - foodName: Salmon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Salt
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Sardines
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Scrambled Eggs
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Shrimp
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Soda
+    type: Miscellaneous
+    basePoints: -2
+    effect: Bad
+  - foodName: Sour Candy
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Spoonful of Coconut Oil
+    type: None
+    basePoints: 1
+    effect: Good
+  - foodName: Squid
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Sriracha
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Steak
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Strawberries
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Sushi
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Swiss
+    type: Generic
+    basePoints: 4
+    effect: Good
+  - foodName: Takis
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Tomato
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Toothpaste
+    type: None
+    basePoints: -4
+    effect: Bad
+  - foodName: Trout
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Tuna
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Turkey
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Ube
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Veal
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Watermelon
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: White Bread
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: White Rice
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Whitefish
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Winter Squash
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Yams
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Yogurt
+    type: Sweet
+    basePoints: 2
+    effect: Good
+  - foodName: Alcohol
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Apple
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Apple Pie
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Asparagus
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Avocado
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Bacon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Bagel
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Banana
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Birthday Cake
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Blackberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Blue Cheese
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Blueberries
+    type: Fruit
+    basePoints: 3
+    effect: Good
+  - foodName: Brie
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Broccoli
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Brown Rice
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Camembert
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Cantaloupe
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Carrot
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Cat Food
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Catnip
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Cheddar
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Cherries
+    type: Fruit
+    basePoints: -5
+    effect: Bad
+  - foodName: Chicken
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chicken Liver
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Chicken Tenders
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chives
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Chocolate
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Cinnamon Buns
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Clams
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Cod
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Coffee
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Cooked Bones
+    type: None
+    basePoints: -2
+    effect: Bad
+  - foodName: Corn
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Crab Legs
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Cranberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Cucumber
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Dog Food
+    type: None
+    basePoints: 1
+    effect: Miscellaneous
+  - foodName: Doritos
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Energy Drink
+    type: Miscellaneous
+    basePoints: -4
+    effect: Bad
+  - foodName: Garlic
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Grapefruit
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Grapes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Grass
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Ground Beef
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Honey
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Honeydew
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Jaggery
+    type: Sweet
+    basePoints: -4
+    effect: Bad
+  - foodName: Kibble
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Lamb Chops
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Lemon
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Limes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Lobster
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Mackerel
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Mango
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Marshmallows
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Milk
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Milk Tea Boba
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Molasses
+    type: Sweet
+    basePoints: -3
+    effect: Bad
+  - foodName: Mozerella
+    type: Generic
+    basePoints: -3
+    effect: Bad
+  - foodName: Mysterious Essence
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Mystery Cat Food
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Nothing
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Oatmeal
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Onions
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Orange
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Pancakes
+    type: Sweet
+    basePoints: 1
+    effect: Good
+  - foodName: Peanut Butter
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Peas
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Pigeon
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Pineapple
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Pizza
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Poison
+    type: None
+    basePoints: -5
+    effect: Bad
+  - foodName: Potato
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Pumpkin
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Raisins
+    type: Fruit
+    basePoints: -3
+    effect: Bad
+  - foodName: Raspberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Red Chili
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Roast Beef
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Salami
+    type: Meat
+    basePoints: -1
+    effect: Bad
+  - foodName: Salmon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Salt
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Sardines
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Scrambled Eggs
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Shrimp
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Soda
+    type: Miscellaneous
+    basePoints: -2
+    effect: Bad
+  - foodName: Sour Candy
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Spoonful of Coconut Oil
+    type: None
+    basePoints: 1
+    effect: Good
+  - foodName: Squid
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Sriracha
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Steak
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Strawberries
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Sushi
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Swiss
+    type: Generic
+    basePoints: 4
+    effect: Good
+  - foodName: Takis
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Tomato
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Toothpaste
+    type: None
+    basePoints: -4
+    effect: Bad
+  - foodName: Trout
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Tuna
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Turkey
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Ube
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Veal
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Watermelon
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: White Bread
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: White Rice
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Whitefish
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Winter Squash
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Yams
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Yogurt
+    type: Sweet
+    basePoints: 2
+    effect: Good
+  - foodName: Alcohol
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Apple
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Apple Pie
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Asparagus
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Avocado
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Bacon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Bagel
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Banana
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Birthday Cake
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Blackberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Blue Cheese
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Blueberries
+    type: Fruit
+    basePoints: 3
+    effect: Good
+  - foodName: Brie
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Broccoli
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Brown Rice
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Camembert
+    type: Generic
+    basePoints: -5
+    effect: Bad
+  - foodName: Cantaloupe
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Carrot
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Cat Food
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Catnip
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Cheddar
+    type: Generic
+    basePoints: 3
+    effect: Good
+  - foodName: Cherries
+    type: Fruit
+    basePoints: -5
+    effect: Bad
+  - foodName: Chicken
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chicken Liver
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Chicken Tenders
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Chives
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Chocolate
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Cinnamon Buns
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Clams
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Cod
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Coffee
+    type: Miscellaneous
+    basePoints: -5
+    effect: Bad
+  - foodName: Cooked Bones
+    type: None
+    basePoints: -2
+    effect: Bad
+  - foodName: Corn
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Crab Legs
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Cranberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Cucumber
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Dog Food
+    type: None
+    basePoints: 1
+    effect: Miscellaneous
+  - foodName: Doritos
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Energy Drink
+    type: Miscellaneous
+    basePoints: -4
+    effect: Bad
+  - foodName: Garlic
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Grapefruit
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Grapes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Grass
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Ground Beef
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Honey
+    type: Sweet
+    basePoints: -2
+    effect: Bad
+  - foodName: Honeydew
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Jaggery
+    type: Sweet
+    basePoints: -4
+    effect: Bad
+  - foodName: Kibble
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Lamb Chops
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Lemon
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Limes
+    type: Fruit
+    basePoints: -4
+    effect: Bad
+  - foodName: Lobster
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Mackerel
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Mango
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Marshmallows
+    type: Sweet
+    basePoints: -1
+    effect: Bad
+  - foodName: Milk
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Milk Tea Boba
+    type: Sweet
+    basePoints: -5
+    effect: Bad
+  - foodName: Molasses
+    type: Sweet
+    basePoints: -3
+    effect: Bad
+  - foodName: Mozerella
+    type: Generic
+    basePoints: -3
+    effect: Bad
+  - foodName: Mysterious Essence
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Mystery Cat Food
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Nothing
+    type: None
+    basePoints: 0
+    effect: Miscellaneous
+  - foodName: Oatmeal
+    type: Generic
+    basePoints: 2
+    effect: Good
+  - foodName: Onions
+    type: Vegetable
+    basePoints: -4
+    effect: Bad
+  - foodName: Orange
+    type: Fruit
+    basePoints: -2
+    effect: Bad
+  - foodName: Pancakes
+    type: Sweet
+    basePoints: 1
+    effect: Good
+  - foodName: Peanut Butter
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Peas
+    type: Vegetable
+    basePoints: 1
+    effect: Good
+  - foodName: Pigeon
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Pineapple
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Pizza
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Poison
+    type: None
+    basePoints: -5
+    effect: Bad
+  - foodName: Potato
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Pumpkin
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Raisins
+    type: Fruit
+    basePoints: -3
+    effect: Bad
+  - foodName: Raspberries
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: Red Chili
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Roast Beef
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Salami
+    type: Meat
+    basePoints: -1
+    effect: Bad
+  - foodName: Salmon
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Salt
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Sardines
+    type: Meat
+    basePoints: 3
+    effect: Good
+  - foodName: Scrambled Eggs
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Shrimp
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Soda
+    type: Miscellaneous
+    basePoints: -2
+    effect: Bad
+  - foodName: Sour Candy
+    type: Generic
+    basePoints: -2
+    effect: Bad
+  - foodName: Spoonful of Coconut Oil
+    type: None
+    basePoints: 1
+    effect: Good
+  - foodName: Squid
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Sriracha
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Steak
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Strawberries
+    type: Fruit
+    basePoints: 2
+    effect: Good
+  - foodName: Sushi
+    type: Generic
+    basePoints: -1
+    effect: Bad
+  - foodName: Swiss
+    type: Generic
+    basePoints: 4
+    effect: Good
+  - foodName: Takis
+    type: Generic
+    basePoints: -4
+    effect: Bad
+  - foodName: Tomato
+    type: Fruit
+    basePoints: -1
+    effect: Bad
+  - foodName: Toothpaste
+    type: None
+    basePoints: -4
+    effect: Bad
+  - foodName: Trout
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Tuna
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Turkey
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Ube
+    type: Meat
+    basePoints: 2
+    effect: Good
+  - foodName: Veal
+    type: Meat
+    basePoints: 5
+    effect: Good
+  - foodName: Watermelon
+    type: Fruit
+    basePoints: 1
+    effect: Good
+  - foodName: White Bread
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: White Rice
+    type: Generic
+    basePoints: 1
+    effect: Good
+  - foodName: Whitefish
+    type: Meat
+    basePoints: 4
+    effect: Good
+  - foodName: Winter Squash
+    type: Vegetable
+    basePoints: 2
+    effect: Good
+  - foodName: Yams
+    type: Meat
+    basePoints: 1
+    effect: Good
+  - foodName: Yogurt
+    type: Sweet
+    basePoints: 2
+    effect: Good
+  adjectives:
+  - adjectiveName: Rotten
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Rancid
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Egregious
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Repulsive
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Harmful
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Nasty
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Deficient
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Unsatisfactory
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Basic
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Average
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Mediocre
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Okay
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Tasty
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Good
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Noble
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Delicious
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Great
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Spectacular
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Immaculate
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Amazing
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Exorbitant
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Deluxe
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Lavished
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Heavenly
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Legendary
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Luxurious
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Parasitic
+    multiplier: -5
+    type: Meat
+  - adjectiveName: Deep Fried
+    multiplier: -4
+    type: Meat
+  - adjectiveName: Overseasoned
+    multiplier: -3
+    type: Meat
+  - adjectiveName: Burnt
+    multiplier: -2
+    type: Meat
+  - adjectiveName: "Saut\xE9ed"
+    multiplier: -1
+    type: Meat
+  - adjectiveName: Steamed
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Cooked
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Roasted
+    multiplier: 2
+    type: Meat
+  - adjectiveName: Fresh
+    multiplier: 3
+    type: Meat
+  - adjectiveName: Baked
+    multiplier: 4
+    type: Meat
+  - adjectiveName: Grilled
+    multiplier: 5
+    type: Meat
+  - adjectiveName: "Pur\xE9ed"
+    multiplier: 1
+    type: Fruit
+  - adjectiveName: Sliced
+    multiplier: 3
+    type: Fruit
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Fruit
+  - adjectiveName: Diced
+    multiplier: 1
+    type: Vegetable
+  - adjectiveName: Steamed
+    multiplier: 3
+    type: Vegetable
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Vegetable
+  - adjectiveName: Concentrated
+    multiplier: 1
+    type: Miscellaneous
+  - adjectiveName: Boosted
+    multiplier: 3
+    type: Miscellaneous
+  - adjectiveName: Intensified
+    multiplier: 5
+    type: Miscellaneous
+  - adjectiveName: Spiked
+    multiplier: -5
+    type: Miscellaneous
+  - adjectiveName: Gluttonous
+    multiplier: -5
+    type: Sweet
+  - adjectiveName: Sugary
+    multiplier: -3
+    type: Sweet
+  - adjectiveName: Sweet
+    multiplier: -1
+    type: Sweet
+  - adjectiveName: None
+    multiplier: 0
+    type: None
+  - adjectiveName: Rotten
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Rancid
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Egregious
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Repulsive
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Harmful
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Nasty
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Deficient
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Unsatisfactory
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Basic
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Average
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Mediocre
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Okay
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Tasty
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Good
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Noble
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Delicious
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Great
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Spectacular
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Immaculate
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Amazing
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Exorbitant
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Deluxe
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Lavished
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Heavenly
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Legendary
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Luxurious
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Parasitic
+    multiplier: -5
+    type: Meat
+  - adjectiveName: Deep Fried
+    multiplier: -4
+    type: Meat
+  - adjectiveName: Overseasoned
+    multiplier: -3
+    type: Meat
+  - adjectiveName: Burnt
+    multiplier: -2
+    type: Meat
+  - adjectiveName: "Saut\xE9ed"
+    multiplier: -1
+    type: Meat
+  - adjectiveName: Steamed
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Cooked
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Roasted
+    multiplier: 2
+    type: Meat
+  - adjectiveName: Fresh
+    multiplier: 3
+    type: Meat
+  - adjectiveName: Baked
+    multiplier: 4
+    type: Meat
+  - adjectiveName: Grilled
+    multiplier: 5
+    type: Meat
+  - adjectiveName: "Pur\xE9ed"
+    multiplier: 1
+    type: Fruit
+  - adjectiveName: Sliced
+    multiplier: 3
+    type: Fruit
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Fruit
+  - adjectiveName: Diced
+    multiplier: 1
+    type: Vegetable
+  - adjectiveName: Steamed
+    multiplier: 3
+    type: Vegetable
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Vegetable
+  - adjectiveName: Concentrated
+    multiplier: 1
+    type: Miscellaneous
+  - adjectiveName: Boosted
+    multiplier: 3
+    type: Miscellaneous
+  - adjectiveName: Intensified
+    multiplier: 5
+    type: Miscellaneous
+  - adjectiveName: Spiked
+    multiplier: -5
+    type: Miscellaneous
+  - adjectiveName: Gluttonous
+    multiplier: -5
+    type: Sweet
+  - adjectiveName: Sugary
+    multiplier: -3
+    type: Sweet
+  - adjectiveName: Sweet
+    multiplier: -1
+    type: Sweet
+  - adjectiveName: None
+    multiplier: 0
+    type: None
+  - adjectiveName: Rotten
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Rancid
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Egregious
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Repulsive
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Harmful
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Nasty
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Deficient
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Unsatisfactory
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Basic
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Average
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Mediocre
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Okay
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Tasty
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Good
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Noble
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Delicious
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Great
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Spectacular
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Immaculate
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Amazing
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Exorbitant
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Deluxe
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Lavished
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Heavenly
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Legendary
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Luxurious
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Parasitic
+    multiplier: -5
+    type: Meat
+  - adjectiveName: Deep Fried
+    multiplier: -4
+    type: Meat
+  - adjectiveName: Overseasoned
+    multiplier: -3
+    type: Meat
+  - adjectiveName: Burnt
+    multiplier: -2
+    type: Meat
+  - adjectiveName: "Saut\xE9ed"
+    multiplier: -1
+    type: Meat
+  - adjectiveName: Steamed
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Cooked
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Roasted
+    multiplier: 2
+    type: Meat
+  - adjectiveName: Fresh
+    multiplier: 3
+    type: Meat
+  - adjectiveName: Baked
+    multiplier: 4
+    type: Meat
+  - adjectiveName: Grilled
+    multiplier: 5
+    type: Meat
+  - adjectiveName: "Pur\xE9ed"
+    multiplier: 1
+    type: Fruit
+  - adjectiveName: Sliced
+    multiplier: 3
+    type: Fruit
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Fruit
+  - adjectiveName: Diced
+    multiplier: 1
+    type: Vegetable
+  - adjectiveName: Steamed
+    multiplier: 3
+    type: Vegetable
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Vegetable
+  - adjectiveName: Concentrated
+    multiplier: 1
+    type: Miscellaneous
+  - adjectiveName: Boosted
+    multiplier: 3
+    type: Miscellaneous
+  - adjectiveName: Intensified
+    multiplier: 5
+    type: Miscellaneous
+  - adjectiveName: Spiked
+    multiplier: -5
+    type: Miscellaneous
+  - adjectiveName: Gluttonous
+    multiplier: -5
+    type: Sweet
+  - adjectiveName: Sugary
+    multiplier: -3
+    type: Sweet
+  - adjectiveName: Sweet
+    multiplier: -1
+    type: Sweet
+  - adjectiveName: None
+    multiplier: 0
+    type: None
+  - adjectiveName: Rotten
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Rancid
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Egregious
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Repulsive
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Harmful
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Nasty
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Deficient
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Unsatisfactory
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Basic
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Average
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Mediocre
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Okay
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Tasty
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Good
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Noble
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Delicious
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Great
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Spectacular
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Immaculate
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Amazing
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Exorbitant
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Deluxe
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Lavished
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Heavenly
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Legendary
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Luxurious
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Parasitic
+    multiplier: -5
+    type: Meat
+  - adjectiveName: Deep Fried
+    multiplier: -4
+    type: Meat
+  - adjectiveName: Overseasoned
+    multiplier: -3
+    type: Meat
+  - adjectiveName: Burnt
+    multiplier: -2
+    type: Meat
+  - adjectiveName: "Saut\xE9ed"
+    multiplier: -1
+    type: Meat
+  - adjectiveName: Steamed
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Cooked
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Roasted
+    multiplier: 2
+    type: Meat
+  - adjectiveName: Fresh
+    multiplier: 3
+    type: Meat
+  - adjectiveName: Baked
+    multiplier: 4
+    type: Meat
+  - adjectiveName: Grilled
+    multiplier: 5
+    type: Meat
+  - adjectiveName: "Pur\xE9ed"
+    multiplier: 1
+    type: Fruit
+  - adjectiveName: Sliced
+    multiplier: 3
+    type: Fruit
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Fruit
+  - adjectiveName: Diced
+    multiplier: 1
+    type: Vegetable
+  - adjectiveName: Steamed
+    multiplier: 3
+    type: Vegetable
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Vegetable
+  - adjectiveName: Concentrated
+    multiplier: 1
+    type: Miscellaneous
+  - adjectiveName: Boosted
+    multiplier: 3
+    type: Miscellaneous
+  - adjectiveName: Intensified
+    multiplier: 5
+    type: Miscellaneous
+  - adjectiveName: Spiked
+    multiplier: -5
+    type: Miscellaneous
+  - adjectiveName: Gluttonous
+    multiplier: -5
+    type: Sweet
+  - adjectiveName: Sugary
+    multiplier: -3
+    type: Sweet
+  - adjectiveName: Sweet
+    multiplier: -1
+    type: Sweet
+  - adjectiveName: None
+    multiplier: 0
+    type: None
+  - adjectiveName: Rotten
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Rancid
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Egregious
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Repulsive
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Harmful
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Nasty
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Deficient
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Unsatisfactory
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Basic
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Average
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Mediocre
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Okay
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Tasty
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Good
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Noble
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Delicious
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Great
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Spectacular
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Immaculate
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Amazing
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Exorbitant
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Deluxe
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Lavished
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Heavenly
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Legendary
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Luxurious
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Parasitic
+    multiplier: -5
+    type: Meat
+  - adjectiveName: Deep Fried
+    multiplier: -4
+    type: Meat
+  - adjectiveName: Overseasoned
+    multiplier: -3
+    type: Meat
+  - adjectiveName: Burnt
+    multiplier: -2
+    type: Meat
+  - adjectiveName: "Saut\xE9ed"
+    multiplier: -1
+    type: Meat
+  - adjectiveName: Steamed
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Cooked
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Roasted
+    multiplier: 2
+    type: Meat
+  - adjectiveName: Fresh
+    multiplier: 3
+    type: Meat
+  - adjectiveName: Baked
+    multiplier: 4
+    type: Meat
+  - adjectiveName: Grilled
+    multiplier: 5
+    type: Meat
+  - adjectiveName: "Pur\xE9ed"
+    multiplier: 1
+    type: Fruit
+  - adjectiveName: Sliced
+    multiplier: 3
+    type: Fruit
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Fruit
+  - adjectiveName: Diced
+    multiplier: 1
+    type: Vegetable
+  - adjectiveName: Steamed
+    multiplier: 3
+    type: Vegetable
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Vegetable
+  - adjectiveName: Concentrated
+    multiplier: 1
+    type: Miscellaneous
+  - adjectiveName: Boosted
+    multiplier: 3
+    type: Miscellaneous
+  - adjectiveName: Intensified
+    multiplier: 5
+    type: Miscellaneous
+  - adjectiveName: Spiked
+    multiplier: -5
+    type: Miscellaneous
+  - adjectiveName: Gluttonous
+    multiplier: -5
+    type: Sweet
+  - adjectiveName: Sugary
+    multiplier: -3
+    type: Sweet
+  - adjectiveName: Sweet
+    multiplier: -1
+    type: Sweet
+  - adjectiveName: None
+    multiplier: 0
+    type: None
+  - adjectiveName: Rotten
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Rancid
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Egregious
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Repulsive
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Harmful
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Nasty
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Deficient
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Unsatisfactory
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Basic
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Average
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Mediocre
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Okay
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Tasty
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Good
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Noble
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Delicious
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Great
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Spectacular
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Immaculate
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Amazing
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Exorbitant
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Deluxe
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Lavished
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Heavenly
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Legendary
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Luxurious
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Parasitic
+    multiplier: -5
+    type: Meat
+  - adjectiveName: Deep Fried
+    multiplier: -4
+    type: Meat
+  - adjectiveName: Overseasoned
+    multiplier: -3
+    type: Meat
+  - adjectiveName: Burnt
+    multiplier: -2
+    type: Meat
+  - adjectiveName: "Saut\xE9ed"
+    multiplier: -1
+    type: Meat
+  - adjectiveName: Steamed
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Cooked
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Roasted
+    multiplier: 2
+    type: Meat
+  - adjectiveName: Fresh
+    multiplier: 3
+    type: Meat
+  - adjectiveName: Baked
+    multiplier: 4
+    type: Meat
+  - adjectiveName: Grilled
+    multiplier: 5
+    type: Meat
+  - adjectiveName: "Pur\xE9ed"
+    multiplier: 1
+    type: Fruit
+  - adjectiveName: Sliced
+    multiplier: 3
+    type: Fruit
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Fruit
+  - adjectiveName: Diced
+    multiplier: 1
+    type: Vegetable
+  - adjectiveName: Steamed
+    multiplier: 3
+    type: Vegetable
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Vegetable
+  - adjectiveName: Concentrated
+    multiplier: 1
+    type: Miscellaneous
+  - adjectiveName: Boosted
+    multiplier: 3
+    type: Miscellaneous
+  - adjectiveName: Intensified
+    multiplier: 5
+    type: Miscellaneous
+  - adjectiveName: Spiked
+    multiplier: -5
+    type: Miscellaneous
+  - adjectiveName: Gluttonous
+    multiplier: -5
+    type: Sweet
+  - adjectiveName: Sugary
+    multiplier: -3
+    type: Sweet
+  - adjectiveName: Sweet
+    multiplier: -1
+    type: Sweet
+  - adjectiveName: None
+    multiplier: 0
+    type: None
+  - adjectiveName: Rotten
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Rancid
+    multiplier: -5
+    type: Generic
+  - adjectiveName: Egregious
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Repulsive
+    multiplier: -4
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Harmful
+    multiplier: -3
+    type: Generic
+  - adjectiveName: Nasty
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Trashy
+    multiplier: -2
+    type: Generic
+  - adjectiveName: Deficient
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Unsatisfactory
+    multiplier: -1
+    type: Generic
+  - adjectiveName: Basic
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Average
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Mediocre
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Okay
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Tasty
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Good
+    multiplier: 1
+    type: Generic
+  - adjectiveName: Noble
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Delicious
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Great
+    multiplier: 2
+    type: Generic
+  - adjectiveName: Spectacular
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Immaculate
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Amazing
+    multiplier: 3
+    type: Generic
+  - adjectiveName: Exorbitant
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Deluxe
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Lavished
+    multiplier: 4
+    type: Generic
+  - adjectiveName: Heavenly
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Legendary
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Luxurious
+    multiplier: 5
+    type: Generic
+  - adjectiveName: Parasitic
+    multiplier: -5
+    type: Meat
+  - adjectiveName: Deep Fried
+    multiplier: -4
+    type: Meat
+  - adjectiveName: Overseasoned
+    multiplier: -3
+    type: Meat
+  - adjectiveName: Burnt
+    multiplier: -2
+    type: Meat
+  - adjectiveName: "Saut\xE9ed"
+    multiplier: -1
+    type: Meat
+  - adjectiveName: Steamed
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Cooked
+    multiplier: 1
+    type: Meat
+  - adjectiveName: Roasted
+    multiplier: 2
+    type: Meat
+  - adjectiveName: Fresh
+    multiplier: 3
+    type: Meat
+  - adjectiveName: Baked
+    multiplier: 4
+    type: Meat
+  - adjectiveName: Grilled
+    multiplier: 5
+    type: Meat
+  - adjectiveName: "Pur\xE9ed"
+    multiplier: 1
+    type: Fruit
+  - adjectiveName: Sliced
+    multiplier: 3
+    type: Fruit
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Fruit
+  - adjectiveName: Diced
+    multiplier: 1
+    type: Vegetable
+  - adjectiveName: Steamed
+    multiplier: 3
+    type: Vegetable
+  - adjectiveName: Fresh
+    multiplier: 5
+    type: Vegetable
+  - adjectiveName: Concentrated
+    multiplier: 1
+    type: Miscellaneous
+  - adjectiveName: Boosted
+    multiplier: 3
+    type: Miscellaneous
+  - adjectiveName: Intensified
+    multiplier: 5
+    type: Miscellaneous
+  - adjectiveName: Spiked
+    multiplier: -5
+    type: Miscellaneous
+  - adjectiveName: Gluttonous
+    multiplier: -5
+    type: Sweet
+  - adjectiveName: Sugary
+    multiplier: -3
+    type: Sweet
+  - adjectiveName: Sweet
+    multiplier: -1
+    type: Sweet
+  - adjectiveName: None
+    multiplier: 0
+    type: None

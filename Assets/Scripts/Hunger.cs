@@ -112,13 +112,34 @@ public class Hunger : MonoBehaviour
     public void Feed()
     {
         int pointChange = currentFoodCombo.Calculate();
-        if (dataObject) dataObject.PlayerData.GameData.UpdateStat("Hunger", pointChange);
+        if (dataObject)
+        {
+            dataObject.PlayerData.GameData.UpdateStat("Hunger", pointChange);
+            dataObject.PlayerData.GameData.Points += pointChange;
+        }
+        ;
+        
 
         if (receiptBlock && receipt)
         {
             GameObject newBlock = Instantiate(receiptBlock, transform.position, Quaternion.identity);
             newBlock.transform.SetParent(receipt);
 
+            ReceiptBlock rb = newBlock.GetComponent<ReceiptBlock>();
+            if (rb) {
+                if (currentFoodCombo.Food.Effect == "Miscellaneous")
+                {
+                    rb.Type = "Miscellaneous";
+                }
+                else if (pointChange > 0)
+                {
+                    rb.Type = "Good";
+                }
+                else if (pointChange < 0)
+                {
+                    rb.Type = "Bad";
+                }
+            }
             TMPro.TextMeshProUGUI tm = newBlock.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>();
             if (tm) tm.text = $"{currentFoodCombo.ToString()}";
 

@@ -40,6 +40,8 @@ public class FoodCombo
         food = fd;
     }
 
+    public Food Food { get => food; set => food = value; }
+
     public int Calculate()
     {
         int output = 0;

@@ -5,6 +5,7 @@ public class EnergyPlayer : MonoBehaviour
     [SerializeField] private DataObject dataObject;
     [SerializeField] private float horizontalSpeed = 6f;
     [SerializeField] private float verticalSpeed = 8f;
+    [SerializeField] private Energy energy;
     private Rigidbody2D rb;
     private float horizontalInput, verticalInput;
 
@@ -32,9 +33,11 @@ public class EnergyPlayer : MonoBehaviour
     {
         if (collider.CompareTag("EnergyProjectile"))
         {
+            energy.PlayAwakenSFX();
             AwakenPlayer();
         } else if (collider.CompareTag("Ground"))
         {
+            energy.PlayAwakenSFX();
             AwakenPlayer();
         }
     }

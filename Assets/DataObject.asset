@@ -19,12 +19,12 @@ MonoBehaviour:
     gameData:
       catName: name
       breed: breed
-      points: 8125
+      points: 14522
       difficulty: 1
-      coins: 1363
+      coins: 1867
       stats:
       - name: Love
-        value: 738
+        value: 0
         maxValue: 750
         unlocked: 0
       - name: Hunger
@@ -36,7 +36,7 @@ MonoBehaviour:
         maxValue: 600
         unlocked: 0
       - name: Energy
-        value: 0
+        value: 1582
         maxValue: 1600
         unlocked: 0
       - name: Clean
@@ -60,7 +60,7 @@ MonoBehaviour:
         maxValue: 5000
         unlocked: 0
       upgrades: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-      appetite: 100
+      appetite: 37
       maxAppetite: 100
       energyRespawn:
         name: EnergyRespawn
@@ -119,6 +119,6 @@ MonoBehaviour:
         value: 7
         maxValue: 7
         unlocked: 0
-  currentStat: Love
+  currentStat: Hunger
   selectedUpgrade: {fileID: 11400000, guid: 038360ea9dea42843b725e118ba4e4a2, type: 2}
   isPaused: 0

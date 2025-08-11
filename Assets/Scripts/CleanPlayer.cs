@@ -5,9 +5,14 @@ public class CleanPlayer : MonoBehaviour
     [SerializeField] private DataObject dataObject;
     [SerializeField] private float boostSpeed;
     [SerializeField] private float boostDecayRate;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip caughtSFX, successSFX;
     private Rigidbody2D rb;
     private float currentBoost = 0f;
     private Vector2 originalPos;
+    private UI ui;
+    private int cleanValue = 500;
 
     void Start()
     {
@@ -18,6 +23,9 @@ public class CleanPlayer : MonoBehaviour
         {
             Debug.LogError("Rigidbody2D not found on the player.");
         }
+
+        GameObject go = GameObject.Find("UI");
+        if (go) ui = go.GetComponent<UI>();
     }
 
     void Update()
@@ -28,6 +36,12 @@ public class CleanPlayer : MonoBehaviour
             if (dataObject.PlayerData.GameData.CleanPhase == 2)
             {
                 transform.localPosition = originalPos;
+                if (audioSource)
+                {
+                    audioSource.clip = caughtSFX;
+                    audioSource.Play();
+                }
+        
             }
             else
             {
@@ -57,11 +71,18 @@ public class CleanPlayer : MonoBehaviour
 
     void CleanCat()
     {
+        dataObject.PlayerData.GameData.UpdateStat("Clean", cleanValue);
+        if (ui) ui.SpawnPopup(Camera.main.WorldToScreenPoint(transform.position), "Clean", cleanValue, canvas.transform);
+        if (audioSource)
+        {
+            audioSource.clip = successSFX;
+            audioSource.Play();
+        }
+
         transform.localPosition = originalPos;
 
-        dataObject.PlayerData.GameData.UpdateStat("Clean", 500);
+
     }
     
-
 
 }
