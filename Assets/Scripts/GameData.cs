@@ -8,7 +8,7 @@ public class GameData
     [SerializeField] private string catName;
     [SerializeField] private string breed;
     [SerializeField] private int points;
-    [SerializeField] private int difficulty;
+    [SerializeField] private int level;
     [SerializeField] private int coins;
     [SerializeField] private List<Stat> stats;
     [SerializeField] private List<bool> upgrades;
@@ -27,7 +27,7 @@ public class GameData
         this.catName = "name";
         this.breed = "breed";
         this.points = 0;
-        this.difficulty = 1;
+        this.level = 1;
         this.coins = 0;
 
         this.stats = new List<Stat>()
@@ -67,7 +67,7 @@ public class GameData
                $"  CatName: {catName},\n" +
                $"  Breed: {breed},\n" +
                $"  Points: {points},\n" +
-               $"  Difficulty: {difficulty},\n" +
+               $"  Level: {level},\n" +
                $"  Coins: {coins},\n" +
                $"  Stats:\n  {statsString}\n)";
     }
@@ -90,28 +90,45 @@ public class GameData
         {
             if (stat.Name == statName)
             {
-                if (delta >= 0)
-                {
-                    stat.Value = Mathf.Min(stat.Value + delta, stat.MaxValue);
-                }
-                else
-                {
-                    stat.Value =Mathf.Max(stat.Value + delta, 0);
-                }
+                stat.Update(delta);
                 return;
             }
         }
     }
 
-    public void SetUpgrade(string id, bool isPurchased = false)
+    public bool GetIsLocked(string statName)
     {
-        
+        foreach (var stat in stats)
+        {
+            if (stat.Name == statName)
+            {
+                return stat.Locked;
+
+            }
+        }
+        return false;
+    }
+
+    private float thresholdMultiplier = 2000;
+    private float thresholdPower = 1.1f;
+    public void UpdateLevel()
+    {
+        this.level = 1 + Mathf.FloorToInt(Mathf.Pow(points / thresholdMultiplier, 1f / thresholdPower));
+    }
+
+    public int GetNextThreshold(float b = -1)
+    {
+        if (b == -1) b = (float)this.level;
+
+        float res = Mathf.Pow(b, thresholdPower);
+        if (b == 0) res = 0;
+        return (int)Mathf.Round(thresholdMultiplier * res);
     }
 
     public global::System.String CatName { get => catName; set => catName = value; }
     public global::System.String Breed { get => breed; set => breed = value; }
     public global::System.Int32 Points { get => points; set => points = value; }
-    public global::System.Int32 Difficulty { get => difficulty; set => difficulty = value; }
+    public global::System.Int32 Level { get => level; set => level = value; }
     public global::System.Int32 Coins { get => coins; set => coins = value; }
     public List<Stat> Stats { get => stats; set => stats = value; }
     public global::System.Int32 Appetite { get => appetite; set => appetite = value; }

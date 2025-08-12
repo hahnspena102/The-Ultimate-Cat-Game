@@ -115,7 +115,7 @@ public class Hunger : MonoBehaviour
         if (dataObject)
         {
             dataObject.PlayerData.GameData.UpdateStat("Hunger", pointChange);
-            dataObject.PlayerData.GameData.Points += pointChange;
+            dataObject.PlayerData.GameData.Points += Mathf.Max(0, pointChange);
         }
         ;
         
@@ -124,6 +124,7 @@ public class Hunger : MonoBehaviour
         {
             GameObject newBlock = Instantiate(receiptBlock, transform.position, Quaternion.identity);
             newBlock.transform.SetParent(receipt);
+            newBlock.transform.localScale = Vector3.one;
 
             ReceiptBlock rb = newBlock.GetComponent<ReceiptBlock>();
             if (rb) {

@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private DataObject dataObject;
     [SerializeField] private CanvasGroup uiCanvasGroup;
     private string currentContentScene = "";
+    private Dictionary<KeyCode, (string stat, string scene)> keyMappings;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,8 +20,22 @@ public class SceneLoader : MonoBehaviour
             {
                 currentContentScene = scene.name;
             }
-           
+
         }
+
+        keyMappings = new Dictionary<KeyCode, (string, string)>
+        {
+            { KeyCode.Alpha1, ("Love", "LoveScene") },
+            { KeyCode.Alpha2, ("Hunger", "HungerScene") },
+            { KeyCode.Alpha3, ("Thirst", "ThirstScene") },
+            { KeyCode.Alpha4, ("Energy", "EnergyScene") },
+            { KeyCode.Alpha5, ("Clean", "CleanScene") },
+            { KeyCode.Alpha6, ("Cozy", "CozyScene") },
+            { KeyCode.Alpha7, ("Health", "HealthScene") },
+            { KeyCode.Alpha8, ("Soul", "SoulScene") },
+            { KeyCode.Alpha9, ("Lifeforce", "LifeforceScene") },
+            { KeyCode.U, (null, "UpgradeScene") } // No stat change
+        };
     }
 
     // Update is called once per frame
@@ -34,63 +51,36 @@ public class SceneLoader : MonoBehaviour
             uiCanvasGroup.alpha = 0f;
             dataObject.IsPaused = true;
         }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            FlipToStat(-1);
+        } else if (Input.GetKeyDown(KeyCode.X)) {
+            FlipToStat(1);
+        }
+           
+        
 
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        foreach (var entry in keyMappings)
         {
-            dataObject.CurrentStat = "Love";
-            SwitchToScene("LoveScene");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            dataObject.CurrentStat = "Hunger";
-            SwitchToScene("HungerScene");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            dataObject.CurrentStat = "Thirst";
-            SwitchToScene("ThirstScene");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            dataObject.CurrentStat = "Energy";
-            SwitchToScene("EnergyScene");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            dataObject.CurrentStat = "Clean";
-            SwitchToScene("CleanScene");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            dataObject.CurrentStat = "Cozy";
-            SwitchToScene("CozyScene");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            dataObject.CurrentStat = "Health";
-            SwitchToScene("HealthScene");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            dataObject.CurrentStat = "Soul";
-            SwitchToScene("SoulScene");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            dataObject.CurrentStat = "Lifeforce";
-            SwitchToScene("LifeforceScene");
-        }
-        else if (Input.GetKeyDown(KeyCode.U))
-        {
-            SwitchToScene("UpgradeScene");
+            if (Input.GetKeyDown(entry.Key))
+            {
+                if (!string.IsNullOrEmpty(entry.Value.stat))
+                    if (dataObject.PlayerData.GameData.GetIsLocked(entry.Value.stat))
+                    {
+                        break;
+                    }
+                dataObject.CurrentStat = entry.Value.stat;
+
+                SwitchToScene(entry.Value.scene);
+            }
         }
 
     }
 
     void SwitchToScene(string sceneName)
     {
-        if (currentContentScene == sceneName) 
+        if (currentContentScene == sceneName)
             return;
 
         if (!string.IsNullOrEmpty(currentContentScene) && SceneManager.GetSceneByName(currentContentScene).isLoaded)
@@ -100,5 +90,28 @@ public class SceneLoader : MonoBehaviour
 
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
         currentContentScene = sceneName;
+    }
+
+    public void SwitchToStat(string stat)
+    {
+        if (dataObject.PlayerData.GameData.GetIsLocked(stat)) return;
+        dataObject.CurrentStat = stat;
+        SwitchToScene($"{stat}Scene");
+    }
+
+    
+    public void FlipToStat(int delta)
+    {
+        List<string> scenesList = new List<string>
+        {
+            "Love", "Hunger", "Thirst", "Energy", "Clean","Cozy", "Health", "Soul", "Lifeforce"
+        };
+
+
+        int currentIndex = scenesList.IndexOf(dataObject.CurrentStat);
+        currentIndex += delta;
+        int newIndex = (currentIndex + scenesList.Count) % scenesList.Count;
+
+        SwitchToStat(scenesList[newIndex]);
     }
 }

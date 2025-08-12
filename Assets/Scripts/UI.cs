@@ -15,6 +15,9 @@ public class UI : MonoBehaviour
     [SerializeField] private List<Sprite> iconSprites;
     [SerializeField] private GameObject popupPrefab;
     [SerializeField] private TextMeshProUGUI pointTextBox, coinTextBox;
+    [SerializeField] private Slider catLevelSlider;
+    [SerializeField] private TextMeshProUGUI catLevelText;
+
     public static Dictionary<string, Sprite> StatToSpriteMap;
     public static Dictionary<string, Color> StatToColorMap;
 
@@ -66,16 +69,20 @@ public class UI : MonoBehaviour
         if (statMainSlider && statMainImage && statMainText)
         {
             Stat curStat = dataObject.PlayerData.GameData.GetStat(dataObject.CurrentStat);
-            statMainSlider.value = curStat.Value;
-            statMainSlider.maxValue = curStat.MaxValue;
 
-            ColorBlock colors = statMainSlider.colors;
-            colors.disabledColor = StatToColorMap[dataObject.CurrentStat];
-            statMainSlider.colors = colors;
+            if (curStat != null)
+            {
+                statMainSlider.value = curStat.Value;
+                statMainSlider.maxValue = curStat.MaxValue;
 
-            statMainImage.sprite = StatToSpriteMap[dataObject.CurrentStat];
+                ColorBlock colors = statMainSlider.colors;
+                colors.disabledColor = StatToColorMap[dataObject.CurrentStat];
+                statMainSlider.colors = colors;
 
-            statMainText.text = $"{curStat.Value}/{curStat.MaxValue}";
+                statMainImage.sprite = StatToSpriteMap[dataObject.CurrentStat];
+
+                statMainText.text = $"{curStat.Value}/{curStat.MaxValue}";
+            }
         }
 
         if (pointTextBox) pointTextBox.text = $"{dataObject.PlayerData.GameData.Points}";
@@ -90,19 +97,41 @@ public class UI : MonoBehaviour
 
                 if (stat != null)
                 {
-                    Transform percentageObj = statRow.Find("Percentage");
-                    if (percentageObj != null)
+                    if (stat.Locked)
                     {
-                        TMPro.TextMeshProUGUI percentageText = percentageObj.GetComponent<TMPro.TextMeshProUGUI>();
-                        if (percentageText != null)
+                        CanvasGroup cg = statRow.GetComponent<CanvasGroup>();
+                        if (cg) cg.alpha = 0;
+                    }
+                    else
+                    {
+                        CanvasGroup cg = statRow.GetComponent<CanvasGroup>();
+                        if (cg) cg.alpha = 1;
+                        Transform percentageObj = statRow.Find("Percentage");
+                        if (percentageObj != null)
                         {
-                            float percent = (float)stat.Value / (float)stat.MaxValue * 100f;
+                            TMPro.TextMeshProUGUI percentageText = percentageObj.GetComponent<TMPro.TextMeshProUGUI>();
+                            if (percentageText != null)
+                            {
+                                float percent = (float)stat.Value / (float)stat.MaxValue * 100f;
 
-                            percentageText.text = $"{Mathf.Floor(percent)}%";
+                                percentageText.text = $"{Mathf.Floor(percent)}%";
+                            }
                         }
                     }
+                    
                 }
             }
+        }
+
+        if (catLevelSlider && catLevelText)
+        {
+            int threshold = dataObject.PlayerData.GameData.GetNextThreshold();
+            int prevThreshold = dataObject.PlayerData.GameData.GetNextThreshold(dataObject.PlayerData.GameData.Level - 1);
+
+            catLevelSlider.value = dataObject.PlayerData.GameData.Points - prevThreshold;
+            catLevelSlider.maxValue = threshold - prevThreshold;
+  
+            catLevelText.text = $"{dataObject.PlayerData.GameData.Level}";
         }
     }
 

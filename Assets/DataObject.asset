@@ -19,97 +19,97 @@ MonoBehaviour:
     gameData:
       catName: name
       breed: breed
-      points: 14522
-      difficulty: 1
-      coins: 1867
+      points: 42762
+      level: 17
+      coins: 4049
       stats:
       - name: Love
-        value: 0
-        maxValue: 750
-        unlocked: 0
+        value: 95
+        maxValue: 1500
+        locked: 0
       - name: Hunger
         value: 0
         maxValue: 1000
-        unlocked: 0
+        locked: 0
       - name: Thirst
-        value: 0
+        value: 275
         maxValue: 600
-        unlocked: 0
+        locked: 0
       - name: Energy
-        value: 1582
+        value: 688
         maxValue: 1600
-        unlocked: 0
+        locked: 0
       - name: Clean
-        value: 0
+        value: 1550
         maxValue: 2000
-        unlocked: 0
+        locked: 0
       - name: Cozy
-        value: 0
+        value: 2400
         maxValue: 2400
-        unlocked: 0
+        locked: 1
       - name: Health
-        value: 0
+        value: 300
         maxValue: 3000
-        unlocked: 0
+        locked: 1
       - name: Soul
         value: 0
         maxValue: 4000
-        unlocked: 0
+        locked: 1
       - name: Lifeforce
         value: 0
         maxValue: 5000
-        unlocked: 0
-      upgrades: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-      appetite: 37
+        locked: 1
+      upgrades: 010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      appetite: 100
       maxAppetite: 100
       energyRespawn:
         name: EnergyRespawn
         value: 15
         maxValue: 15
-        unlocked: 0
-      cleanTimer: 1.2540759
-      cleanPhase: 2
-      cleanX: -6.0440016
+        locked: 0
+      cleanTimer: 2.010209
+      cleanPhase: 0
+      cleanX: -3.7219994
       cozySavedBalls:
-      - xPos: 2.9361706
-        yPos: 2.202306
-        rotation: 0.10457333
+      - xPos: 2.9348273
+        yPos: 2.202315
+        rotation: 0.11062487
         type: yarn
-      - xPos: 3.6314895
+      - xPos: 3.630514
         yPos: 2.2017996
-        rotation: 0.07290345
+        rotation: 0.086562455
         type: brush
-      - xPos: -2.9150229
-        yPos: 2.2017992
-        rotation: -0
+      - xPos: -2.9463675
+        yPos: 2.2017941
+        rotation: -0.00038145212
         type: bed
-      - xPos: 1.5448745
+      - xPos: 1.5392271
         yPos: 2.2017996
-        rotation: 0.31880647
+        rotation: 0.3728201
         type: yarn
-      - xPos: 2.2399197
+      - xPos: 2.2343566
         yPos: 2.2017996
-        rotation: 0.31118405
+        rotation: 0.3665403
         type: bed
-      - xPos: -3.6288562
-        yPos: 2.2017996
-        rotation: -0
+      - xPos: -3.6367164
+        yPos: 2.201986
+        rotation: -0.0004180328
         type: aroma
-      - xPos: -1.2781192
-        yPos: 2.2017996
+      - xPos: -1.1626124
+        yPos: 2.201799
         rotation: -0
         type: mouse
-      - xPos: 3.2803373
-        yPos: 2.8062775
-        rotation: -0.097575426
+      - xPos: 3.2793534
+        yPos: 2.806263
+        rotation: -0.10896626
         type: brush
-      - xPos: 1.8895886
-        yPos: 2.8059921
-        rotation: -0.30294266
+      - xPos: 1.8837942
+        yPos: 2.8059845
+        rotation: -0.35706142
         type: yarn
-      - xPos: -1.6095803
-        yPos: 4.9628286
-        rotation: -0
+      - xPos: -2.2541695
+        yPos: 2.2042127
+        rotation: -0.09324234
         type: brush
       cozyBonus: 0001010101010001
       soulX: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
         name: SoulBullets
         value: 7
         maxValue: 7
-        unlocked: 0
+        locked: 0
   currentStat: Hunger
   selectedUpgrade: {fileID: 11400000, guid: 038360ea9dea42843b725e118ba4e4a2, type: 2}
   isPaused: 0

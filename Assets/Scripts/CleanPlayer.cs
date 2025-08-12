@@ -72,6 +72,8 @@ public class CleanPlayer : MonoBehaviour
     void CleanCat()
     {
         dataObject.PlayerData.GameData.UpdateStat("Clean", cleanValue);
+        dataObject.PlayerData.GameData.Points += Mathf.Max(cleanValue, 0);
+
         if (ui) ui.SpawnPopup(Camera.main.WorldToScreenPoint(transform.position), "Clean", cleanValue, canvas.transform);
         if (audioSource)
         {

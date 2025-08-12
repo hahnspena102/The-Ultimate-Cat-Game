@@ -57,6 +57,7 @@ public class Energy : MonoBehaviour
         if (timeElapsed > 2f)
         {
             dataObject.PlayerData.GameData.UpdateStat("Energy", growthRate);
+            dataObject.PlayerData.GameData.Points += Mathf.Max(growthRate, 0);
             if (ui) ui.SpawnPopup(Camera.main.WorldToScreenPoint(player.transform.position), "Energy", growthRate, canvas.transform);
             if (audioSource)
             {

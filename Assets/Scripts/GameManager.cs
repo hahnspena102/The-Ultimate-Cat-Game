@@ -5,13 +5,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private DataObject dataObject;
-    [SerializeField] private float decayRate = 1;
+    [SerializeField] private float decayRate = 1; // Occurrences per second
     [SerializeField] private HungerTable hungerTable;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         hungerTable.Initialize();
+        List<Stat> stats = dataObject.PlayerData.GameData.Stats;
+        foreach (Stat stat in stats)
+        {
+            StartCoroutine(StatCoroutine(stat));
+        }
+
         StartCoroutine(GameCoroutine());
 
         StartCoroutine(AppetiteCoroutine());
@@ -20,6 +26,31 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        dataObject.PlayerData.GameData.UpdateLevel();
+        UpdateStatLocks();
+
+        decayRate = Mathf.Max(1, dataObject.PlayerData.GameData.Level / 5f);
+    }
+
+    // Coroutine that updates at difficulty rate
+    IEnumerator StatCoroutine(Stat stat)
+    {
+        while (dataObject.IsPaused || stat.Locked) yield return null;
+
+        if ((float)stat.Value / (float)stat.MaxValue <= 0.05f)
+        {
+            stat.Update(-1);
+
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(StatCoroutine(stat));
+        }
+        else
+        {
+            stat.Update(-Random.Range(1, 6));
+
+            yield return new WaitForSeconds(1 / decayRate);
+            StartCoroutine(StatCoroutine(stat));
+        }
 
     }
 
@@ -27,12 +58,6 @@ public class GameManager : MonoBehaviour
     IEnumerator GameCoroutine()
     {
         while (dataObject.IsPaused) yield return null;
-        
-        List<Stat> stats = dataObject.PlayerData.GameData.Stats;
-        foreach (Stat stat in stats)
-        {
-            stat.Value = Mathf.Max(stat.Value - (int)decayRate * Random.Range(1, 6), 0);
-        }
 
         dataObject.PlayerData.GameData.EnergyRespawn.Update(1);
 
@@ -51,5 +76,15 @@ public class GameManager : MonoBehaviour
                                                             dataObject.PlayerData.GameData.Appetite += 2);
         yield return new WaitForSeconds(0.1f);
         StartCoroutine(AppetiteCoroutine());
+    }
+
+    private List<int> levelThresholds = new List<int> { 0,2,3,6,10,100,100,100,100};
+    private void UpdateStatLocks()
+    {
+        List<Stat> stats = dataObject.PlayerData.GameData.Stats;
+        for (int i = 0; i < stats.Count; i++)
+        {
+            stats[i].Locked = dataObject.PlayerData.GameData.Level < levelThresholds[i];         
+        }
     }
 }
