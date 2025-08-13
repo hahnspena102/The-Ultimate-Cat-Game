@@ -9,18 +9,21 @@ public class ThirstPlayer : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip collectSFX, hurtSFX;
     [SerializeField] private Canvas canvas;
+    
     private Rigidbody2D rb;
     private float verticalInput;
     private float speed = 8f;
     private float jumpHeight = 10f;
     private bool onGround = true;
     private UI ui;
+    private Animator animator;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         GameObject go = GameObject.Find("UI");
         if (go) ui = go.GetComponent<UI>();
@@ -34,6 +37,22 @@ public class ThirstPlayer : MonoBehaviour
         if (rb)
         {
             rb.linearVelocity = new Vector2(verticalInput * speed, rb.linearVelocity.y);
+        }
+        animator.SetFloat("movement", Mathf.Abs(rb.linearVelocity.magnitude));
+        animator.SetFloat("vertical", rb.linearVelocity.y);
+        
+
+        if (rb.linearVelocity.x > 0.1f)
+        {
+            Vector3 currentScale = transform.localScale;
+            currentScale.x = Mathf.Abs(currentScale.x);
+            transform.localScale = currentScale;
+        }
+        else if (rb.linearVelocity.x < -0.1f)
+        {
+            Vector3 currentScale = transform.localScale;
+            currentScale.x = -Mathf.Abs(currentScale.x);
+            transform.localScale = currentScale;
         }
 
 

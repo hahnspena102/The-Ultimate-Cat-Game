@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,8 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float decayRate = 1; // Occurrences per second
     [SerializeField] private HungerTable hungerTable;
 
+    private float decayMultiplier = 0.2f; //The higher, the faster
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         hungerTable.Initialize();
         List<Stat> stats = dataObject.PlayerData.GameData.Stats;
@@ -29,7 +32,15 @@ public class GameManager : MonoBehaviour
         dataObject.PlayerData.GameData.UpdateLevel();
         UpdateStatLocks();
 
-        decayRate = Mathf.Max(1, dataObject.PlayerData.GameData.Level / 5f);
+        decayRate = Mathf.Max(1, dataObject.PlayerData.GameData.Level * decayMultiplier);
+
+        foreach (Stat stat in dataObject.PlayerData.GameData.Stats)
+        {
+            if (stat.Value == 0)
+            {
+                Lose();
+            }
+        }
     }
 
     // Coroutine that updates at difficulty rate
@@ -78,13 +89,24 @@ public class GameManager : MonoBehaviour
         StartCoroutine(AppetiteCoroutine());
     }
 
-    private List<int> levelThresholds = new List<int> { 0,2,3,6,10,100,100,100,100};
+    private List<int> levelThresholds = new List<int> { 0, 2, 3, 5, 10, 100, 100, 100, 100 };
     private void UpdateStatLocks()
     {
         List<Stat> stats = dataObject.PlayerData.GameData.Stats;
         for (int i = 0; i < stats.Count; i++)
         {
-            stats[i].Locked = dataObject.PlayerData.GameData.Level < levelThresholds[i];         
+            stats[i].Locked = dataObject.PlayerData.GameData.Level < levelThresholds[i];
         }
     }
+
+    void OnApplicationQuit()
+    {
+        dataObject.PlayerData.SavePlayer();
+    }
+
+    void Lose()
+    {
+        SceneManager.LoadScene("GameOverScene");
+    }
+
 }

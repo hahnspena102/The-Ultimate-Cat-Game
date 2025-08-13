@@ -19,6 +19,7 @@ public class PlayerData
         username = "user";
         highScore = 123;
         deathCount = 0;
+        gameData = new GameData();
     }
 
     public void SavePlayer()
@@ -67,10 +68,12 @@ public class PlayerData
         }
     }
 
-    public void SetPlayer(PlayerData newPlayer) {
+    public void SetPlayer(PlayerData newPlayer)
+    {
         username = newPlayer.username;
         highScore = newPlayer.highScore;
         deathCount = newPlayer.deathCount;
+        gameData = newPlayer.gameData;
     }
 
     public override string ToString()

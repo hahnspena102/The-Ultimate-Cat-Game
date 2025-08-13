@@ -41,6 +41,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UpgradeScene.unity
     guid: 92e9d3d3647cec04e95176a247bf1c19
+  - enabled: 1
+    path: Assets/Scenes/PauseScene.unity
+    guid: 91026e4d3450bf64281bc688d3a3616f
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: 23bacc1d8a0aaa743ac3f7ef138caf16
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: bbe65d5de89abf343af6c2caf1a9650c, type: 3}
   m_UseUCBPForAssetBundles: 0

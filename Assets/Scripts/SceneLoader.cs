@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private CanvasGroup uiCanvasGroup;
     private string currentContentScene = "";
     private Dictionary<KeyCode, (string stat, string scene)> keyMappings;
+    private string previousStat;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,14 +35,15 @@ public class SceneLoader : MonoBehaviour
             { KeyCode.Alpha7, ("Health", "HealthScene") },
             { KeyCode.Alpha8, ("Soul", "SoulScene") },
             { KeyCode.Alpha9, ("Lifeforce", "LifeforceScene") },
-            { KeyCode.U, (null, "UpgradeScene") } // No stat change
+            { KeyCode.U, (null, "UpgradeScene") }, // No stat change
+            { KeyCode.Escape, (null, "PauseScene") } // No stat change
         };
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentContentScene != "UpgradeScene")
+        if (currentContentScene != "UpgradeScene" && currentContentScene != "PauseScene")
         {
             uiCanvasGroup.alpha = 1f;
             dataObject.IsPaused = false;
@@ -54,11 +56,13 @@ public class SceneLoader : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             FlipToStat(-1);
-        } else if (Input.GetKeyDown(KeyCode.X)) {
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
             FlipToStat(1);
         }
-           
-        
+
+
 
 
         foreach (var entry in keyMappings)
@@ -70,6 +74,7 @@ public class SceneLoader : MonoBehaviour
                     {
                         break;
                     }
+                if (dataObject.CurrentStat != null) previousStat = dataObject.CurrentStat;
                 dataObject.CurrentStat = entry.Value.stat;
 
                 SwitchToScene(entry.Value.scene);
@@ -99,7 +104,7 @@ public class SceneLoader : MonoBehaviour
         SwitchToScene($"{stat}Scene");
     }
 
-    
+
     public void FlipToStat(int delta)
     {
         List<string> scenesList = new List<string>
@@ -114,4 +119,12 @@ public class SceneLoader : MonoBehaviour
 
         SwitchToStat(scenesList[newIndex]);
     }
+
+    public void SwitchToPrevious()
+    {
+        Debug.Log(previousStat);
+        if (previousStat == null) SwitchToStat("Love");
+        SwitchToStat(previousStat);
+    }
+
 }

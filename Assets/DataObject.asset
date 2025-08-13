@@ -14,52 +14,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData:
     username: user
-    highScore: 123
+    highScore: 31029
     deathCount: 0
     gameData:
       catName: name
       breed: breed
-      points: 42762
-      level: 17
-      coins: 4049
+      points: 0
+      level: 1
+      coins: 0
+      isAlive: 1
       stats:
       - name: Love
-        value: 95
-        maxValue: 1500
+        value: 750
+        maxValue: 750
         locked: 0
       - name: Hunger
-        value: 0
+        value: 1000
         maxValue: 1000
         locked: 0
       - name: Thirst
-        value: 275
+        value: 600
         maxValue: 600
         locked: 0
       - name: Energy
-        value: 688
+        value: 1600
         maxValue: 1600
         locked: 0
       - name: Clean
-        value: 1550
+        value: 2000
         maxValue: 2000
         locked: 0
       - name: Cozy
         value: 2400
         maxValue: 2400
-        locked: 1
+        locked: 0
       - name: Health
-        value: 300
+        value: 3000
         maxValue: 3000
-        locked: 1
+        locked: 0
       - name: Soul
-        value: 0
+        value: 4000
         maxValue: 4000
-        locked: 1
+        locked: 0
       - name: Lifeforce
-        value: 0
+        value: 5000
         maxValue: 5000
-        locked: 1
-      upgrades: 010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        locked: 0
+      upgrades: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
       appetite: 100
       maxAppetite: 100
       energyRespawn:
@@ -67,51 +68,11 @@ MonoBehaviour:
         value: 15
         maxValue: 15
         locked: 0
-      cleanTimer: 2.010209
+      cleanTimer: 0
       cleanPhase: 0
-      cleanX: -3.7219994
-      cozySavedBalls:
-      - xPos: 2.9348273
-        yPos: 2.202315
-        rotation: 0.11062487
-        type: yarn
-      - xPos: 3.630514
-        yPos: 2.2017996
-        rotation: 0.086562455
-        type: brush
-      - xPos: -2.9463675
-        yPos: 2.2017941
-        rotation: -0.00038145212
-        type: bed
-      - xPos: 1.5392271
-        yPos: 2.2017996
-        rotation: 0.3728201
-        type: yarn
-      - xPos: 2.2343566
-        yPos: 2.2017996
-        rotation: 0.3665403
-        type: bed
-      - xPos: -3.6367164
-        yPos: 2.201986
-        rotation: -0.0004180328
-        type: aroma
-      - xPos: -1.1626124
-        yPos: 2.201799
-        rotation: -0
-        type: mouse
-      - xPos: 3.2793534
-        yPos: 2.806263
-        rotation: -0.10896626
-        type: brush
-      - xPos: 1.8837942
-        yPos: 2.8059845
-        rotation: -0.35706142
-        type: yarn
-      - xPos: -2.2541695
-        yPos: 2.2042127
-        rotation: -0.09324234
-        type: brush
-      cozyBonus: 0001010101010001
+      cleanX: 0
+      cozySavedBalls: []
+      cozyBonus: 0000000000000000
       soulX: 0
       soulY: 0
       soulBullets:
@@ -120,5 +81,5 @@ MonoBehaviour:
         maxValue: 7
         locked: 0
   currentStat: Hunger
-  selectedUpgrade: {fileID: 11400000, guid: 038360ea9dea42843b725e118ba4e4a2, type: 2}
+  selectedUpgrade: {fileID: 0}
   isPaused: 0

@@ -21,8 +21,7 @@ public class UI : MonoBehaviour
     public static Dictionary<string, Sprite> StatToSpriteMap;
     public static Dictionary<string, Color> StatToColorMap;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         StatToSpriteMap = new Dictionary<string, Sprite>();
         StatToColorMap = new Dictionary<string, Color>();

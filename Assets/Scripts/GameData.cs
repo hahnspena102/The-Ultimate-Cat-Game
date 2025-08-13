@@ -10,6 +10,7 @@ public class GameData
     [SerializeField] private int points;
     [SerializeField] private int level;
     [SerializeField] private int coins;
+    [SerializeField] private bool isAlive;
     [SerializeField] private List<Stat> stats;
     [SerializeField] private List<bool> upgrades;
     [SerializeField] private int appetite, maxAppetite;
@@ -29,6 +30,7 @@ public class GameData
         this.points = 0;
         this.level = 1;
         this.coins = 0;
+        this.isAlive = true;
 
         this.stats = new List<Stat>()
         {
@@ -69,6 +71,7 @@ public class GameData
                $"  Points: {points},\n" +
                $"  Level: {level},\n" +
                $"  Coins: {coins},\n" +
+               $"  IsAlive: {isAlive},\n" +
                $"  Stats:\n  {statsString}\n)";
     }
 
@@ -109,7 +112,7 @@ public class GameData
         return false;
     }
 
-    private float thresholdMultiplier = 2000;
+    private float thresholdMultiplier = 1000;
     private float thresholdPower = 1.1f;
     public void UpdateLevel()
     {
@@ -143,4 +146,5 @@ public class GameData
     public global::System.Single SoulY { get => soulY; set => soulY = value; }
     public Stat SoulBullets { get => soulBullets; set => soulBullets = value; }
     public List<global::System.Boolean> Upgrades { get => upgrades; set => upgrades = value; }
+    public global::System.Boolean IsAlive { get => isAlive; set => isAlive = value; }
 }

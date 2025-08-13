@@ -83,7 +83,7 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler
     {
         Color lineColor = Color.white;
 
-        Debug.Log("drawing line");
+        //Debug.Log("drawing line");
 
         GameObject newLine = Instantiate(linePrefab);
         newLine.transform.SetParent(prereqTransform.parent);
