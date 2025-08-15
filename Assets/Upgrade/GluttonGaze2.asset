@@ -17,7 +17,7 @@ MonoBehaviour:
   sprite: {fileID: -1765646889, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Allows the user to see very harmful food items and very beneficial
     items in a red or green highlight.
-  cost: 200
+  cost: 750
   type: Hunger
   prerequisites:
   - {fileID: 11400000, guid: 17bf3fe679b8d32498f60262aa8b4ff2, type: 2}

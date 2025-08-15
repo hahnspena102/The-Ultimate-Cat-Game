@@ -19,7 +19,7 @@ MonoBehaviour:
     Red and orange-highlighted foods are harmful. Green and green-yellow highlighted
     foods are beneficial. Purple highlights represent fatal foods, and cyan highlights
     represent miscellaneous foods. '
-  cost: 6500
+  cost: 5200
   type: Hunger
   prerequisites:
   - {fileID: 11400000, guid: eff2ae3f478cf154bba42f731fcdecf7, type: 2}

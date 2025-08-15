@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 28
   sprite: {fileID: -1704238183, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Increases the production and size of Energy Particles.
-  cost: 2000
+  cost: 1000
   type: Energy
   prerequisites:
   - {fileID: 11400000, guid: fdf9ede971a9e504bbc4219177a84d5d, type: 2}

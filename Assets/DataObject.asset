@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData:
     username: user
-    highScore: 0
+    highScore: 132869
     deathCount: 0
     gameData:
       catName: Meowser
@@ -80,6 +80,6 @@ MonoBehaviour:
         value: 7
         maxValue: 7
         locked: 0
-  currentStat: 
-  selectedUpgrade: {fileID: 0}
-  isPaused: 1
+  currentStat: Hunger
+  selectedUpgrade: {fileID: 11400000, guid: 0ba4aee9fab3543498de12ce693d9286, type: 2}
+  isPaused: 0

@@ -16,6 +16,6 @@ MonoBehaviour:
   id: 18
   sprite: {fileID: 2065247224, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Increases maximum Thirst and hydration of Raindrops.
-  cost: 450
+  cost: 300
   type: Thirst
   prerequisites: []
