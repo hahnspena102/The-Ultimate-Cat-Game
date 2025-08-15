@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class Thirst : MonoBehaviour
 {
+    [SerializeField] private DataObject dataObject;
     [SerializeField] private GameObject waterDrop;
     [SerializeField] private int lowerBound = -100;
     [SerializeField] private int upperBound = 100;
@@ -21,7 +22,7 @@ public class Thirst : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        UpdateUpgradeValues();
     }
 
     IEnumerator WaterGenerator()
@@ -50,5 +51,28 @@ public class Thirst : MonoBehaviour
        );
 
         newDrop.transform.localPosition = randomScreenPoint;
+    }
+    
+    void UpdateUpgradeValues()
+    {
+        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
+        Stat love = dataObject.PlayerData.GameData.Stats[0];
+        if (upgrades[20])
+        {
+            upperBound = 500;
+        }
+        else if (upgrades[19])
+        {
+            upperBound = 300;
+        }
+        else if (upgrades[18])
+        {
+            upperBound = 200;
+        }
+        else
+        {
+            upperBound = 100;
+        }
+        
     }
 }

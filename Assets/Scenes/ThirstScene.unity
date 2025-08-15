@@ -557,6 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1beff18f38f39e649b290f9cf1b649f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
   waterDrop: {fileID: 7786340199920335610, guid: 478c3836ca6df5249a59866986389d68, type: 3}
   lowerBound: -100
   upperBound: 100

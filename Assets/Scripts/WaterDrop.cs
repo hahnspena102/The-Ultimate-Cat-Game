@@ -10,7 +10,7 @@ public class WaterDrop : MonoBehaviour
     private bool isPoison = false;
 
     private SpriteRenderer sr;
-    private float pointScale = 0.01f;
+    private float pointScale = 0.005f;
 
 
     public global::System.Int32 Point { get => point; set => point = value; }

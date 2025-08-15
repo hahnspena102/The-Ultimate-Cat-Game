@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CleanPlayer : MonoBehaviour
@@ -30,6 +32,8 @@ public class CleanPlayer : MonoBehaviour
 
     void Update()
     {
+        UpdateUpgradeValues();
+
         dataObject.PlayerData.GameData.CleanX = transform.localPosition.x;
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -41,7 +45,7 @@ public class CleanPlayer : MonoBehaviour
                     audioSource.clip = caughtSFX;
                     audioSource.Play();
                 }
-        
+
             }
             else
             {
@@ -72,7 +76,8 @@ public class CleanPlayer : MonoBehaviour
     void CleanCat()
     {
         dataObject.PlayerData.GameData.UpdateStat("Clean", cleanValue);
-        dataObject.PlayerData.GameData.Points += Mathf.Max(cleanValue, 0);
+
+        dataObject.PlayerData.GameData.UpdatePoints(cleanValue);
 
         if (ui) ui.SpawnPopup(Camera.main.WorldToScreenPoint(transform.position), "Clean", cleanValue, canvas.transform);
         if (audioSource)
@@ -84,6 +89,38 @@ public class CleanPlayer : MonoBehaviour
         transform.localPosition = originalPos;
 
 
+    }
+
+    void UpdateUpgradeValues()
+    {
+        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
+
+        if (upgrades[38])
+        {
+            boostSpeed = 16;
+        }
+        else if (upgrades[37])
+        {
+            boostSpeed = 12;
+        }
+        else if (upgrades[36])
+        {
+            boostSpeed = 8;
+        }
+        else
+        {
+            boostSpeed = 4;
+        }
+
+        if (upgrades[39])
+        {
+            cleanValue = 750;
+        }
+        else
+        {
+            cleanValue = 500;
+        }
+        
     }
     
 

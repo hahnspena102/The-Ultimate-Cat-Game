@@ -864,6 +864,7 @@ MonoBehaviour:
   - {fileID: 8484411429778319188, guid: 902e1fc0625204e41a6d1cc5931539f8, type: 3}
   - {fileID: 1253636685215401856, guid: 6a1525c977756b5409e264ce3b7b5660, type: 3}
   - {fileID: 3605290202672922255, guid: 225054bf2aac8ac45a3bb756c1b8db87, type: 3}
+  particlePrefab: {fileID: 8484411429778319188, guid: 719164905f443b94aa5d274f3b14d704, type: 3}
   player: {fileID: 2037332804}
   respawnTimer: {fileID: 708473382}
   canvas: {fileID: 1015389941}
@@ -1586,6 +1587,7 @@ MonoBehaviour:
   horizontalSpeed: 10
   verticalSpeed: 8
   energy: {fileID: 1023696716}
+  canvas: {fileID: 1015389941}
 --- !u!95 &2037332810
 Animator:
   serializedVersion: 7

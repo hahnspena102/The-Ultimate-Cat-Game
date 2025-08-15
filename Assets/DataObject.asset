@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData:
     username: user
-    highScore: 31029
+    highScore: 0
     deathCount: 0
     gameData:
-      catName: name
+      catName: Meowser
       breed: breed
       points: 0
       level: 1
       coins: 0
-      isAlive: 1
+      isAlive: 0
       stats:
       - name: Love
         value: 750
@@ -80,6 +80,6 @@ MonoBehaviour:
         value: 7
         maxValue: 7
         locked: 0
-  currentStat: Hunger
+  currentStat: 
   selectedUpgrade: {fileID: 0}
-  isPaused: 0
+  isPaused: 1

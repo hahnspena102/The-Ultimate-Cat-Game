@@ -6,11 +6,17 @@ public class EnergyPlayer : MonoBehaviour
     [SerializeField] private float horizontalSpeed = 6f;
     [SerializeField] private float verticalSpeed = 8f;
     [SerializeField] private Energy energy;
+    [SerializeField] private Canvas canvas;
+
     private Rigidbody2D rb;
     private float horizontalInput, verticalInput;
+    private UI ui;
 
     void Start()
     {
+        GameObject go = GameObject.Find("UI");
+        if (go) ui = go.GetComponent<UI>();
+
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
@@ -35,7 +41,14 @@ public class EnergyPlayer : MonoBehaviour
         {
             energy.PlayAwakenSFX();
             AwakenPlayer();
-        } else if (collider.CompareTag("Ground"))
+        }
+        else if (collider.CompareTag("EnergyParticle"))
+        {
+            EnergyParticle ep = collider.gameObject.GetComponent<EnergyParticle>();
+            energy.CollectEnergy(ep.EnergyValue, collider.transform.position);
+            Destroy(collider.gameObject, 0.1f);
+        }
+        else if (collider.CompareTag("Ground"))
         {
             energy.PlayAwakenSFX();
             AwakenPlayer();
@@ -46,4 +59,5 @@ public class EnergyPlayer : MonoBehaviour
     {
         dataObject.PlayerData.GameData.EnergyRespawn.Value = 0;
     }
+
 }

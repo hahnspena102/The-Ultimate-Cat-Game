@@ -15,6 +15,7 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler
     [SerializeField] private List<Transform> prerequisiteOrbs;
 
     [SerializeField] private GameObject linePrefab;
+    [SerializeField] private Button button;
     private List<Image> prereqLines = new List<Image>();
 
 
@@ -34,8 +35,17 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler
         isPurchased = dataObject.PlayerData.GameData.Upgrades[upgrade.Id];
         Color statColor = UI.StatToColorMap[upgrade.Type];
 
+        button.interactable = !dataObject.PlayerData.GameData.GetIsLocked(upgrade.Type);
 
-        if (isPurchased)
+        if (dataObject.PlayerData.GameData.GetIsLocked(upgrade.Type))
+        {
+            image.color = new Color(1f, 1f, 1f, 0f);
+            foreach (Image i in prereqLines)
+            {
+                i.color = new Color(1f, 1f, 1f, 0f);
+            }
+        }
+        else if (isPurchased)
         {
             outline.effectColor = statColor;
             image.color = Color.Lerp(Color.white, statColor, 0.7f);
@@ -53,6 +63,8 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler
                 i.color = Color.white;
             }
         }
+
+    
     }
 
     public void FindPrerequisiteOrbs()

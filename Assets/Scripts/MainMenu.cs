@@ -15,7 +15,12 @@ public class MainMenu : MonoBehaviour
     void Awake()
     {
         dataObject.PlayerData.LoadPlayer();
+    }
 
+
+    // Update is called once per frame
+    void Update()
+    {
         if (dataObject)
         {
             GameData gd = dataObject.PlayerData.GameData;
@@ -25,17 +30,12 @@ public class MainMenu : MonoBehaviour
             }
             else
             {
-                Debug.Log("no game data");
+                //Debug.Log("no game data");
                 dataObject.PlayerData.GameData = new GameData();
                 if (continueButton) continueButton.interactable = false;
             }
         }
-    }
 
-
-    // Update is called once per frame
-    void Update()
-    {
         if (highscoreText) highscoreText.text = $"High Score: {dataObject.PlayerData.HighScore}";
 
 
@@ -82,6 +82,7 @@ public class MainMenu : MonoBehaviour
     {
         dataObject.CurrentStat = "Love";
         dataObject.SelectedUpgrade = null;
+        dataObject.PlayerData.GameData.IsAlive = true;
         yield return new WaitForSeconds(0.1f);
         SceneManager.LoadScene("GameScene");
         SceneManager.LoadScene("LoveScene", LoadSceneMode.Additive);

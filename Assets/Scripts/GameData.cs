@@ -25,12 +25,12 @@ public class GameData
 
     public GameData()
     {
-        this.catName = "name";
+        this.catName = "Meowser";
         this.breed = "breed";
         this.points = 0;
         this.level = 1;
         this.coins = 0;
-        this.isAlive = true;
+        this.isAlive = false;
 
         this.stats = new List<Stat>()
         {
@@ -110,6 +110,12 @@ public class GameData
             }
         }
         return false;
+    }
+
+    public void UpdatePoints(int delta)
+    {
+        points += Mathf.Max(delta, 0);
+        coins += Mathf.FloorToInt(Mathf.Max((float)delta / 10f, 0));
     }
 
     private float thresholdMultiplier = 1000;

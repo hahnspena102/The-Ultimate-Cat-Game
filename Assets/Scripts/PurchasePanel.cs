@@ -10,7 +10,7 @@ public class PurchasePanel : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI nameTextBox, descTextBox, costTextBox, prereqTextBox, purchaseText;
     [SerializeField] private Image iconImage;
     [SerializeField] private Button purchaseButton;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,9 +51,9 @@ public class PurchasePanel : MonoBehaviour
                 purchaseButton.image.color = new Color(0.592f, 0.596f, 0.627f, 1.000f);
                 costTextBox.color = Color.white;
             }
-            else if (dataObject.PlayerData.GameData.Coins < dataObject.SelectedUpgrade.Cost)
+            else if (!IsPurchasable())
             {
-                purchaseButton.interactable = true;
+                purchaseButton.interactable = false;
                 purchaseText.text = "Buy";
                 purchaseButton.image.color = new Color(0.961f, 0.365f, 0.365f, 1.000f);
                 costTextBox.color = new Color(0.961f, 0.365f, 0.365f, 1.000f);
@@ -82,6 +82,17 @@ public class PurchasePanel : MonoBehaviour
             if (selectedId < 0 || selectedId >= upgrades.Count) return;
 
             upgrades[selectedId] = true;
+
+            dataObject.PlayerData.GameData.Coins -= dataObject.SelectedUpgrade.Cost;
         }
+    }
+
+    public bool IsPurchasable()
+    {
+        foreach (Upgrade prereq in dataObject.SelectedUpgrade.Prerequisites)
+        {
+            if (!dataObject.PlayerData.GameData.Upgrades[prereq.Id]) return false;
+        }
+        return dataObject.PlayerData.GameData.Coins >= dataObject.SelectedUpgrade.Cost;
     }
 }

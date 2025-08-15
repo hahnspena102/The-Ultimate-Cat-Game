@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         dataObject.PlayerData.GameData.UpdateLevel();
         UpdateStatLocks();
+        UpdateUpgradeValues();
 
         decayRate = Mathf.Max(1, dataObject.PlayerData.GameData.Level * decayMultiplier);
 
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
                 Lose();
             }
         }
+        
     }
 
     // Coroutine that updates at difficulty rate
@@ -74,8 +76,8 @@ public class GameManager : MonoBehaviour
 
         dataObject.PlayerData.GameData.SoulBullets.Update(1);
 
-        dataObject.PlayerData.GameData.Points += 10;
-        dataObject.PlayerData.GameData.Coins += 1;
+        dataObject.PlayerData.GameData.UpdatePoints(10);
+        //dataObject.PlayerData.GameData.Coins += 1;
 
         yield return new WaitForSeconds(1f);
         StartCoroutine(GameCoroutine());
@@ -99,6 +101,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void CloseCallback()
+    {
+        Debug.Log("Browser tab closing — running OnApplicationQuit manually.");
+        Application.Quit();
+    }
+
     void OnApplicationQuit()
     {
         dataObject.PlayerData.SavePlayer();
@@ -109,4 +117,57 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GameOverScene");
     }
 
+    void UpdateUpgradeValues()
+    {
+        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
+
+        // Love
+        Stat love = dataObject.PlayerData.GameData.Stats[0];
+        if (upgrades[2])
+        {
+            love.MaxValue = 2000;
+        }
+        else if (upgrades[1])
+        {
+            love.MaxValue = 1500;
+        }
+        else if (upgrades[0])
+        {
+            love.MaxValue = 1000;
+        }
+        else
+        {
+            love.MaxValue = 750;
+        }
+
+        // Thirst
+        Stat thirst = dataObject.PlayerData.GameData.Stats[2];
+        if (upgrades[20])
+        {
+            thirst.MaxValue = 4800;
+        }
+        else if (upgrades[19])
+        {
+            thirst.MaxValue = 2400;
+        }
+        else if (upgrades[18])
+        {
+            thirst.MaxValue = 1200;
+        }
+        else
+        {
+            thirst.MaxValue = 600;
+        }
+
+        // Clean
+        Stat clean = dataObject.PlayerData.GameData.Stats[4];
+        if (upgrades[39])
+        {
+            clean.MaxValue = 4000;
+        }
+        else
+        {
+             clean.MaxValue = 2000;
+        }
+    }
 }

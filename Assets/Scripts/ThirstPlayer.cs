@@ -88,7 +88,7 @@ public class ThirstPlayer : MonoBehaviour
             if (wd == null) return;
 
             dataObject.PlayerData.GameData.UpdateStat("Thirst", wd.Point);
-            dataObject.PlayerData.GameData.Points += Mathf.Max(wd.Point, 0);
+            dataObject.PlayerData.GameData.UpdatePoints(wd.Point);
 
              if (audioSource)
             {

@@ -27,9 +27,65 @@ public class Hunger : MonoBehaviour
         StartCoroutine(GeneratorCoroutine());
     }
 
+    void UpdateComboText()
+    {
+        int pointChange = currentFoodCombo.Calculate();
+
+        currentComboText.text = currentFoodCombo.ToString();
+
+        Color targetColor = new Color(0f, 0f, 0f, 0f);
+
+        if (dataObject.PlayerData.GameData.Upgrades[9]) // Glutton Gaze 1
+        {
+            if (currentFoodCombo.Food.Effect == "Miscellaneous")
+            {
+                if (dataObject.PlayerData.GameData.Upgrades[10]) targetColor = new Color(0.380f, 0.961f, 0.980f, 1.000f);
+            }
+            else if (pointChange <= -500)
+            {
+                targetColor = new Color(0.612f, 0.224f, 0.973f, 1.000f);
+            }
+            else if (dataObject.PlayerData.GameData.Upgrades[10]) // Glutton Gaze 2
+            {
+                if (dataObject.PlayerData.GameData.Upgrades[11]) // Glutton Gaze 3
+                {
+                    if (pointChange > 0)
+                    {
+                        float t = Mathf.Clamp01(pointChange / 500f);
+                        targetColor = Color.Lerp(new Color(0.780f, 0.769f, 0.078f, 1.000f), new Color(0.173f, 0.694f, 0.173f, 1.000f), t);
+                    }
+                    else
+                    {
+                        float t = Mathf.Clamp01(-pointChange / 500f);
+                        targetColor = Color.Lerp(new Color(0.827f, 0.565f, 0.075f, 1.000f), new Color(1.000f, 0.161f, 0.161f, 1.000f), t);
+                    }
+                }
+                else
+                {
+                    int bigValueThreshold = 150;
+                    if (pointChange >= bigValueThreshold)
+                    {
+                        targetColor = new Color(0.247f, 0.773f, 0.247f, 1.000f);
+                    }
+                    else if (pointChange <= -bigValueThreshold)
+                    {
+                        targetColor = new Color(1.000f, 0.161f, 0.161f, 1.000f);
+                    }
+
+                }
+                
+            }
+        }
+        
+
+        currentComboText.fontMaterial.SetColor("_OutlineColor", targetColor);
+        currentComboText.fontMaterial.SetFloat("_OutlineWidth", 0.12f);
+    }
     void Update()
     {
-        if (currentComboText) currentComboText.text = currentFoodCombo.ToString();
+        if (currentComboText) {
+            UpdateComboText();
+        }
 
         if (appetiteSlider && feedButton)
         {
@@ -115,7 +171,7 @@ public class Hunger : MonoBehaviour
         if (dataObject)
         {
             dataObject.PlayerData.GameData.UpdateStat("Hunger", pointChange);
-            dataObject.PlayerData.GameData.Points += Mathf.Max(0, pointChange);
+            dataObject.PlayerData.GameData.UpdatePoints(pointChange);
         }
         ;
         

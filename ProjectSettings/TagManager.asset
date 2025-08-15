@@ -12,6 +12,7 @@ TagManager:
   - CozyBall
   - Ghost
   - SoulShot
+  - EnergyParticle
   layers:
   - Default
   - TransparentFX

@@ -63,7 +63,7 @@ public class Love : MonoBehaviour
     public void HeartPress()
     {
         dataObject.PlayerData.GameData.UpdateStat("Love", heartValue);
-        dataObject.PlayerData.GameData.Points += heartValue;
+        dataObject.PlayerData.GameData.UpdatePoints(heartValue);
 
         if (animator) animator.SetTrigger("purr");
 
@@ -104,21 +104,17 @@ public class Love : MonoBehaviour
         if (upgrades[2])
         {
             heartValue = 100;
-            love.MaxValue = 2000;
         }
         else if (upgrades[1])
         {
             heartValue = 75;
-            love.MaxValue = 1500;
         }
         else if (upgrades[0])
         {
-            love.MaxValue = 1000;
             heartValue = 50;
         }
         else
         {
-            love.MaxValue = 750;
             heartValue = 25;
         }
         

@@ -141,6 +141,7 @@ MonoBehaviour:
   image: {fileID: 7219882703178960785}
   prerequisiteOrbs: []
   linePrefab: {fileID: 3364157284232298386, guid: 3cf61b51f59204446b233a1c15ad78fc, type: 3}
+  button: {fileID: 9126043644118165592}
 --- !u!114 &3818465327213431316
 MonoBehaviour:
   m_ObjectHideFlags: 0

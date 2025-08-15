@@ -6,6 +6,7 @@ public class Energy : MonoBehaviour
 {
     [SerializeField] private DataObject dataObject;
     [SerializeField] private List<GameObject> projectiles = new List<GameObject>();
+    [SerializeField] private GameObject particlePrefab;
     [SerializeField] private GameObject player;
     [SerializeField] private TMPro.TextMeshProUGUI respawnTimer;
     [SerializeField] private Canvas canvas;
@@ -26,6 +27,7 @@ public class Energy : MonoBehaviour
         if (go) ui = go.GetComponent<UI>();
 
         StartCoroutine(ProjGenerator());
+        StartCoroutine(ParticleGenerator());
     }
 
     // Update is called once per frame
@@ -54,16 +56,9 @@ public class Energy : MonoBehaviour
         if (!isAlive) timeElapsed = 0;
         timeElapsed += Time.deltaTime;
 
-        if (timeElapsed > 2f)
+        if (timeElapsed > 3f)
         {
-            dataObject.PlayerData.GameData.UpdateStat("Energy", growthRate);
-            dataObject.PlayerData.GameData.Points += Mathf.Max(growthRate, 0);
-            if (ui) ui.SpawnPopup(Camera.main.WorldToScreenPoint(player.transform.position), "Energy", growthRate, canvas.transform);
-            if (audioSource)
-            {
-                audioSource.clip = collectSFX;
-                PlaySFX();
-            }
+            CollectEnergy(growthRate, player.transform.position);
             timeElapsed = 0;
         }
 
@@ -78,24 +73,57 @@ public class Energy : MonoBehaviour
             yield return null;
         }
 
-        GenerateProj();
+        GenerateEntity(projectiles[Random.Range(0, projectiles.Count)]);
         yield return new WaitForSeconds(Random.Range(timeMin, timeMax));
         StartCoroutine(ProjGenerator());
     }
 
-    void GenerateProj()
+    IEnumerator ParticleGenerator()
     {
-        if (projectiles.Count == 0) return;
-        GameObject newProj = Instantiate(projectiles[Random.Range(0, projectiles.Count)], transform.position, Quaternion.identity);
-        newProj.transform.SetParent(transform);
+        while (!isAlive || !dataObject.PlayerData.GameData.Upgrades[27])
+        {
+            yield return null;
+        }
 
-        if (newProj == null) return;
+
+        GameObject particle = GenerateEntity(particlePrefab);
+        if (particle)
+        {
+            EnergyParticle ep = particle.GetComponent<EnergyParticle>();
+            if (dataObject.PlayerData.GameData.Upgrades[29])
+            {
+                particle.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+                ep.EnergyValue = 500;
+            }
+            else if (dataObject.PlayerData.GameData.Upgrades[28])
+            {
+                particle.transform.localScale = new Vector3(0.2f, 0.2f, 1f);
+                ep.EnergyValue = 250;
+            }
+            else
+            {
+                ep.EnergyValue = 100;
+            }
+            
+        }
+        yield return new WaitForSeconds(Random.Range(timeMin * 2f, timeMax * 2f));
+        StartCoroutine(ParticleGenerator());
+    }
+
+    GameObject GenerateEntity(GameObject prefab)
+    {
+        GameObject newEntity = Instantiate(prefab, transform.position, Quaternion.identity);
+        newEntity.transform.SetParent(transform);
+
+        if (newEntity == null) return null;
 
         Vector2 randomScreenPoint = new Vector2(13,
            Random.Range(0 - spawnWidth, 0 + spawnWidth + 1)
        );
 
-        newProj.transform.localPosition = randomScreenPoint;
+        newEntity.transform.localPosition = randomScreenPoint;
+
+        return newEntity;
     }
 
     public void PlayAwakenSFX()
@@ -109,4 +137,19 @@ public class Energy : MonoBehaviour
         audioSource.pitch = Random.Range(1.00f - 0.10f, 1.00f + 0.10f);
         audioSource.Play();
     }
+
+    public void CollectEnergy(int value, Vector3 pos)
+    {
+        dataObject.PlayerData.GameData.UpdateStat("Energy", value);
+        dataObject.PlayerData.GameData.UpdatePoints(value);
+        if (ui) ui.SpawnPopup(Camera.main.WorldToScreenPoint(pos), "Energy", value, canvas.transform);
+        if (audioSource)
+        {
+            audioSource.clip = collectSFX;
+            PlaySFX();
+        }
+
+    }
+
+   
 }
