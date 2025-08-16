@@ -7,7 +7,7 @@ public class Popup : MonoBehaviour
     [SerializeField]private TextMeshProUGUI textMesh;
 
     private float moveSpeed = 4f;
-    private float fadeDuration = 1f;
+    private float fadeDuration = 1.5f;
     
     private Color originalColor;
     private int number;

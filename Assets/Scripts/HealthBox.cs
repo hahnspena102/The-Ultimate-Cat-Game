@@ -20,9 +20,13 @@ public class HealthBox : MonoBehaviour
 
     [SerializeField] private Button button;
 
+    private int healValue = 10;
+    private int hurtValue = -100;
+
+
     private Health health;
 
-    private float fadeDuration = 0.5f;
+    private float fadeDuration = 0.65f;
 
     public global::System.Int32 Row { get => row; set => row = value; }
     public global::System.Int32 Col { get => col; set => col = value; }
@@ -51,20 +55,32 @@ public class HealthBox : MonoBehaviour
 
         isOpen = true;
         Reveal();
+
+        int pointChange = 0;
         if (type == "treatment")
         {
-            dataObject.PlayerData.GameData.UpdateStat("Health", 10);
+            pointChange = healValue;
+
             health.CurrentTreatmentFound += 1;
         }
         else if (type == "cathogen")
         {
-            dataObject.PlayerData.GameData.UpdateStat("Health", -100);
+            pointChange = hurtValue;
             StartCoroutine(health.ResetGrid());
         }
         else
         {
             StartCoroutine(health.ResetGrid());
         }
+
+        if (pointChange != 0)
+        {
+            dataObject.PlayerData.GameData.UpdateStat("Health", pointChange);
+            dataObject.PlayerData.GameData.UpdatePoints(pointChange);
+            
+            health.CreatePopup(transform.position, Mathf.FloorToInt(pointChange));
+        }
+        
     }
 
     public void Reveal()
@@ -147,7 +163,5 @@ public class HealthBox : MonoBehaviour
         {
             image.sprite = nullSprite;
         }
-
-        isOpen = false;
     }
 }

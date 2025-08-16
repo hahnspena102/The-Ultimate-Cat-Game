@@ -51,7 +51,7 @@ public class GameData
             this.upgrades.Add(false);
         }
 
-
+        this.cleanX = -6.3f;
         this.MaxAppetite = 100;
         this.Appetite = this.MaxAppetite;
         this.EnergyRespawn = new Stat("EnergyRespawn", 15);

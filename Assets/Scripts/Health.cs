@@ -9,9 +9,9 @@ public class Health : MonoBehaviour
 
     [SerializeField] private List<GameObject> boxes;
 
-    [SerializeField]private int treatmentCount = 1;
-    [SerializeField]private int currentTreatmentFound;
-
+    [SerializeField] private int treatmentCount = 1;
+    [SerializeField] private int currentTreatmentFound;
+    private UI ui;
     private bool isResetting = false;
     public global::System.Int32 TreatmentCount { get => treatmentCount; set => treatmentCount = value; }
     public global::System.Int32 CurrentTreatmentFound { get => currentTreatmentFound; set => currentTreatmentFound = value; }
@@ -21,6 +21,9 @@ public class Health : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameObject go = GameObject.Find("UI");
+        if (go) ui = go.GetComponent<UI>();
+
         int i = 0;
         int j = 0;
         foreach (GameObject box in boxes)
@@ -79,8 +82,17 @@ public class Health : MonoBehaviour
             HealthBox hb = box.GetComponent<HealthBox>();
             if (hb == null) yield break;
 
-            hb.IsOpen = false;
             hb.Hide();
+        }
+
+        //yield return new WaitForSeconds(1f);
+
+        foreach (GameObject box in boxes)
+        {
+            HealthBox hb = box.GetComponent<HealthBox>();
+            if (hb == null) yield break;
+
+            hb.IsOpen = false;
         }
     }
 
@@ -92,6 +104,13 @@ public class Health : MonoBehaviour
             if (hb == null) yield break;
 
             hb.IsOpen = true;
+        }
+
+        foreach (GameObject box in boxes)
+        {
+            HealthBox hb = box.GetComponent<HealthBox>();
+            if (hb == null) yield break;
+
             hb.Reveal();
         }
     }
@@ -107,4 +126,10 @@ public class Health : MonoBehaviour
             hb.Randomize();
         }
     }
+    
+    public void CreatePopup(Vector3 spawnPosition, int pointChange)
+    {
+        if (ui) ui.SpawnPopup(spawnPosition, "Health", pointChange, transform);
+    }
+
 }

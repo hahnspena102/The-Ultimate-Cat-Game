@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         {
             if (stat.Value == 0)
             {
-                Lose();
+               // Lose();
             }
         }
         
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(AppetiteCoroutine());
     }
 
-    private List<int> levelThresholds = new List<int> { 0, 2, 3, 5, 10, 100, 100, 100, 100 };
+    private List<int> levelThresholds = new List<int> { 0, 2, 3, 5, 10, 20, 30, 1000, 1000 };
     private void UpdateStatLocks()
     {
         List<Stat> stats = dataObject.PlayerData.GameData.Stats;

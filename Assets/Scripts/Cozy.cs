@@ -13,14 +13,20 @@ public class Cozy : MonoBehaviour
     [SerializeField] private GameObject bonusText;
     private List<GameObject> cozyBalls = new List<GameObject>();
 
-    [SerializeField]private GameObject previewBall;
+    [SerializeField] private GameObject previewBall;
+    [SerializeField] private Canvas canvas;
     private GameObject nextBall;
     private Sprite nextSprite;
     private SpriteRenderer previewSpriteRenderer;
 
     private Dictionary<string, GameObject> cozyBallMap;
 
-    private int maxCozyBall = 75;
+    private int maxCozyBall = 30;
+    private int overflowPenalty = -500;
+
+    private UI ui;
+    private float elapsedTime = 0f;
+    private float cooldown = 1f;
 
     private readonly string[] cozyBallLabels =
     {
@@ -28,6 +34,9 @@ public class Cozy : MonoBehaviour
     };
     void Awake()
     {
+        GameObject go = GameObject.Find("UI");
+        if (go) ui = go.GetComponent<UI>();
+
         if (previewBall != null)
         {
             previewSpriteRenderer = previewBall.GetComponent<SpriteRenderer>();
@@ -90,6 +99,7 @@ public class Cozy : MonoBehaviour
 
     void Update()
     {
+        elapsedTime += Time.deltaTime;
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (nextBall == null)
@@ -100,23 +110,32 @@ public class Cozy : MonoBehaviour
         Vector2 clampedPosition = ClampToPlayfield(mouseWorldPos);
         previewBall.transform.position = clampedPosition;
 
-        if (previewSpriteRenderer) previewSpriteRenderer.sprite = nextSprite;
-
-        if (Input.GetMouseButtonDown(0))
+        if (previewSpriteRenderer)
         {
-            CreateBall(clampedPosition);
+            previewSpriteRenderer.sprite = nextSprite;
+            if (elapsedTime >= cooldown)
+            {
+                previewSpriteRenderer.color = new Color(1f, 1f, 1f, 0.3f);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    elapsedTime = 0;
+                    CreateBall(clampedPosition);
+                }
+
+            }
+            else
+            {
+                previewSpriteRenderer.color = new Color(0.478f, 0.478f, 0.478f, 0.000f);
+            }
         }
+
+        
+
+        
 
         if (cozyBalls.Count >= maxCozyBall)
         {
-            foreach (GameObject go in cozyBalls)
-            {
-                Destroy(go);
-            }
-            cozyBalls = new List<GameObject>();
-
-            dataObject.PlayerData.GameData.CozyBonus = new List<bool>{false, false, false, false, false, false, false, false};
-
+            ResetBasket();
         }
 
         if (capacitySlider)
@@ -167,7 +186,7 @@ public class Cozy : MonoBehaviour
 
         return new Vector2(clampedX, clampedY);
     }
-    
+
     public void RemoveCozyBall(GameObject ball)
     {
         if (cozyBalls.Contains(ball))
@@ -175,4 +194,30 @@ public class Cozy : MonoBehaviour
             cozyBalls.Remove(ball);
         }
     }
+
+    public void CreatePopup(Vector3 spawnPosition, int pointChange)
+    {
+        if (ui) ui.SpawnPopup(spawnPosition, "Cozy", pointChange, canvas.transform);
+    }
+
+    void ResetBasket()
+    {
+             
+        foreach (GameObject go in cozyBalls)
+        {
+            Destroy(go);
+        }
+        cozyBalls = new List<GameObject>();
+
+        dataObject.PlayerData.GameData.CozyBonus = new List<bool> { false, false, false, false, false, false, false, false };
+
+        dataObject.PlayerData.GameData.UpdateStat("Cozy", overflowPenalty);
+        float pw = 100f;
+        float ph = 50f;
+        Vector2 spawnPosition = new Vector2(Random.Range(canvas.transform.position.x - pw, canvas.transform.position.x + pw),
+                                            Random.Range(canvas.transform.position.y - ph, canvas.transform.position.y + ph));
+
+        if (ui) ui.SpawnPopup(spawnPosition, "Cozy", overflowPenalty, canvas.transform);
+    }
+    
 }

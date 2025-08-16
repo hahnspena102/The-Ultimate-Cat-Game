@@ -9,6 +9,7 @@ public class CozyBall : MonoBehaviour
     private HashSet<CozyBall> connectedBalls = new HashSet<CozyBall>();
     private bool checkedConnections = false;
     private Cozy cozyOwner;
+    private UI ui;
 
     public global::System.String Type { get => type; set => type = value; }
 
@@ -24,6 +25,11 @@ public class CozyBall : MonoBehaviour
         { "blanket", 7 },
     };
 
+    public void Start()
+    {
+      
+    }
+
      public void SetOwner(Cozy cozy)
     {
         cozyOwner = cozy;
@@ -37,7 +43,7 @@ public class CozyBall : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("CozyBall"))
         {
@@ -52,7 +58,7 @@ public class CozyBall : MonoBehaviour
                 {
                     foreach (var ball in connectedBalls)
                     {
-                        Destroy(ball.gameObject, 0.01f);
+                        Destroy(ball.gameObject);
                     }
 
                     bool completeBonus = true;
@@ -64,14 +70,15 @@ public class CozyBall : MonoBehaviour
                             break;
                         }
                     }
-                    if (completeBonus)
-                    {
-                        dataObject.PlayerData.GameData.UpdateStat("Cozy", 3 * 10 * connectedBalls.Count);
-                    }
-                    else
-                    {
-                        dataObject.PlayerData.GameData.UpdateStat("Cozy", 10 * connectedBalls.Count);
-                    }
+
+                    float pointChange = 50f * connectedBalls.Count;
+
+                    if (completeBonus) pointChange *= 2f;
+            
+                    cozyOwner.CreatePopup(Camera.main.WorldToScreenPoint(transform.position), Mathf.FloorToInt(pointChange));
+                    dataObject.PlayerData.GameData.UpdateStat("Cozy", Mathf.FloorToInt(pointChange));
+                    dataObject.PlayerData.GameData.UpdatePoints(Mathf.FloorToInt(pointChange));
+                    
                     
 
                     if (type != "star")
