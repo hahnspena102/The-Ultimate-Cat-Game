@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float decayRate = 1; // Occurrences per second
     [SerializeField] private HungerTable hungerTable;
 
-    private float decayMultiplier = 0.2f; //The higher, the faster
+    private float decayMultiplier = 0.1f; //The higher, the faster
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -85,8 +85,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator AppetiteCoroutine()
     {
-        dataObject.PlayerData.GameData.Appetite = Mathf.Min(dataObject.PlayerData.GameData.MaxAppetite,
-                                                            dataObject.PlayerData.GameData.Appetite += 2);
+        dataObject.PlayerData.GameData.Appetite.Update(Mathf.FloorToInt(0.02f * dataObject.PlayerData.GameData.Appetite.MaxValue));
         yield return new WaitForSeconds(0.1f);
         StartCoroutine(AppetiteCoroutine());
     }
@@ -139,6 +138,25 @@ public class GameManager : MonoBehaviour
         {
             love.MaxValue = 750;
         }
+
+        // Hunger
+        Stat hunger = dataObject.PlayerData.GameData.Stats[1];
+        if (upgrades[13])
+        {
+            hunger.MaxValue = 9000;
+            dataObject.PlayerData.GameData.Appetite.MaxValue = 300;
+        }
+        else if (upgrades[12])
+        {
+            hunger.MaxValue = 3000;
+            dataObject.PlayerData.GameData.Appetite.MaxValue = 200;
+        }
+        else
+        {
+            hunger.MaxValue = 1000;
+            dataObject.PlayerData.GameData.Appetite.MaxValue = 100;
+        }
+
 
         // Thirst
         Stat thirst = dataObject.PlayerData.GameData.Stats[2];

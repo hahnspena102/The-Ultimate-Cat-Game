@@ -11,6 +11,9 @@ public class Health : MonoBehaviour
 
     [SerializeField] private int treatmentCount = 1;
     [SerializeField] private int currentTreatmentFound;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip randomizeSFX, randomizeDoneSFX;
+    int completionBonus = 100;
     private UI ui;
     private bool isResetting = false;
     public global::System.Int32 TreatmentCount { get => treatmentCount; set => treatmentCount = value; }
@@ -48,7 +51,13 @@ public class Health : MonoBehaviour
     {
         if (currentTreatmentFound >= treatmentCount && !isResetting)
         {
-            dataObject.PlayerData.GameData.UpdateStat("Health", 100);
+            dataObject.PlayerData.GameData.UpdateStat("Health", completionBonus);
+            float pw = 16f;
+            float ph = 16f;
+            Vector2 spawnPosition = new Vector2(Random.Range(transform.position.x - pw, transform.position.x + pw),
+                                                Random.Range(transform.position.y - ph, transform.position.y + ph));
+            CreatePopup(spawnPosition, completionBonus * treatmentCount);
+
             StartCoroutine(ResetGrid());
 
         }
@@ -68,6 +77,8 @@ public class Health : MonoBehaviour
             RandomizeAll();
             yield return new WaitForSeconds(0.1f);
         }
+
+        Util.PlaySFX(audioSource, randomizeDoneSFX);
 
         yield return new WaitForSeconds(1f);
 
@@ -123,6 +134,7 @@ public class Health : MonoBehaviour
             HealthBox hb = box.GetComponent<HealthBox>();
             if (hb == null) return;
 
+            Util.PlaySFX(audioSource, randomizeSFX);
             hb.Randomize();
         }
     }

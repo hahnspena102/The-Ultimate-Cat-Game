@@ -36,16 +36,25 @@ public class Stat
         return $"Stat(Name: {name}, Value: {value}/{maxValue}, Unlocked: {locked})";
     }
 
-    public void Update(int delta)
+    public int Update(int delta)
     {
-        if (this.locked) return;
+        if (this.locked) return 0;
+
+        int og = this.Value;
         if (delta >= 0)
         {
             this.Value = Mathf.Min(this.Value + delta, this.MaxValue);
+
         }
         else
         {
             this.Value = Mathf.Max(this.Value + delta, 0);
         }
+        return this.Value - og;
+    }
+
+    public float Percent()
+    {
+        return (float)this.value / (float)this.maxValue;
     }
 }

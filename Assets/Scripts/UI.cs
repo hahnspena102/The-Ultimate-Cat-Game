@@ -117,7 +117,7 @@ public class UI : MonoBehaviour
                             }
                         }
                     }
-                    
+
                 }
             }
         }
@@ -129,7 +129,7 @@ public class UI : MonoBehaviour
 
             catLevelSlider.value = dataObject.PlayerData.GameData.Points - prevThreshold;
             catLevelSlider.maxValue = threshold - prevThreshold;
-  
+
             catLevelText.text = $"{dataObject.PlayerData.GameData.Level}";
         }
     }
@@ -154,4 +154,5 @@ public class UI : MonoBehaviour
 
         return popup;
     }
+    
 }

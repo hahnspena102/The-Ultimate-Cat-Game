@@ -7,9 +7,10 @@ public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private DataObject dataObject;
     [SerializeField] private CanvasGroup uiCanvasGroup;
-    private string currentContentScene = "";
+    [SerializeField] private string currentContentScene = "";
     private Dictionary<KeyCode, (string stat, string scene)> keyMappings;
-    private string previousStat;
+    [SerializeField]private string previousStat;
+    private bool isSwitching;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,7 +37,8 @@ public class SceneLoader : MonoBehaviour
             { KeyCode.Alpha8, ("Soul", "SoulScene") },
             { KeyCode.Alpha9, ("Lifeforce", "LifeforceScene") },
             { KeyCode.U, (null, "UpgradeScene") }, // No stat change
-            { KeyCode.Escape, (null, "PauseScene") } // No stat change
+            { KeyCode.BackQuote, (null, "PauseScene") }, // No stat change
+            { KeyCode.Escape, (null, "PauseScene") } // No stat change 
         };
     }
 
@@ -77,7 +79,16 @@ public class SceneLoader : MonoBehaviour
                 if (dataObject.CurrentStat != null) previousStat = dataObject.CurrentStat;
                 dataObject.CurrentStat = entry.Value.stat;
 
-                SwitchToScene(entry.Value.scene);
+                if (entry.Value.scene == "PauseScene" && currentContentScene == "UpgradeScene")
+                {
+                    SwitchToPrevious();
+                }
+                else
+                {
+                    SwitchToScene(entry.Value.scene);    
+                }
+
+                
             }
         }
 
@@ -85,16 +96,27 @@ public class SceneLoader : MonoBehaviour
 
     void SwitchToScene(string sceneName)
     {
-        if (currentContentScene == sceneName)
-            return;
+        if (isSwitching) return;
+        isSwitching = true;
 
-        if (!string.IsNullOrEmpty(currentContentScene) && SceneManager.GetSceneByName(currentContentScene).isLoaded)
+        for (int i = SceneManager.sceneCount - 1; i >= 0; i--)
         {
-            SceneManager.UnloadSceneAsync(currentContentScene);
+            Scene scene = SceneManager.GetSceneAt(i);
+
+            if (!scene.isLoaded) continue;
+            if (scene.name == "GameScene") continue;
+            if (scene.name == sceneName) continue;
+
+            SceneManager.UnloadSceneAsync(scene);
         }
 
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-        currentContentScene = sceneName;
+        if (!SceneManager.GetSceneByName(sceneName).isLoaded)
+        {
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            currentContentScene = sceneName;
+        }
+
+        isSwitching = false;
     }
 
     public void SwitchToStat(string stat)
@@ -122,7 +144,6 @@ public class SceneLoader : MonoBehaviour
 
     public void SwitchToPrevious()
     {
-        Debug.Log(previousStat);
         if (previousStat == null) SwitchToStat("Love");
         SwitchToStat(previousStat);
     }

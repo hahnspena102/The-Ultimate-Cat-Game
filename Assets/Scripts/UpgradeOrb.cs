@@ -125,7 +125,6 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
-        Debug.Log("hey");
         dataObject.SelectedUpgrade = upgrade;
     }
 

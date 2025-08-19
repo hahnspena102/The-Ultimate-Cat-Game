@@ -16,7 +16,7 @@ public class CleanPlayer : MonoBehaviour
     private UI ui;
     private int cleanValue = 500;
 
-    void Start()
+    void Awake()
     {
         originalPos = transform.localPosition;
         transform.localPosition = new Vector2(dataObject.PlayerData.GameData.CleanX, transform.localPosition.y);

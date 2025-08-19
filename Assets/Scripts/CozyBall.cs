@@ -78,6 +78,8 @@ public class CozyBall : MonoBehaviour
                     cozyOwner.CreatePopup(Camera.main.WorldToScreenPoint(transform.position), Mathf.FloorToInt(pointChange));
                     dataObject.PlayerData.GameData.UpdateStat("Cozy", Mathf.FloorToInt(pointChange));
                     dataObject.PlayerData.GameData.UpdatePoints(Mathf.FloorToInt(pointChange));
+
+                    cozyOwner.ConnectionSFX();
                     
                     
 

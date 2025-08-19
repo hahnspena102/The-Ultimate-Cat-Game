@@ -16,7 +16,7 @@ public class Love : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
 
     private float canvasXPadding = 64f;
-    private float canvasYPadding = 480f;
+    private float canvasYPadding = 400f;
     private bool isMoving = false;
     private Vector3 targetPosition;
     private float moveTimer = 0f;

@@ -13,7 +13,7 @@ public class GameData
     [SerializeField] private bool isAlive;
     [SerializeField] private List<Stat> stats;
     [SerializeField] private List<bool> upgrades;
-    [SerializeField] private int appetite, maxAppetite;
+    [SerializeField] private Stat appetite;
     [SerializeField] private Stat energyRespawn;
     [SerializeField] private float cleanTimer;
     [SerializeField] private int cleanPhase;
@@ -52,8 +52,7 @@ public class GameData
         }
 
         this.cleanX = -6.3f;
-        this.MaxAppetite = 100;
-        this.Appetite = this.MaxAppetite;
+        this.appetite = new Stat("Appetite", 100);
         this.EnergyRespawn = new Stat("EnergyRespawn", 15);
         this.CozySavedBalls = new List<CozySavedBall>();
         this.cozyBonus = new List<bool> { false, false, false, false, false, false, false, false };
@@ -87,16 +86,16 @@ public class GameData
         return null;
     }
 
-    public void UpdateStat(string statName, int delta)
+    public int UpdateStat(string statName, int delta)
     {
         foreach (var stat in stats)
         {
             if (stat.Name == statName)
             {
-                stat.Update(delta);
-                return;
+                return stat.Update(delta);
             }
         }
+        return 0;
     }
 
     public bool GetIsLocked(string statName)
@@ -119,7 +118,7 @@ public class GameData
     }
 
     private float thresholdMultiplier = 1000;
-    private float thresholdPower = 1.1f;
+    private float thresholdPower = 1.2f;
     public void UpdateLevel()
     {
         this.level = 1 + Mathf.FloorToInt(Mathf.Pow(points / thresholdMultiplier, 1f / thresholdPower));
@@ -140,8 +139,6 @@ public class GameData
     public global::System.Int32 Level { get => level; set => level = value; }
     public global::System.Int32 Coins { get => coins; set => coins = value; }
     public List<Stat> Stats { get => stats; set => stats = value; }
-    public global::System.Int32 Appetite { get => appetite; set => appetite = value; }
-    public global::System.Int32 MaxAppetite { get => maxAppetite; set => maxAppetite = value; }
     public Stat EnergyRespawn { get => energyRespawn; set => energyRespawn = value; }
     public global::System.Single CleanTimer { get => cleanTimer; set => cleanTimer = value; }
     public global::System.Int32 CleanPhase { get => cleanPhase; set => cleanPhase = value; }
@@ -153,4 +150,5 @@ public class GameData
     public Stat SoulBullets { get => soulBullets; set => soulBullets = value; }
     public List<global::System.Boolean> Upgrades { get => upgrades; set => upgrades = value; }
     public global::System.Boolean IsAlive { get => isAlive; set => isAlive = value; }
+    public Stat Appetite { get => appetite; set => appetite = value; }
 }

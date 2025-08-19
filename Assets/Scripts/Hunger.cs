@@ -73,26 +73,27 @@ public class Hunger : MonoBehaviour
                     }
 
                 }
-                
+
             }
         }
-        
+
 
         currentComboText.fontMaterial.SetColor("_OutlineColor", targetColor);
         currentComboText.fontMaterial.SetFloat("_OutlineWidth", 0.12f);
     }
     void Update()
     {
-        if (currentComboText) {
+        if (currentComboText)
+        {
             UpdateComboText();
         }
 
         if (appetiteSlider && feedButton)
         {
-            appetiteSlider.maxValue = dataObject.PlayerData.GameData.MaxAppetite;
-            appetiteSlider.value = dataObject.PlayerData.GameData.Appetite;
+            appetiteSlider.maxValue = dataObject.PlayerData.GameData.Appetite.MaxValue;
+            appetiteSlider.value = dataObject.PlayerData.GameData.Appetite.Value;
 
-            float percent = (float)(dataObject.PlayerData.GameData.Appetite / (float)dataObject.PlayerData.GameData.MaxAppetite);
+            float percent = dataObject.PlayerData.GameData.Appetite.Percent();
 
             if (percent < 0.1)
             {
@@ -113,11 +114,11 @@ public class Hunger : MonoBehaviour
                 appetiteSlider.colors = colors;
 
             }
-                
-            
+
+
         }
 
-        
+
     }
 
     IEnumerator GeneratorCoroutine()
@@ -173,8 +174,63 @@ public class Hunger : MonoBehaviour
             dataObject.PlayerData.GameData.UpdateStat("Hunger", pointChange);
             dataObject.PlayerData.GameData.UpdatePoints(pointChange);
         }
-        ;
-        
+
+        if (currentFoodCombo.Food.Effect == "Miscellaneous")
+        {
+            string foodName = currentFoodCombo.Food.FoodName;
+            if (foodName == "Catnip")
+            {
+                if (dataObject.PlayerData.GameData.UpdateStat("Clean", -100) != 0)
+                {
+                    CreatePopup("Clean", -100);
+                }
+
+                if (dataObject.PlayerData.GameData.UpdateStat("Love", 100) != 0)
+                {
+                    CreatePopup("Love", 100);
+                }
+            }
+            else if (foodName == "Dog Food")
+            {
+                if (dataObject.PlayerData.GameData.UpdateStat("Love", -100) != 0)
+                {
+                    CreatePopup("Love", -100);
+                }
+            }
+            else if (foodName == "Cucumber")
+            {
+                if (dataObject.PlayerData.GameData.UpdateStat("Soul", -200) != 0)
+                {
+                    CreatePopup("Soul", -200);
+                }
+                if (dataObject.PlayerData.GameData.UpdateStat("Love", -50) != 0)
+                {
+                    CreatePopup("Love", -50);
+                }
+                if (dataObject.PlayerData.GameData.UpdateStat("Energy", 100) != 0)
+                {
+                    CreatePopup("Energy", 100);
+                }
+                if (dataObject.PlayerData.GameData.UpdateStat("Cozy", -100) != 0)
+                {
+                    CreatePopup("Cozy", -100);
+                }
+            }
+            else if (foodName == "Mysterious Essence")
+            {
+                List<string> types = new List<string> { "Love", "Thirst", "Energy", "Clean", "Cozy", "Health", "Lifeforce", "Soul" };
+                foreach (string t in types)
+                {
+                    if (dataObject.PlayerData.GameData.UpdateStat(t, 55) != 0)
+                    {
+                        CreatePopup(t, 55);
+                    }
+                }
+
+
+            }
+        }
+
 
         if (receiptBlock && receipt)
         {
@@ -183,7 +239,8 @@ public class Hunger : MonoBehaviour
             newBlock.transform.localScale = Vector3.one;
 
             ReceiptBlock rb = newBlock.GetComponent<ReceiptBlock>();
-            if (rb) {
+            if (rb)
+            {
                 if (currentFoodCombo.Food.Effect == "Miscellaneous")
                 {
                     rb.Type = "Miscellaneous";
@@ -210,7 +267,7 @@ public class Hunger : MonoBehaviour
             }
         }
 
-        dataObject.PlayerData.GameData.Appetite = Mathf.Max(0, dataObject.PlayerData.GameData.Appetite -= 25);
+        dataObject.PlayerData.GameData.Appetite.Update(-25);
 
         // SFX
         if (nomSource)
@@ -220,10 +277,15 @@ public class Hunger : MonoBehaviour
             nomSource.Play();
         }
 
+        CreatePopup("Hunger", pointChange);
+    }
+
+    void CreatePopup(string type, int pointChange)
+    {
         float pw = 200f;
         float ph = 50f;
         Vector2 spawnPosition = new Vector2(Random.Range(currentComboText.transform.position.x - pw, currentComboText.transform.position.x + pw),
                                             Random.Range(currentComboText.transform.position.y - ph, currentComboText.transform.position.y + ph));
-        if (ui) ui.SpawnPopup(spawnPosition, "Hunger", pointChange, transform);
+        if (ui) ui.SpawnPopup(spawnPosition, type, pointChange, transform);
     }
 }

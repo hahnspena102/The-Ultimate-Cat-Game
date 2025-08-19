@@ -46,7 +46,7 @@ public class EnergyPlayer : MonoBehaviour
         {
             EnergyParticle ep = collider.gameObject.GetComponent<EnergyParticle>();
             energy.CollectEnergy(ep.EnergyValue, collider.transform.position);
-            Destroy(collider.gameObject, 0.1f);
+            Destroy(collider.gameObject);
         }
         else if (collider.CompareTag("Ground"))
         {

@@ -15,6 +15,8 @@ public class Cozy : MonoBehaviour
 
     [SerializeField] private GameObject previewBall;
     [SerializeField] private Canvas canvas;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip connectionSFX, bonusSFX, resetSFX;
     private GameObject nextBall;
     private Sprite nextSprite;
     private SpriteRenderer previewSpriteRenderer;
@@ -122,6 +124,8 @@ public class Cozy : MonoBehaviour
                     CreateBall(clampedPosition);
                 }
 
+
+
             }
             else
             {
@@ -129,9 +133,9 @@ public class Cozy : MonoBehaviour
             }
         }
 
-        
 
-        
+
+
 
         if (cozyBalls.Count >= maxCozyBall)
         {
@@ -160,6 +164,11 @@ public class Cozy : MonoBehaviour
             }
         }
 
+        if (!bonusText.activeSelf && completeBonus)
+        {
+            Util.PlaySFX(audioSource, bonusSFX, 0f);
+        }
+
         bonusText.SetActive(completeBonus);
     }
 
@@ -174,6 +183,9 @@ public class Cozy : MonoBehaviour
         nextBall = cozyBallPrefabs[Random.Range(0, cozyBallPrefabs.Count)];
         SpriteRenderer sr = nextBall.GetComponent<SpriteRenderer>();
         if (sr) nextSprite = sr.sprite;
+
+        AudioSource src = newBall.GetComponent<AudioSource>();
+        Util.PlaySFX(src, null, 0.2f);
     }
 
 
@@ -202,7 +214,7 @@ public class Cozy : MonoBehaviour
 
     void ResetBasket()
     {
-             
+
         foreach (GameObject go in cozyBalls)
         {
             Destroy(go);
@@ -218,6 +230,12 @@ public class Cozy : MonoBehaviour
                                             Random.Range(canvas.transform.position.y - ph, canvas.transform.position.y + ph));
 
         if (ui) ui.SpawnPopup(spawnPosition, "Cozy", overflowPenalty, canvas.transform);
+
+        Util.PlaySFX(audioSource, resetSFX, 0f);
     }
-    
+
+    public void ConnectionSFX()
+    {
+        Util.PlaySFX(audioSource, connectionSFX, 0.2f);
+    }
 }

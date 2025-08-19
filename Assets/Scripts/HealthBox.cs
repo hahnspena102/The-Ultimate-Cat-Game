@@ -19,8 +19,10 @@ public class HealthBox : MonoBehaviour
     [SerializeField] private bool isOpen;
 
     [SerializeField] private Button button;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip treatmentSFX, cathogenSFX, nullSFX;
 
-    private int healValue = 10;
+    private int healValue = 50;
     private int hurtValue = -100;
 
 
@@ -60,16 +62,18 @@ public class HealthBox : MonoBehaviour
         if (type == "treatment")
         {
             pointChange = healValue;
-
+            Util.PlaySFX(audioSource, treatmentSFX, 0.2f);
             health.CurrentTreatmentFound += 1;
         }
         else if (type == "cathogen")
         {
+            Util.PlaySFX(audioSource, cathogenSFX);
             pointChange = hurtValue;
             StartCoroutine(health.ResetGrid());
         }
         else
         {
+            Util.PlaySFX(audioSource, nullSFX);
             StartCoroutine(health.ResetGrid());
         }
 
