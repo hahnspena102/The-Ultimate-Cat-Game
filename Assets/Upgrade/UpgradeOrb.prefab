@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5557974024281082469}
   - component: {fileID: 8290539706703060159}
+  - component: {fileID: 6480691333418058310}
   - component: {fileID: 7219882703178960785}
   - component: {fileID: 9126043644118165592}
-  - component: {fileID: 6480691333418058310}
   - component: {fileID: 3818465327213431316}
   m_Layer: 0
   m_Name: UpgradeOrb
@@ -48,6 +48,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815302885972407619}
   m_CullTransparentMesh: 1
+--- !u!114 &6480691333418058310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815302885972407619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051cc7dfc4b2181479dd4e192f79cb58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: {fileID: 0}
+  isPurchased: 0
+  dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
+  outline: {fileID: 3818465327213431316}
+  image: {fileID: 7219882703178960785}
+  prerequisiteOrbs: []
+  linePrefab: {fileID: 3364157284232298386, guid: 3cf61b51f59204446b233a1c15ad78fc, type: 3}
+  button: {fileID: 9126043644118165592}
 --- !u!114 &7219882703178960785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +123,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.50671947, g: 0.5154516, b: 0.5566038, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -122,26 +142,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6480691333418058310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815302885972407619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 051cc7dfc4b2181479dd4e192f79cb58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgrade: {fileID: 0}
-  isPurchased: 0
-  dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
-  outline: {fileID: 3818465327213431316}
-  image: {fileID: 7219882703178960785}
-  prerequisiteOrbs: []
-  linePrefab: {fileID: 3364157284232298386, guid: 3cf61b51f59204446b233a1c15ad78fc, type: 3}
-  button: {fileID: 9126043644118165592}
 --- !u!114 &3818465327213431316
 MonoBehaviour:
   m_ObjectHideFlags: 0

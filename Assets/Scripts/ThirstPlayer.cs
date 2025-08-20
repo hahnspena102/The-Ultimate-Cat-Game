@@ -9,7 +9,7 @@ public class ThirstPlayer : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip collectSFX, hurtSFX;
     [SerializeField] private Canvas canvas;
-    
+
     private Rigidbody2D rb;
     private float verticalInput;
     private float speed = 8f;
@@ -40,7 +40,7 @@ public class ThirstPlayer : MonoBehaviour
         }
         animator.SetFloat("movement", Mathf.Abs(rb.linearVelocity.magnitude));
         animator.SetFloat("vertical", rb.linearVelocity.y);
-        
+
 
         if (rb.linearVelocity.x > 0.1f)
         {
@@ -60,6 +60,7 @@ public class ThirstPlayer : MonoBehaviour
 
     void Update()
     {
+        UpdateUpgradeValues();
         if (Input.GetKey(KeyCode.Space) && onGround)
         {
             Jump();
@@ -79,7 +80,7 @@ public class ThirstPlayer : MonoBehaviour
             onGround = true;
         }
     }
-    
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "WaterDrop")
@@ -89,8 +90,12 @@ public class ThirstPlayer : MonoBehaviour
 
             dataObject.PlayerData.GameData.UpdateStat("Thirst", wd.Point);
             dataObject.PlayerData.GameData.UpdatePoints(wd.Point);
+            if (wd.IsGold)
+            {
+                dataObject.PlayerData.GameData.Coins += wd.Point;
+            }
 
-             if (audioSource)
+            if (audioSource)
             {
                 if (wd.Point > 0)
                 {
@@ -112,5 +117,19 @@ public class ThirstPlayer : MonoBehaviour
 
             Destroy(collider.gameObject, 0.01f);
         }
+    }
+
+    void UpdateUpgradeValues()
+    {
+        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
+        if (upgrades[21])
+        {
+            speed = 12f;
+        }
+        else
+        {
+            speed = 8f;
+        }
+        
     }
 }

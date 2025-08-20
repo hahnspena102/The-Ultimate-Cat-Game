@@ -14,9 +14,12 @@ public class Love : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private List<AudioClip> purrs;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private Image image;
+    [SerializeField] private Sprite loveHeartSprite, goldHeartSprite;
+    private int coinValue;
 
-    private float canvasXPadding = 64f;
-    private float canvasYPadding = 400f;
+    private float canvasXPadding;
+    private float canvasYPadding;
     private bool isMoving = false;
     private Vector3 targetPosition;
     private float moveTimer = 0f;
@@ -64,6 +67,7 @@ public class Love : MonoBehaviour
     {
         dataObject.PlayerData.GameData.UpdateStat("Love", heartValue);
         dataObject.PlayerData.GameData.UpdatePoints(heartValue);
+        dataObject.PlayerData.GameData.Coins += coinValue;
 
         if (animator) animator.SetTrigger("purr");
 
@@ -86,7 +90,7 @@ public class Love : MonoBehaviour
             Random.Range(canvasYPadding, Screen.height - canvasYPadding)
         );
 
-        Vector2 localPoint;
+        Vector2 localPoint = randomScreenPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, randomScreenPoint, null, out localPoint);
 
         if (heartTransform != null)
@@ -104,18 +108,44 @@ public class Love : MonoBehaviour
         if (upgrades[2])
         {
             heartValue = 100;
+            heartTransform.localScale = Vector3.one * 2f;
         }
         else if (upgrades[1])
         {
             heartValue = 75;
+            heartTransform.localScale = Vector3.one * 1.5f;
         }
         else if (upgrades[0])
         {
             heartValue = 50;
+            heartTransform.localScale = Vector3.one * 1.25f;
         }
         else
         {
             heartValue = 25;
+            heartTransform.localScale = Vector3.one;
+        }
+
+        if (upgrades[3])
+        {
+            if (image) image.sprite = goldHeartSprite;
+            coinValue = 50;
+        }
+        else
+        {
+            if (image) image.sprite = loveHeartSprite;
+            coinValue = 0;
+        }
+
+        if (upgrades[4])
+        {
+            canvasXPadding = 300f;
+            canvasYPadding = 400f;
+        }
+        else
+        {
+            canvasXPadding = 64f;
+            canvasYPadding = 400f;
         }
         
     }

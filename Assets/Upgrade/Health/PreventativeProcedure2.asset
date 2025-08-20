@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae322050a58b75241b5d8f8b77757a19, type: 3}
-  m_Name: LoveLimit
+  m_Name: PreventativeProcedure2
   m_EditorClassIdentifier: 
-  upgradeName: Love Limit
-  id: 4
-  sprite: {fileID: 64868952, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
-  description: Significantly increases the maximum love and creates a tighter bound
-    on Love Heart spawn positioning.
-  cost: 5000
-  type: Love
+  upgradeName: Preventative Procedure II
+  id: 58
+  sprite: {fileID: -138277207, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
+  description: Increases maximum Health and increases Health gained.
+  cost: 500
+  type: Health
   prerequisites:
-  - {fileID: 11400000, guid: 19030a7b6159fcb43b1628bb5f706749, type: 2}
+  - {fileID: 11400000, guid: 2309e006595b9d943a4969944542d741, type: 2}

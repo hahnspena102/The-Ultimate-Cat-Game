@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 3
   sprite: {fileID: 635664702, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: 'Significantly increases coins per click rate. '
-  cost: 3000
+  cost: 2000
   type: Love
   prerequisites:
   - {fileID: 11400000, guid: 5025fac9dd5d89344ae7f77c406fbbbe, type: 2}

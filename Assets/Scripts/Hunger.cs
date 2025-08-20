@@ -9,84 +9,82 @@ public class Hunger : MonoBehaviour
     [SerializeField] private DataObject dataObject;
     [SerializeField] private HungerTable hungerTable;
     [SerializeField] private TMPro.TextMeshProUGUI currentComboText;
-    [SerializeField] private FoodCombo currentFoodCombo;
+    [SerializeField] private FoodCombo currentFoodCombo, nextFoodCombo;
     [SerializeField] private Transform receipt;
     [SerializeField] private GameObject receiptBlock;
     [SerializeField] private Slider appetiteSlider;
     [SerializeField] private Button feedButton;
     [SerializeField] private List<AudioClip> noms;
     [SerializeField] private AudioSource nomSource;
+    [SerializeField] private Image nextFoodComboFill;
+    [SerializeField] private GameObject futureVision;
     private int maxReceiptBlocks = 10;
     private UI ui;
+    private float elapsedTime;
 
-    void Start()
+    void Awake()
     {
         GameObject go = GameObject.Find("UI");
         if (go) ui = go.GetComponent<UI>();
 
-        StartCoroutine(GeneratorCoroutine());
+        nextFoodCombo = GenerateCombo();
+        GenerateNewCombo();
     }
 
-    void UpdateComboText()
+    void UpdateComboVisuals()
     {
-        int pointChange = currentFoodCombo.Calculate();
 
-        currentComboText.text = currentFoodCombo.ToString();
+        int gluttonGazeLevel = 0;
 
-        Color targetColor = new Color(0f, 0f, 0f, 0f);
-
-        if (dataObject.PlayerData.GameData.Upgrades[9]) // Glutton Gaze 1
+        if (currentComboText)
         {
-            if (currentFoodCombo.Food.Effect == "Miscellaneous")
-            {
-                if (dataObject.PlayerData.GameData.Upgrades[10]) targetColor = new Color(0.380f, 0.961f, 0.980f, 1.000f);
-            }
-            else if (pointChange <= -500)
-            {
-                targetColor = new Color(0.612f, 0.224f, 0.973f, 1.000f);
-            }
-            else if (dataObject.PlayerData.GameData.Upgrades[10]) // Glutton Gaze 2
-            {
-                if (dataObject.PlayerData.GameData.Upgrades[11]) // Glutton Gaze 3
-                {
-                    if (pointChange > 0)
-                    {
-                        float t = Mathf.Clamp01(pointChange / 500f);
-                        targetColor = Color.Lerp(new Color(0.780f, 0.769f, 0.078f, 1.000f), new Color(0.173f, 0.694f, 0.173f, 1.000f), t);
-                    }
-                    else
-                    {
-                        float t = Mathf.Clamp01(-pointChange / 500f);
-                        targetColor = Color.Lerp(new Color(0.827f, 0.565f, 0.075f, 1.000f), new Color(1.000f, 0.161f, 0.161f, 1.000f), t);
-                    }
-                }
-                else
-                {
-                    int bigValueThreshold = 150;
-                    if (pointChange >= bigValueThreshold)
-                    {
-                        targetColor = new Color(0.247f, 0.773f, 0.247f, 1.000f);
-                    }
-                    else if (pointChange <= -bigValueThreshold)
-                    {
-                        targetColor = new Color(1.000f, 0.161f, 0.161f, 1.000f);
-                    }
+                currentComboText.text = currentFoodCombo.ToString();
 
-                }
-
+            Color targetColor = Color.white;
+            if (dataObject.PlayerData.GameData.Upgrades[11])
+            {
+                gluttonGazeLevel = 3;
+            } else if (dataObject.PlayerData.GameData.Upgrades[10])
+            {
+                gluttonGazeLevel = 2;
             }
+            else if (dataObject.PlayerData.GameData.Upgrades[9])
+            {
+                gluttonGazeLevel = 1;
+            }
+
+
+            targetColor = currentFoodCombo.GetColor(gluttonGazeLevel);
+            currentComboText.fontMaterial.SetColor("_OutlineColor", targetColor);
+            currentComboText.fontMaterial.SetFloat("_OutlineWidth", 0.12f);
         }
+        
+        if (nextFoodComboFill)
+        {
+            nextFoodComboFill.color = nextFoodCombo.GetColor(gluttonGazeLevel);
+        }
+    }
 
+    void GenerateNewCombo()
+    {
+        currentFoodCombo = nextFoodCombo;
+        nextFoodCombo = GenerateCombo();
+        elapsedTime = 0f;
 
-        currentComboText.fontMaterial.SetColor("_OutlineColor", targetColor);
-        currentComboText.fontMaterial.SetFloat("_OutlineWidth", 0.12f);
     }
     void Update()
     {
-        if (currentComboText)
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime > 1f)
         {
-            UpdateComboText();
+            GenerateNewCombo();
         }
+        
+        UpdateComboVisuals();
+
+        futureVision.SetActive(dataObject.PlayerData.GameData.Upgrades[15]);
+        
+
 
         if (appetiteSlider && feedButton)
         {
@@ -119,13 +117,6 @@ public class Hunger : MonoBehaviour
         }
 
 
-    }
-
-    IEnumerator GeneratorCoroutine()
-    {
-        currentFoodCombo = GenerateCombo();
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(GeneratorCoroutine());
     }
 
     FoodCombo GenerateCombo()
@@ -278,6 +269,12 @@ public class Hunger : MonoBehaviour
         }
 
         CreatePopup("Hunger", pointChange);
+    }
+
+    public void NextFood()
+    {
+        dataObject.PlayerData.GameData.Appetite.Update(-100);
+        GenerateNewCombo();
     }
 
     void CreatePopup(string type, int pointChange)

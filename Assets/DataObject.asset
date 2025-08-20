@@ -19,25 +19,25 @@ MonoBehaviour:
     gameData:
       catName: Meowser
       breed: breed
-      points: 90864
-      level: 61
-      coins: 5943
+      points: 81977
+      level: 40
+      coins: 19003
       isAlive: 0
       stats:
       - name: Love
-        value: 0
-        maxValue: 1500
+        value: 1846
+        maxValue: 5000
         locked: 0
       - name: Hunger
-        value: 1871
+        value: 1595
         maxValue: 9000
         locked: 0
       - name: Thirst
-        value: 0
-        maxValue: 4800
+        value: 1138
+        maxValue: 1200
         locked: 0
       - name: Energy
-        value: 94
+        value: 0
         maxValue: 1600
         locked: 0
       - name: Clean
@@ -60,19 +60,19 @@ MonoBehaviour:
         value: 0
         maxValue: 5000
         locked: 1
-      upgrades: 010100000000000000010000010100000000010101000000000000010100000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      upgrades: 010101010101010000010101010101010000010000010100000100000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
       appetite:
         name: Appetite
-        value: 1000
-        maxValue: 1000
+        value: 300
+        maxValue: 300
         locked: 0
       energyRespawn:
         name: EnergyRespawn
         value: 15
         maxValue: 15
         locked: 0
-      cleanTimer: 0.20876035
-      cleanPhase: 1
+      cleanTimer: 0.93554676
+      cleanPhase: 2
       cleanX: -4.8175974
       cozySavedBalls:
       - xPos: 2.851561
@@ -115,6 +115,6 @@ MonoBehaviour:
         value: 7
         maxValue: 7
         locked: 0
-  currentStat: Hunger
-  selectedUpgrade: {fileID: 11400000, guid: 680185e5f12b02b44b7f0421db72e5e5, type: 2}
+  currentStat: Thirst
+  selectedUpgrade: {fileID: 11400000, guid: 48d4c7358ee0af545ae589596393c221, type: 2}
   isPaused: 0

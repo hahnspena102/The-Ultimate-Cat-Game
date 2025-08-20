@@ -20,4 +20,4 @@ MonoBehaviour:
   cost: 5000
   type: Clean
   prerequisites:
-  - {fileID: 11400000, guid: 7140147bcea2523459fda1c05e63477a, type: 2}
+  - {fileID: 11400000, guid: 0ba4aee9fab3543498de12ce693d9286, type: 2}

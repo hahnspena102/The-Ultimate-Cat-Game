@@ -421,6 +421,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 27df47b5a70952147a87d561e70352d9, type: 3}
   - {fileID: 8300000, guid: 28bbc893aa44ad146af920a2f5ba5aa9, type: 3}
   audioSource: {fileID: 1204796001}
+  image: {fileID: 1119065147}
+  loveHeartSprite: {fileID: 318547941984410184, guid: a58cac2348726a447aaaaca955cbb18c, type: 3}
+  goldHeartSprite: {fileID: -7507030622288798659, guid: 46bf9ea3758e954498ff1ff82cf83c7b, type: 3}
 --- !u!4 &1204796000
 Transform:
   m_ObjectHideFlags: 0

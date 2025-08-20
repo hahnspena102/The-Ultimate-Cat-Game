@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae322050a58b75241b5d8f8b77757a19, type: 3}
-  m_Name: LoveLimit
+  m_Name: AdvancedAgility
   m_EditorClassIdentifier: 
-  upgradeName: Love Limit
-  id: 4
-  sprite: {fileID: 64868952, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
-  description: Significantly increases the maximum love and creates a tighter bound
-    on Love Heart spawn positioning.
-  cost: 5000
-  type: Love
+  upgradeName: AdvancedAgility
+  id: 21
+  sprite: {fileID: 313801645, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
+  description: Enhances the agility of the cat, granting it increased speed and leaping
+    power.
+  cost: 3500
+  type: Thirst
   prerequisites:
-  - {fileID: 11400000, guid: 19030a7b6159fcb43b1628bb5f706749, type: 2}
+  - {fileID: 11400000, guid: ee3c07198d3268c418b2b364441d3190, type: 2}

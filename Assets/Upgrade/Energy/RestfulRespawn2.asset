@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae322050a58b75241b5d8f8b77757a19, type: 3}
-  m_Name: LoveLimit
+  m_Name: RestfulRespawn2
   m_EditorClassIdentifier: 
-  upgradeName: Love Limit
-  id: 4
-  sprite: {fileID: 64868952, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
-  description: Significantly increases the maximum love and creates a tighter bound
-    on Love Heart spawn positioning.
-  cost: 5000
-  type: Love
+  upgradeName: Restful Respawn II
+  id: 31
+  sprite: {fileID: 1110878278, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
+  description: Decreases the respawn timer.
+  cost: 3600
+  type: Energy
   prerequisites:
-  - {fileID: 11400000, guid: 19030a7b6159fcb43b1628bb5f706749, type: 2}
+  - {fileID: 11400000, guid: 4c4a9e4cb1f614844b3c3ee7eba8ca46, type: 2}

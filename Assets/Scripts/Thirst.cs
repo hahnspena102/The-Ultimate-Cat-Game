@@ -44,6 +44,19 @@ public class Thirst : MonoBehaviour
         if (wd)
         {
             wd.Point = Random.Range(lowerBound, upperBound + 1);
+
+            // Aquatic Alchemy 1
+            if (dataObject.PlayerData.GameData.Upgrades[22])
+            {
+                int randomInt = Random.Range(0, 10);
+                if (randomInt == 0)
+                {
+                    wd.Point = Mathf.Abs(wd.Point);
+                    wd.IsGold = true;
+                }
+            }
+                
+            
         }
 
         Vector2 randomScreenPoint = new Vector2(

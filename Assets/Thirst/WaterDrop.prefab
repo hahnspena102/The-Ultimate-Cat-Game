@@ -278,8 +278,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0df39ef70dccc4a935826d343f4e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point: -20
   textBox: {fileID: 2049932399294733356}
+  point: -20
+  goldDropSprite: {fileID: -8232302165697046273, guid: 83c965397e986fa48b6d607d7860cf03, type: 3}
+  isGold: 0
 --- !u!1 &8315093119976725575
 GameObject:
   m_ObjectHideFlags: 0

@@ -106,4 +106,53 @@ public class FoodCombo
         }
         return $"{adjective.AdjectiveName} {food.FoodName}";
     }
+
+    public Color GetColor(int gluttonGazeLevel)
+    {
+        int pointChange = this.Calculate();
+        Color targetColor = new Color(0f, 0f, 0f, 0f);
+
+        if (gluttonGazeLevel >= 1) // Glutton Gaze 1
+        {
+            if (this.Food.Effect == "Miscellaneous")
+            {
+                if (gluttonGazeLevel >= 2) targetColor = new Color(0.380f, 0.961f, 0.980f, 1.000f);
+            }
+            else if (pointChange <= -500)
+            {
+                targetColor = new Color(0.612f, 0.224f, 0.973f, 1.000f);
+            }
+            else if (gluttonGazeLevel >= 2) // Glutton Gaze 2
+            {
+                if (gluttonGazeLevel >= 3) // Glutton Gaze 3
+                {
+                    if (pointChange > 0)
+                    {
+                        float t = Mathf.Clamp01(pointChange / 500f);
+                        targetColor = Color.Lerp(new Color(0.780f, 0.769f, 0.078f, 1.000f), new Color(0.173f, 0.694f, 0.173f, 1.000f), t);
+                    }
+                    else
+                    {
+                        float t = Mathf.Clamp01(-pointChange / 500f);
+                        targetColor = Color.Lerp(new Color(0.827f, 0.565f, 0.075f, 1.000f), new Color(1.000f, 0.161f, 0.161f, 1.000f), t);
+                    }
+                }
+                else
+                {
+                    int bigValueThreshold = 150;
+                    if (pointChange >= bigValueThreshold)
+                    {
+                        targetColor = new Color(0.247f, 0.773f, 0.247f, 1.000f);
+                    }
+                    else if (pointChange <= -bigValueThreshold)
+                    {
+                        targetColor = new Color(1.000f, 0.161f, 0.161f, 1.000f);
+                    }
+
+                }
+
+            }
+        }
+        return targetColor;
+    }
 }

@@ -18,6 +18,8 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler
     [SerializeField] private Button button;
     private List<Image> prereqLines = new List<Image>();
 
+    private bool hasPrerequisites = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,14 +34,34 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler
 
     void Update()
     {
+        if (upgrade == null) return;
+
+        CheckPrerequisites();
+
         isPurchased = dataObject.PlayerData.GameData.Upgrades[upgrade.Id];
-        Color statColor = UI.StatToColorMap[upgrade.Type];
+        Color statColor = Color.white;
+        if (UI.StatToColorMap != null)
+        {
+            statColor = UI.StatToColorMap[upgrade.Type];
+        }
+
+
 
         button.interactable = !dataObject.PlayerData.GameData.GetIsLocked(upgrade.Type);
+
+
 
         if (dataObject.PlayerData.GameData.GetIsLocked(upgrade.Type))
         {
             image.color = new Color(1f, 1f, 1f, 0f);
+            foreach (Image i in prereqLines)
+            {
+                i.color = new Color(1f, 1f, 1f, 0f);
+            }
+        }
+        else if (!hasPrerequisites)
+        {
+            image.color = new Color(1f, 1f, 1f, 0.1f);
             foreach (Image i in prereqLines)
             {
                 i.color = new Color(1f, 1f, 1f, 0f);
@@ -65,6 +87,24 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler
         }
 
     
+    }
+
+    public void CheckPrerequisites()
+    {
+        hasPrerequisites = true;
+        if (upgrade.Prerequisites.Count == 0)
+        {
+            hasPrerequisites = true;
+            return;
+        }
+        foreach (Upgrade u in upgrade.Prerequisites)
+        {
+            if (!dataObject.PlayerData.GameData.Upgrades[u.Id])
+            {
+                hasPrerequisites = false;
+                return;
+            }
+        }
     }
 
     public void FindPrerequisiteOrbs()

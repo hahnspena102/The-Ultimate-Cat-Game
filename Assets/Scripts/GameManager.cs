@@ -139,6 +139,12 @@ public class GameManager : MonoBehaviour
             love.MaxValue = 750;
         }
 
+        if (upgrades[4])
+        { 
+            love.MaxValue = 5000;
+        }
+
+
         // Hunger
         Stat hunger = dataObject.PlayerData.GameData.Stats[1];
         if (upgrades[13])
