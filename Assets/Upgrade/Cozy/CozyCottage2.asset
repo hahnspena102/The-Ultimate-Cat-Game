@@ -15,7 +15,8 @@ MonoBehaviour:
   upgradeName: Cozy Cottage II
   id: 46
   sprite: {fileID: -1693943608, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
-  description: Increases maximum Cozy and increases coziness gained from a connection.
+  description: Increases maximum Cozy and maximum Capacity, and reduces the time
+    between Cozy Balls.
   cost: 5000
   type: Cozy
   prerequisites:

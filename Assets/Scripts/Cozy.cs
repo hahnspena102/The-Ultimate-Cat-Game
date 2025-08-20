@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-
+using TMPro;
 public class Cozy : MonoBehaviour
 {
     [SerializeField] private DataObject dataObject;
@@ -17,6 +17,8 @@ public class Cozy : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip connectionSFX, bonusSFX, resetSFX;
+    [SerializeField] private TextMeshProUGUI multiplierTextMesh;
+    [SerializeField] private TextMeshProUGUI bonusTimerTextMesh;
     private GameObject nextBall;
     private Sprite nextSprite;
     private SpriteRenderer previewSpriteRenderer;
@@ -30,10 +32,19 @@ public class Cozy : MonoBehaviour
     private float elapsedTime = 0f;
     private float cooldown = 1f;
 
+    private float cozyMultiplier;
+    private int cozyValue;
+    private float bonusDuration = 30f;
+
     private readonly string[] cozyBallLabels =
     {
         "warmth", "bed", "tower", "yarn", "aroma", "mouse", "brush", "blanket", "star"
     };
+
+    public global::System.Single CozyMultiplier { get => cozyMultiplier; set => cozyMultiplier = value; }
+    public global::System.Int32 CozyValue { get => cozyValue; set => cozyValue = value; }
+    public global::System.Single BonusDuration { get => bonusDuration; set => bonusDuration = value; }
+
     void Awake()
     {
         GameObject go = GameObject.Find("UI");
@@ -101,6 +112,27 @@ public class Cozy : MonoBehaviour
 
     void Update()
     {
+        UpdateUpgradeValues();
+
+        // BONUS
+        bool completeBonus = true;
+        foreach (bool b in dataObject.PlayerData.GameData.CozyBonus)
+        {
+            if (!b)
+            {
+                completeBonus = false;
+                break;
+            }
+        }
+        if (dataObject.PlayerData.GameData.CozyBonusTimer <= 0) cozyMultiplier = 1f;
+
+        if (multiplierTextMesh) multiplierTextMesh.text = $"x{cozyMultiplier} Bonus";
+        if (bonusTimerTextMesh) bonusTimerTextMesh.text = dataObject.PlayerData.GameData.CozyBonusTimer > 0 ? $"{Mathf.RoundToInt(dataObject.PlayerData.GameData.CozyBonusTimer)}" : "";
+
+        dataObject.PlayerData.GameData.CozyBonusTimer = Mathf.Max(0, dataObject.PlayerData.GameData.CozyBonusTimer - Time.deltaTime);
+        
+
+
         elapsedTime += Time.deltaTime;
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -154,22 +186,14 @@ public class Cozy : MonoBehaviour
             ? new Color(1f, 1f, 1f, 1) : new Color(1f, 1f, 1f, 0.1f);
         }
 
-        bool completeBonus = true;
-        foreach (bool b in dataObject.PlayerData.GameData.CozyBonus)
-        {
-            if (!b)
-            {
-                completeBonus = false;
-                break;
-            }
-        }
-
         if (!bonusText.activeSelf && completeBonus)
         {
+            dataObject.PlayerData.GameData.CozyBonus = new List<bool> { false, false, false, false, false, false, false, false };
+            dataObject.PlayerData.GameData.CozyBonusTimer = bonusDuration;
             Util.PlaySFX(audioSource, bonusSFX, 0f);
         }
 
-        bonusText.SetActive(completeBonus);
+        bonusText.SetActive(dataObject.PlayerData.GameData.CozyBonusTimer > 0f);
     }
 
     void CreateBall(Vector2 clampedPosition)
@@ -221,7 +245,7 @@ public class Cozy : MonoBehaviour
         }
         cozyBalls = new List<GameObject>();
 
-        dataObject.PlayerData.GameData.CozyBonus = new List<bool> { false, false, false, false, false, false, false, false };
+        dataObject.PlayerData.GameData.CozyBonus = new List<bool> { false, false, false, false, false, false, false, false, false };
 
         dataObject.PlayerData.GameData.UpdateStat("Cozy", overflowPenalty);
         float pw = 100f;
@@ -237,5 +261,47 @@ public class Cozy : MonoBehaviour
     public void ConnectionSFX()
     {
         Util.PlaySFX(audioSource, connectionSFX, 0.2f);
+    }
+
+    void UpdateUpgradeValues()
+    {
+        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
+
+        if (upgrades[47])
+        {
+            cooldown = 0.25f;
+            maxCozyBall = 60;
+        }
+        else if (upgrades[46])
+        {
+            cooldown = 0.5f;
+            maxCozyBall = 50;
+        }
+        else if (upgrades[45])
+        {
+            cooldown = 0.75f;
+            maxCozyBall = 40;
+        }
+        else
+        {
+            cooldown = 1f;
+            maxCozyBall = 30;
+        }
+        
+        if (upgrades[51])
+        {
+            cozyValue = 100;
+            cozyMultiplier = 4f;
+        }
+        else if (upgrades[50])
+        {
+            cozyValue = 75;
+            cozyMultiplier = 3f;
+        }
+        else 
+        {
+            cozyValue = 50;
+            cozyMultiplier = 2f;
+        }
     }
 }

@@ -11,6 +11,8 @@ public class CozyBall : MonoBehaviour
     private Cozy cozyOwner;
     private UI ui;
 
+    private int cozyValue;
+
     public global::System.String Type { get => type; set => type = value; }
 
     private Dictionary<string, int> labelToIndex = new Dictionary<string, int>
@@ -27,10 +29,10 @@ public class CozyBall : MonoBehaviour
 
     public void Start()
     {
-      
+
     }
 
-     public void SetOwner(Cozy cozy)
+    public void SetOwner(Cozy cozy)
     {
         cozyOwner = cozy;
     }
@@ -61,30 +63,23 @@ public class CozyBall : MonoBehaviour
                         Destroy(ball.gameObject);
                     }
 
-                    bool completeBonus = true;
-                    foreach (bool b in dataObject.PlayerData.GameData.CozyBonus)
-                    {
-                        if (!b)
-                        {
-                            completeBonus = false;
-                            break;
-                        }
-                    }
+                    
 
-                    float pointChange = 50f * connectedBalls.Count;
+                    float pointChange =  cozyOwner.CozyValue* connectedBalls.Count;
 
-                    if (completeBonus) pointChange *= 2f;
-            
+                    pointChange *= cozyOwner.CozyMultiplier;
+
                     cozyOwner.CreatePopup(Camera.main.WorldToScreenPoint(transform.position), Mathf.FloorToInt(pointChange));
                     dataObject.PlayerData.GameData.UpdateStat("Cozy", Mathf.FloorToInt(pointChange));
                     dataObject.PlayerData.GameData.UpdatePoints(Mathf.FloorToInt(pointChange));
 
                     cozyOwner.ConnectionSFX();
-                    
-                    
+
+
 
                     if (type != "star")
                     {
+
                         dataObject.PlayerData.GameData.CozyBonus[labelToIndex[this.type]] = true;
                     }
                 }
@@ -109,4 +104,6 @@ public class CozyBall : MonoBehaviour
             }
         }
     }
+
+
 }

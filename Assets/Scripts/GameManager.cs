@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
         }
 
         if (upgrades[4])
-        { 
+        {
             love.MaxValue = 5000;
         }
 
@@ -183,15 +183,37 @@ public class GameManager : MonoBehaviour
             thirst.MaxValue = 600;
         }
 
+        // Energy
+        Stat energy = dataObject.PlayerData.GameData.Stats[3];
+        if (upgrades[31])
+        {
+            dataObject.PlayerData.GameData.EnergyRespawn.MaxValue = 5;
+
+        }
+        else if (upgrades[30])
+        {
+            dataObject.PlayerData.GameData.EnergyRespawn.MaxValue = 10;
+        }
+        else
+        {
+            dataObject.PlayerData.GameData.EnergyRespawn.MaxValue = 15;
+        }
+
         // Clean
         Stat clean = dataObject.PlayerData.GameData.Stats[4];
-        if (upgrades[39])
+        if (upgrades[40])
+        {
+            clean.MaxValue = 8000;
+        }
+        else if (upgrades[39])
         {
             clean.MaxValue = 4000;
         }
         else
         {
-             clean.MaxValue = 2000;
+            clean.MaxValue = 2000;
         }
+        
+    
     }
 }

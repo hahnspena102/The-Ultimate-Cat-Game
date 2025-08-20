@@ -39,7 +39,17 @@ public class CleanPlayer : MonoBehaviour
         {
             if (dataObject.PlayerData.GameData.CleanPhase == 2)
             {
-                transform.localPosition = originalPos;
+                
+
+                // Trusting Temperament
+                if (dataObject.PlayerData.GameData.Upgrades[41])
+                {
+                    transform.localPosition = new Vector2(Mathf.Max(transform.localPosition.x - 0.5f, originalPos.x), transform.localPosition.y);
+                }
+                else
+                {
+                    transform.localPosition = originalPos;
+                }
                 if (audioSource)
                 {
                     audioSource.clip = caughtSFX;
@@ -112,7 +122,11 @@ public class CleanPlayer : MonoBehaviour
             boostSpeed = 4;
         }
 
-        if (upgrades[39])
+        if (upgrades[40])
+        {
+            cleanValue = 1000;
+        }
+        else if (upgrades[39])
         {
             cleanValue = 750;
         }

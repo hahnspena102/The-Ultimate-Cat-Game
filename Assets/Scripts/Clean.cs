@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class Clean : MonoBehaviour
 {
@@ -64,11 +67,35 @@ public class Clean : MonoBehaviour
         animator.SetInteger("phase", dataObject.PlayerData.GameData.CleanPhase);
 
     }
-    
+
     public void PlaySFX()
     {
         audioSource.pitch = Random.Range(1.00f - 0.10f, 1.00f + 0.10f);
         audioSource.Play();
+    }
+    
+    void UpdateUpgradeValues()
+    {
+        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
+
+        if (upgrades[41])
+        {
+            greenLower = 4f;
+            greenUpper = 10f;
+
+            redLower = 0.5f;
+            redUpper = 1f;
+        }
+        else
+        {
+            greenLower = 1f;
+            greenUpper = 8f;
+
+            redLower = 1f;
+            redUpper = 3f;
+        }
+            
+        
     }
 
 }

@@ -19,22 +19,22 @@ MonoBehaviour:
     gameData:
       catName: Meowser
       breed: breed
-      points: 81977
-      level: 40
-      coins: 19003
+      points: 205614
+      level: 85
+      coins: 13423
       isAlive: 0
       stats:
       - name: Love
-        value: 1846
+        value: 0
         maxValue: 5000
         locked: 0
       - name: Hunger
-        value: 1595
+        value: 29
         maxValue: 9000
         locked: 0
       - name: Thirst
-        value: 1138
-        maxValue: 1200
+        value: 0
+        maxValue: 4800
         locked: 0
       - name: Energy
         value: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
         maxValue: 2000
         locked: 0
       - name: Cozy
-        value: 0
+        value: 2183
         maxValue: 2400
         locked: 0
       - name: Health
@@ -60,7 +60,7 @@ MonoBehaviour:
         value: 0
         maxValue: 5000
         locked: 1
-      upgrades: 010101010101010000010101010101010000010000010100000100000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      upgrades: 010101010101010000010101010101010000010101010100000100010101010101000000010101000001000000010101010101010101010101010000000000000000000000000000000000000000000000
       appetite:
         name: Appetite
         value: 300
@@ -68,46 +68,75 @@ MonoBehaviour:
         locked: 0
       energyRespawn:
         name: EnergyRespawn
-        value: 15
-        maxValue: 15
+        value: 5
+        maxValue: 5
         locked: 0
-      cleanTimer: 0.93554676
-      cleanPhase: 2
-      cleanX: -4.8175974
+      cleanTimer: 0.3667234
+      cleanPhase: 1
+      cleanX: -4.3685446
       cozySavedBalls:
-      - xPos: 2.851561
-        yPos: 2.2017994
-        rotation: -103.26751
-        type: tower
-      - xPos: -3.5866075
-        yPos: 2.2017996
-        rotation: -20.854479
-        type: mouse
-      - xPos: 3.6309366
-        yPos: 2.2018023
-        rotation: -45.586086
-        type: bed
-      - xPos: -1.5336053
-        yPos: 2.2017996
-        rotation: -141.43025
-        type: mouse
-      - xPos: 2.0518794
-        yPos: 2.2017996
-        rotation: 148.27942
+      - xPos: -2.9388797
+        yPos: 2.201816
+        rotation: -8.204495
         type: yarn
-      - xPos: 2.448835
-        yPos: 2.7723548
-        rotation: 120.132835
-        type: warmth
-      - xPos: 1.3458778
-        yPos: 2.2017999
-        rotation: 121.91198
-        type: tower
-      - xPos: -2.2292347
-        yPos: 2.2017996
-        rotation: -168.24353
+      - xPos: 3.1735168
+        yPos: 2.201784
+        rotation: 85.92615
         type: aroma
-      cozyBonus: 0101010101010101
+      - xPos: -1.549188
+        yPos: 2.2017992
+        rotation: -2.4086425
+        type: bed
+      - xPos: 0.5352215
+        yPos: 2.201795
+        rotation: -77.71385
+        type: bed
+      - xPos: 2.4785345
+        yPos: 2.2018003
+        rotation: 72.20565
+        type: brush
+      - xPos: 2.8292184
+        yPos: 2.8055134
+        rotation: -92.440384
+        type: mouse
+      - xPos: 1.2256693
+        yPos: 2.280506
+        rotation: -29.154568
+        type: tower
+      - xPos: -3.6342313
+        yPos: 2.203165
+        rotation: -172.19061
+        type: brush
+      - xPos: 1.8706778
+        yPos: 2.5412364
+        rotation: -28.961382
+        type: mouse
+      - xPos: -0.8544116
+        yPos: 2.2018023
+        rotation: 15.099044
+        type: tower
+      - xPos: -0.15962476
+        yPos: 2.2019615
+        rotation: -174.92809
+        type: brush
+      - xPos: 0.18696526
+        yPos: 2.804358
+        rotation: -163.15741
+        type: brush
+      - xPos: -1.204245
+        yPos: 2.8064919
+        rotation: -33.161015
+        type: tower
+      - xPos: -2.2439792
+        yPos: 2.2054043
+        rotation: 125.66755
+        type: bed
+      - xPos: 3.6344016
+        yPos: 2.721931
+        rotation: -119.43975
+        type: aroma
+      cozyBonus: 0101000101010001
+      cozyBonusTimer: 0
       soulX: 0
       soulY: 0
       soulBullets:
@@ -115,6 +144,6 @@ MonoBehaviour:
         value: 7
         maxValue: 7
         locked: 0
-  currentStat: Thirst
-  selectedUpgrade: {fileID: 11400000, guid: 48d4c7358ee0af545ae589596393c221, type: 2}
+  currentStat: Clean
+  selectedUpgrade: {fileID: 11400000, guid: db4cd2a09a7f408409ad3c15ab1471a9, type: 2}
   isPaused: 0

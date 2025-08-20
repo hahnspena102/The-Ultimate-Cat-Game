@@ -17,7 +17,7 @@ public class Energy : MonoBehaviour
     private float timeMax = 2f;
     private bool isAlive = true;
     private float timeElapsed;
-    private int growthRate = 100;
+    private int growthRate = 200;
 
     private UI ui;
 
@@ -48,7 +48,7 @@ public class Energy : MonoBehaviour
         {
             if (!isAlive)
             {
-                respawnTimer.text = $"Your cat has awaken! \nDream starting in {15 - dataObject.PlayerData.GameData.EnergyRespawn.Value} seconds...";
+                respawnTimer.text = $"Your cat has awaken! \nDream starting in {dataObject.PlayerData.GameData.EnergyRespawn.MaxValue - dataObject.PlayerData.GameData.EnergyRespawn.Value} seconds...";
             }
             respawnTimer.gameObject.SetActive(!isAlive);
         }

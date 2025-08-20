@@ -20,6 +20,7 @@ public class GameData
     [SerializeField] private float cleanX;
     [SerializeField] private List<CozySavedBall> cozySavedBalls;
     [SerializeField] private List<bool> cozyBonus;
+    [SerializeField] private float cozyBonusTimer;
     [SerializeField] private float soulX, soulY;
     [SerializeField] private Stat soulBullets;
 
@@ -55,7 +56,8 @@ public class GameData
         this.appetite = new Stat("Appetite", 100);
         this.EnergyRespawn = new Stat("EnergyRespawn", 15);
         this.CozySavedBalls = new List<CozySavedBall>();
-        this.cozyBonus = new List<bool> { false, false, false, false, false, false, false, false };
+        this.CozyBonusTimer = 0f;
+        this.cozyBonus = new List<bool> { false, false, false, false, false, false, false, false};
         this.soulBullets = new Stat("SoulBullets", 7);
 
 
@@ -144,11 +146,12 @@ public class GameData
     public global::System.Int32 CleanPhase { get => cleanPhase; set => cleanPhase = value; }
     public global::System.Single CleanX { get => cleanX; set => cleanX = value; }
     public List<CozySavedBall> CozySavedBalls { get => cozySavedBalls; set => cozySavedBalls = value; }
-    public List<global::System.Boolean> CozyBonus { get => cozyBonus; set => cozyBonus = value; }
     public global::System.Single SoulX { get => soulX; set => soulX = value; }
     public global::System.Single SoulY { get => soulY; set => soulY = value; }
     public Stat SoulBullets { get => soulBullets; set => soulBullets = value; }
     public List<global::System.Boolean> Upgrades { get => upgrades; set => upgrades = value; }
     public global::System.Boolean IsAlive { get => isAlive; set => isAlive = value; }
     public Stat Appetite { get => appetite; set => appetite = value; }
+    public List<global::System.Boolean> CozyBonus { get => cozyBonus; set => cozyBonus = value; }
+    public global::System.Single CozyBonusTimer { get => cozyBonusTimer; set => cozyBonusTimer = value; }
 }

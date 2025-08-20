@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class EnergyPlayer : MonoBehaviour
 {
@@ -16,6 +19,7 @@ public class EnergyPlayer : MonoBehaviour
     {
         GameObject go = GameObject.Find("UI");
         if (go) ui = go.GetComponent<UI>();
+        
 
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
@@ -26,6 +30,8 @@ public class EnergyPlayer : MonoBehaviour
 
     void Update()
     {
+        UpdateUpgradeValues();
+
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
     }
@@ -58,6 +64,25 @@ public class EnergyPlayer : MonoBehaviour
     void AwakenPlayer()
     {
         dataObject.PlayerData.GameData.EnergyRespawn.Value = 0;
+    }
+
+    void UpdateUpgradeValues()
+    {
+
+        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
+
+        if (upgrades[32])
+        {
+            verticalSpeed = 12f;
+            horizontalSpeed = 10f;
+        }
+        else
+        {
+            verticalSpeed = 8f;
+            horizontalSpeed = 6f;
+        }
+            
+        
     }
 
 }
