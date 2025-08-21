@@ -17,7 +17,7 @@ MonoBehaviour:
   sprite: {fileID: -1693943608, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Increases maximum Cozy and maximum Capacity, and reduces the time
     between Cozy Balls.
-  cost: 5000
+  cost: 1200
   type: Cozy
   prerequisites:
   - {fileID: 11400000, guid: 7e500e4051d779c499d10501a671aabf, type: 2}

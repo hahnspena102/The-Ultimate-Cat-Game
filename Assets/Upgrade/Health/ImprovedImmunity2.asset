@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 55
   sprite: {fileID: 368244249, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Increases maximum Health and increases Health gained.
-  cost: 500
+  cost: 2000
   type: Health
   prerequisites:
   - {fileID: 11400000, guid: d4dcfd55d08a9614d8b2a34d081cedda, type: 2}

@@ -290,12 +290,12 @@ public class Cozy : MonoBehaviour
         
         if (upgrades[51])
         {
-            cozyValue = 100;
+            cozyValue = 200;
             cozyMultiplier = 4f;
         }
         else if (upgrades[50])
         {
-            cozyValue = 75;
+            cozyValue = 100;
             cozyMultiplier = 3f;
         }
         else 

@@ -17,7 +17,7 @@ MonoBehaviour:
   sprite: {fileID: -1224888411, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Creates a chance for Raindrops to turn into gold, providing both hydration
     and Cat Coins.
-  cost: 3500
+  cost: 4500
   type: Thirst
   prerequisites:
   - {fileID: 11400000, guid: cd7d3cbe4157bb54c92fa422d1bf362d, type: 2}

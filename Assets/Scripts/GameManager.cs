@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float decayRate = 1; // Occurrences per second
     [SerializeField] private HungerTable hungerTable;
 
-    private float decayMultiplier = 0.1f; //The higher, the faster
+    private float decayMultiplier = 0.2f; //The higher, the faster
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         {
             if (stat.Value == 0)
             {
-               // Lose();
+               Lose();
             }
         }
         
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
         if ((float)stat.Value / (float)stat.MaxValue <= 0.05f)
         {
-            stat.Update(-1);
+            stat.Update(-Random.Range(1, 6));
 
             yield return new WaitForSeconds(1f);
             StartCoroutine(StatCoroutine(stat));
@@ -212,6 +212,44 @@ public class GameManager : MonoBehaviour
         else
         {
             clean.MaxValue = 2000;
+        }
+
+        // Cozy
+        Stat cozy = dataObject.PlayerData.GameData.Stats[5];
+        if (upgrades[47])
+        {
+            cozy.MaxValue = 12000;
+        }
+        else if (upgrades[46])
+        {
+            cozy.MaxValue = 9600;
+        } 
+        else if (upgrades[45])
+        {
+            cozy.MaxValue = 4800;
+        }
+        else
+        {
+            cozy.MaxValue = 2400;
+        }
+
+        // Health
+        Stat health = dataObject.PlayerData.GameData.Stats[6];
+        if (upgrades[56])
+        {
+            health.MaxValue = 15000;
+        }
+        else if (upgrades[55])
+        {
+            health.MaxValue = 8000;
+        }
+        else if (upgrades[54])
+        {
+            health.MaxValue = 5000;
+        }
+        else
+        {
+            health.MaxValue = 3000;
         }
         
     

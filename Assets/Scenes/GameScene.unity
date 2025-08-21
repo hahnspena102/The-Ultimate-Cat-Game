@@ -2417,9 +2417,9 @@ MonoBehaviour:
   m_fontSize: 64
   m_fontSizeBase: 64
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 64
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -2483,7 +2483,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 252, y: -51}
-  m_SizeDelta: {x: 595.5545, y: 113.1199}
+  m_SizeDelta: {x: 868.051, y: 113.12}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &915816470
 GameObject:

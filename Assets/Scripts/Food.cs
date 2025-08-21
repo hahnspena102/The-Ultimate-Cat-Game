@@ -48,7 +48,7 @@ public class FoodCombo
 
         if (food.Effect == "Good")
         {
-            output = adjective.Multiplier * 20 * food.BasePoints;
+            output = adjective.Multiplier * 25 * food.BasePoints;
         }
 
         else if (food.Effect == "Bad")

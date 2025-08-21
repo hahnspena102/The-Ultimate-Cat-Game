@@ -20,4 +20,4 @@ MonoBehaviour:
   cost: 5000
   type: Cozy
   prerequisites:
-  - {fileID: 11400000, guid: 7e500e4051d779c499d10501a671aabf, type: 2}
+  - {fileID: 11400000, guid: d17689ce12cc66b478d6326c9fb060e2, type: 2}

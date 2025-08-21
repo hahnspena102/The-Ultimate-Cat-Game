@@ -22,10 +22,6 @@ public class HealthBox : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip treatmentSFX, cathogenSFX, nullSFX;
 
-    private int healValue = 50;
-    private int hurtValue = -100;
-
-
     private Health health;
 
     private float fadeDuration = 0.65f;
@@ -61,14 +57,14 @@ public class HealthBox : MonoBehaviour
         int pointChange = 0;
         if (type == "treatment")
         {
-            pointChange = healValue;
+            pointChange = health.HealValue;
             Util.PlaySFX(audioSource, treatmentSFX, 0.2f);
             health.CurrentTreatmentFound += 1;
         }
         else if (type == "cathogen")
         {
             Util.PlaySFX(audioSource, cathogenSFX);
-            pointChange = hurtValue;
+            pointChange = health.HurtValue;
             StartCoroutine(health.ResetGrid());
         }
         else
@@ -130,7 +126,7 @@ public class HealthBox : MonoBehaviour
     public void Randomize()
     {
         List<string> types = new List<string> { "treatment", "cathogen", "none" };
-        List<float> odds = new List<float> { 20f, 30f, 50f };
+        List<float> odds = health.Odds;
 
         float totalWeight = 0f;
         foreach (float weight in odds)

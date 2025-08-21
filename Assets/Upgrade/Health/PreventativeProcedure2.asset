@@ -15,8 +15,8 @@ MonoBehaviour:
   upgradeName: Preventative Procedure II
   id: 58
   sprite: {fileID: -138277207, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
-  description: Increases maximum Health and increases Health gained.
-  cost: 500
+  description: 'Reduces Cathogen spawn rates. '
+  cost: 1200
   type: Health
   prerequisites:
   - {fileID: 11400000, guid: 2309e006595b9d943a4969944542d741, type: 2}

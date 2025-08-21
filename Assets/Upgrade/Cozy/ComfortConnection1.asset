@@ -17,7 +17,7 @@ MonoBehaviour:
   sprite: {fileID: 651230983, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: 'Increases coziness gained from a connection and bonus multiplier
     when the Cozy collection is complete. '
-  cost: 5000
+  cost: 2500
   type: Cozy
   prerequisites:
-  - {fileID: 11400000}
+  - {fileID: 11400000, guid: 7e500e4051d779c499d10501a671aabf, type: 2}

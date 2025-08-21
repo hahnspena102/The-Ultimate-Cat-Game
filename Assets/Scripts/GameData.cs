@@ -26,7 +26,7 @@ public class GameData
 
     public GameData()
     {
-        this.catName = "Meowser";
+        this.catName = "";
         this.breed = "breed";
         this.points = 0;
         this.level = 1;
@@ -120,7 +120,7 @@ public class GameData
     }
 
     private float thresholdMultiplier = 1000;
-    private float thresholdPower = 1.2f;
+    private float thresholdPower = 1.4f;
     public void UpdateLevel()
     {
         this.level = 1 + Mathf.FloorToInt(Mathf.Pow(points / thresholdMultiplier, 1f / thresholdPower));

@@ -14,128 +14,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData:
     username: user
-    highScore: 132869
+    highScore: 55
     deathCount: 0
     gameData:
       catName: Meowser
       breed: breed
-      points: 205614
-      level: 85
-      coins: 13423
-      isAlive: 0
+      points: 55
+      level: 1
+      coins: 5
+      isAlive: 1
       stats:
       - name: Love
-        value: 0
-        maxValue: 5000
+        value: 749
+        maxValue: 750
         locked: 0
       - name: Hunger
-        value: 29
-        maxValue: 9000
-        locked: 0
+        value: 997
+        maxValue: 1000
+        locked: 1
       - name: Thirst
-        value: 0
-        maxValue: 4800
-        locked: 0
+        value: 599
+        maxValue: 600
+        locked: 1
       - name: Energy
-        value: 0
+        value: 1597
         maxValue: 1600
-        locked: 0
+        locked: 1
       - name: Clean
-        value: 0
+        value: 1995
         maxValue: 2000
-        locked: 0
+        locked: 1
       - name: Cozy
-        value: 2183
+        value: 2397
         maxValue: 2400
-        locked: 0
+        locked: 1
       - name: Health
-        value: 0
+        value: 2996
         maxValue: 3000
-        locked: 0
+        locked: 1
       - name: Soul
-        value: 0
+        value: 3996
         maxValue: 4000
         locked: 1
       - name: Lifeforce
-        value: 0
+        value: 4996
         maxValue: 5000
         locked: 1
-      upgrades: 010101010101010000010101010101010000010101010100000100010101010101000000010101000001000000010101010101010101010101010000000000000000000000000000000000000000000000
+      upgrades: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
       appetite:
         name: Appetite
-        value: 300
-        maxValue: 300
+        value: 100
+        maxValue: 100
         locked: 0
       energyRespawn:
         name: EnergyRespawn
-        value: 5
-        maxValue: 5
+        value: 15
+        maxValue: 15
         locked: 0
-      cleanTimer: 0.3667234
-      cleanPhase: 1
-      cleanX: -4.3685446
-      cozySavedBalls:
-      - xPos: -2.9388797
-        yPos: 2.201816
-        rotation: -8.204495
-        type: yarn
-      - xPos: 3.1735168
-        yPos: 2.201784
-        rotation: 85.92615
-        type: aroma
-      - xPos: -1.549188
-        yPos: 2.2017992
-        rotation: -2.4086425
-        type: bed
-      - xPos: 0.5352215
-        yPos: 2.201795
-        rotation: -77.71385
-        type: bed
-      - xPos: 2.4785345
-        yPos: 2.2018003
-        rotation: 72.20565
-        type: brush
-      - xPos: 2.8292184
-        yPos: 2.8055134
-        rotation: -92.440384
-        type: mouse
-      - xPos: 1.2256693
-        yPos: 2.280506
-        rotation: -29.154568
-        type: tower
-      - xPos: -3.6342313
-        yPos: 2.203165
-        rotation: -172.19061
-        type: brush
-      - xPos: 1.8706778
-        yPos: 2.5412364
-        rotation: -28.961382
-        type: mouse
-      - xPos: -0.8544116
-        yPos: 2.2018023
-        rotation: 15.099044
-        type: tower
-      - xPos: -0.15962476
-        yPos: 2.2019615
-        rotation: -174.92809
-        type: brush
-      - xPos: 0.18696526
-        yPos: 2.804358
-        rotation: -163.15741
-        type: brush
-      - xPos: -1.204245
-        yPos: 2.8064919
-        rotation: -33.161015
-        type: tower
-      - xPos: -2.2439792
-        yPos: 2.2054043
-        rotation: 125.66755
-        type: bed
-      - xPos: 3.6344016
-        yPos: 2.721931
-        rotation: -119.43975
-        type: aroma
-      cozyBonus: 0101000101010001
+      cleanTimer: 0
+      cleanPhase: 0
+      cleanX: -6.3
+      cozySavedBalls: []
+      cozyBonus: 0000000000000000
       cozyBonusTimer: 0
       soulX: 0
       soulY: 0
@@ -144,6 +84,6 @@ MonoBehaviour:
         value: 7
         maxValue: 7
         locked: 0
-  currentStat: Clean
-  selectedUpgrade: {fileID: 11400000, guid: db4cd2a09a7f408409ad3c15ab1471a9, type: 2}
+  currentStat: Love
+  selectedUpgrade: {fileID: 0}
   isPaused: 0

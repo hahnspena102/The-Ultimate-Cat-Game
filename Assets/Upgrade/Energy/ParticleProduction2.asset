@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: Particle Production II
   id: 28
   sprite: {fileID: -1704238183, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
-  description: Increases the production and size of Energy Particles.
+  description: Increases the Energy gained and the size of Energy Particles.
   cost: 1000
   type: Energy
   prerequisites:

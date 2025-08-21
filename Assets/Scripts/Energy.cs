@@ -92,7 +92,7 @@ public class Energy : MonoBehaviour
             EnergyParticle ep = particle.GetComponent<EnergyParticle>();
             if (dataObject.PlayerData.GameData.Upgrades[29])
             {
-                particle.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+                particle.transform.localScale = new Vector3(0.3f, 0.3f, 1f);
                 ep.EnergyValue = 500;
             }
             else if (dataObject.PlayerData.GameData.Upgrades[28])

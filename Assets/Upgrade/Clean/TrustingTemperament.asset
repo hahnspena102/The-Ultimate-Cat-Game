@@ -18,7 +18,7 @@ MonoBehaviour:
   description: Increases the duration of the cat looking away and decreases the duration
     of the cat watching you. When caught by the cat, the player is no longer sent
     back to the beginning, but rather a fraction of the way.
-  cost: 5000
+  cost: 4700
   type: Clean
   prerequisites:
   - {fileID: 11400000, guid: 7140147bcea2523459fda1c05e63477a, type: 2}
