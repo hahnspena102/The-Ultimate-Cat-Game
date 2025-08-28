@@ -584,6 +584,7 @@ MonoBehaviour:
   dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
   animator: {fileID: 888531251}
   audioSource: {fileID: 1023696717}
+  values: {fileID: 11400000, guid: 73b6c608ff0c1d54b838663227b0297c, type: 2}
   redLightSFX: {fileID: 8300000, guid: 6bb21ea546819c247afa51a1a14c2d48, type: 3}
   greenLightSFX: {fileID: 8300000, guid: bd699016872f9074caff94dd1c281bf0, type: 3}
   yellowLightSFX: {fileID: 8300000, guid: 7cd5540a003c8124087d610e1c0c2b98, type: 3}
@@ -940,10 +941,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
-  boostSpeed: 4
-  boostDecayRate: 10
   canvas: {fileID: 583894359}
   audioSource: {fileID: 2037332810}
+  values: {fileID: 11400000, guid: 73b6c608ff0c1d54b838663227b0297c, type: 2}
+  boostDecayRate: 10
   caughtSFX: {fileID: 8300000, guid: 16af01703c645004081df41e122ecae8, type: 3}
   successSFX: {fileID: 8300000, guid: 5447a91f8a4f3384387a0109ac6e0ad8, type: 3}
 --- !u!82 &2037332810

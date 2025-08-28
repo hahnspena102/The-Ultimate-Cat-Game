@@ -1711,6 +1711,16 @@ MonoBehaviour:
   dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
   hungerTable: {fileID: 11400000, guid: cb3b96d01ef556b458ca4f2c563c7133, type: 2}
   currentComboText: {fileID: 1743614918}
+  receipt: {fileID: 1575890779}
+  receiptBlock: {fileID: 5146552633686758034, guid: b9bf2a94e01ea1d478566803d35ed5be, type: 3}
+  appetiteSlider: {fileID: 2010023505}
+  feedButton: {fileID: 1493707894}
+  nextFoodComboFill: {fileID: 1062538347}
+  futureVision: {fileID: 517714738}
+  audioSource: {fileID: 1907442710}
+  values: {fileID: 11400000, guid: 73b6c608ff0c1d54b838663227b0297c, type: 2}
+  feedAppetiteCost: -25
+  skipAppetiteCost: -100
   currentFoodCombo:
     food:
       foodName: 
@@ -1731,17 +1741,10 @@ MonoBehaviour:
       adjectiveName: 
       multiplier: 0
       type: 
-  receipt: {fileID: 1575890779}
-  receiptBlock: {fileID: 5146552633686758034, guid: b9bf2a94e01ea1d478566803d35ed5be, type: 3}
-  appetiteSlider: {fileID: 2010023505}
-  feedButton: {fileID: 1493707894}
   noms:
   - {fileID: 8300000, guid: 25cf8b5a03666f047baca41875f4f092, type: 3}
   - {fileID: 8300000, guid: d6f7e842569f3514cb20a9e2edad42aa, type: 3}
   - {fileID: 8300000, guid: c3a67aa5a757a5540af466c312670662, type: 3}
-  nomSource: {fileID: 1907442710}
-  nextFoodComboFill: {fileID: 1062538347}
-  futureVision: {fileID: 517714738}
 --- !u!82 &1907442710
 AudioSource:
   m_ObjectHideFlags: 0

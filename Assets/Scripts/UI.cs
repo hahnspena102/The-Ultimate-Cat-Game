@@ -17,6 +17,7 @@ public class UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI pointTextBox, coinTextBox;
     [SerializeField] private Slider catLevelSlider;
     [SerializeField] private TextMeshProUGUI catLevelText;
+    [SerializeField] private Transform popupSpawnPos;
 
     public static Dictionary<string, Sprite> StatToSpriteMap;
     public static Dictionary<string, Color> StatToColorMap;
@@ -134,7 +135,7 @@ public class UI : MonoBehaviour
         }
     }
 
-    public GameObject SpawnPopup(Vector3 position, string stat, int number, Transform parent = null)
+    public GameObject SpawnPopup(Vector3 position, string type, int number, Transform parent = null)
     {
         GameObject popup = Instantiate(popupPrefab, position, Quaternion.identity, parent);
 
@@ -145,12 +146,39 @@ public class UI : MonoBehaviour
 
         Popup p = popup.GetComponent<Popup>();
 
-        if (!StatToColorMap.TryGetValue(stat, out Color color))
+        Color color;
+
+        if (!StatToColorMap.TryGetValue(type, out color))
         {
             color = Color.black;
         }
+        
+
         p.OutlineColor = color;
         p.Number = number;
+
+        return popup;
+    }
+    
+    public GameObject SpawnCoinPopup(int number, Transform parent = null)
+    {
+        float pw = 32f;
+        float ph = 12f;
+        Vector3 spawnPosition = popupSpawnPos.transform.position + new Vector3(Random.Range(-pw, pw), Random.Range(-ph, ph), 0f);
+        GameObject popup = Instantiate(popupPrefab, spawnPosition, Quaternion.identity, parent);
+
+        if (popup == null)
+        {
+            return null;
+        }
+
+        Popup p = popup.GetComponent<Popup>();
+
+        p.MainColor = new Color(1.000f, 0.800f, 0.247f, 1.000f);
+        p.OutlineColor = new Color(0.820f, 0.435f, 0.180f, 1.000f);
+        p.Number = number;
+        p.FadeDuration = 3f;
+        p.Size = 0.5f;
 
         return popup;
     }

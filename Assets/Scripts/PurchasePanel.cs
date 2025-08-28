@@ -10,6 +10,7 @@ public class PurchasePanel : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI nameTextBox, descTextBox, costTextBox, prereqTextBox, purchaseText;
     [SerializeField] private Image iconImage;
     [SerializeField] private Button purchaseButton;
+    [SerializeField] private AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -84,6 +85,8 @@ public class PurchasePanel : MonoBehaviour
             upgrades[selectedId] = true;
 
             dataObject.PlayerData.GameData.Coins -= dataObject.SelectedUpgrade.Cost;
+
+            if (audioSource) Util.PlaySFX(audioSource, null, 0f);
         }
     }
 

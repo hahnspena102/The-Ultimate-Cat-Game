@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033f11f2d4b27c34db2689b37d0e2799, type: 3}
+  m_Name: Values
+  m_EditorClassIdentifier: 
+  loveMaxValues: ee020000e8030000dc050000d0070000
+  hungerMaxValues: e8030000b80b000028230000
+  thirstMaxValues: 58020000b004000060090000c0120000
+  energyMaxValues: 800c000000320000
+  energyRespawnMaxValues: 0f0000000a00000005000000
+  cleanMaxValues: d0070000a00f0000401f0000
+  cozyMaxValues: 60090000c012000080250000e02e0000
+  healthMaxValues: b80b000088130000401f0000983a0000
+  LoveMaxValue: 6000
+  HungerMaxValue: 9000
+  ThirstMaxValue: 4800
+  EnergyMaxValue: 12800
+  EnergyRespawnMaxValue: 5
+  CleanMaxValue: 8000
+  CozyMaxValue: 12000
+  HealthMaxValue: 15000
+  loveHeartValues: 19000000320000004b00000064000000
+  loveCoinValues: 0000000019000000
+  loveCanvasXPaddings:
+  - 64
+  - 300
+  loveCanvasYPaddings:
+  - 400
+  - 400
+  loveHeartSizeMultipliers:
+  - 1
+  - 1.25
+  - 1.5
+  - 2
+  loveLimitMultipliers:
+  - 1
+  - 3
+  loveHeartCounts:
+  - 1
+  - 2
+  - 3
+  LoveHeartValue: 100
+  LoveCoinValue: 25
+  LoveCanvasXPadding: 300
+  LoveCanvasYPadding: 400
+  LoveHeartSizeMultiplier: 2
+  LoveLimitMultiplier: 3
+  LoveHeartCount: 1
+  appetiteMaxValues: 64000000c80000002c010000
+  goodFoodMultipliers: 1900000032000000
+  badFoodMultipliers: 190000000a000000
+  AppetiteMaxValue: 300
+  GoodFoodMultiplier: 50
+  BadFoodMultiplier: 10
+  waterDropUpperBounds: 64000000c80000002c010000f4010000
+  waterDropLowerBounds: 9cffffff01000000
+  thirstPlayerSpeeds: 080000000c000000
+  WaterDropUpperBound: 500
+  WaterDropLowerBound: 1
+  ThirstPlayerSpeed: 12
+  energyParticleValues: 64000000fa000000f4010000
+  energyParticleScales:
+  - 0.1
+  - 0.15
+  - 0.2
+  energyPassiveValues: fa000000f4010000
+  energyPlayerVerticalSpeeds:
+  - 8
+  - 12
+  energyPlayerHorizontalSpeeds:
+  - 6
+  - 10
+  EnergyParticleValue: 1000
+  EnergyParticleScale: 0.2
+  EnergyPassiveValue: 500
+  EnergyPlayerHorizontalSpeed: 10
+  EnergyPlayerVerticalSpeed: 12
+  redLightUppers:
+  - 3
+  - 1
+  redLightLowers:
+  - 1
+  - 0.5
+  greenLightUppers:
+  - 8
+  - 10
+  greenLightLowers:
+  - 1
+  - 4
+  yellowLights:
+  - 0.5
+  - 1
+  cleanValues: f4010000ee020000e8030000
+  cleanPlayerBoosts:
+  - 4
+  - 8
+  - 12
+  - 16
+  RedLightUpper: 1
+  RedLightLower: 0.5
+  GreenLightUpper: 10
+  GreenLightLower: 4
+  YellowLight: 0
+  CleanValue: 1000
+  CleanPlayerBoost: 16
+  cozyCooldowns:
+  - 1
+  - 0.75
+  - 0.5
+  - 0.25
+  maxCozyBalls: 1e00000028000000320000003c000000
+  cozyValues: c80000009001000058020000
+  cozyMultipliers:
+  - 1.5
+  - 2
+  - 3
+  CozyCooldown: 0.25
+  MaxCozyBall: 60
+  CozyValue: 600
+  CozyMultiplier: 3
+  healthCompletionBonuses: fa000000f4010000e8030000d0070000
+  healValues: 64000000c80000002c010000f4010000
+  healthCoinOdds:
+  - 0
+  - 10
+  - 20
+  healthPathogenOdds:
+  - 30
+  - 20
+  - 10
+  - 0
+  HealthCompletionBonus: 2000
+  HealValue: 500
+  HurtValue: -200
+  HealthOdds:
+  - 20
+  - 30
+  - 50
+  - 0

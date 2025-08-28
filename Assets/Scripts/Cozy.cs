@@ -5,35 +5,30 @@ using System.Collections.Generic;
 using TMPro;
 public class Cozy : MonoBehaviour
 {
+    [Header("Basics")]
     [SerializeField] private DataObject dataObject;
     [SerializeField] private List<GameObject> cozyBallPrefabs = new List<GameObject>();
     [SerializeField] private Collider2D playfieldCollider;
     [SerializeField] private Slider capacitySlider;
     [SerializeField] private List<Image> bonusUI;
     [SerializeField] private GameObject bonusText;
-    private List<GameObject> cozyBalls = new List<GameObject>();
-
-    [SerializeField] private GameObject previewBall;
+    [SerializeField] private SpriteRenderer previewSpriteRenderer, nextSpriteRenderer;
     [SerializeField] private Canvas canvas;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip connectionSFX, bonusSFX, resetSFX;
     [SerializeField] private TextMeshProUGUI multiplierTextMesh;
     [SerializeField] private TextMeshProUGUI bonusTimerTextMesh;
-    private GameObject nextBall;
-    private Sprite nextSprite;
-    private SpriteRenderer previewSpriteRenderer;
-
-    private Dictionary<string, GameObject> cozyBallMap;
-
-    private int maxCozyBall = 30;
-    private int overflowPenalty = -500;
+    [SerializeField] private GameObject nextUpBox, nextUpBinding;
+    private GameObject currentBallPrefab, nextBallPrefab;
+    private Sprite nextSprite, currentSprite;
 
     private UI ui;
-    private float elapsedTime = 0f;
-    private float cooldown = 1f;
 
-    private float cozyMultiplier;
-    private int cozyValue;
+    [Header("Values")]
+    [SerializeField] private Values values;
+    private List<GameObject> cozyBalls = new List<GameObject>();
+    private Dictionary<string, GameObject> cozyBallMap;
+    private int overflowPenalty = -500;
+    private float elapsedTime = 0f;
     private float bonusDuration = 30f;
 
     private readonly string[] cozyBallLabels =
@@ -41,8 +36,11 @@ public class Cozy : MonoBehaviour
         "warmth", "bed", "tower", "yarn", "aroma", "mouse", "brush", "blanket", "star"
     };
 
-    public global::System.Single CozyMultiplier { get => cozyMultiplier; set => cozyMultiplier = value; }
-    public global::System.Int32 CozyValue { get => cozyValue; set => cozyValue = value; }
+    [Header("Audio Clips & Sprites")]
+
+    [SerializeField] private AudioClip connectionSFX;
+    [SerializeField] private AudioClip bonusSFX, resetSFX;
+
     public global::System.Single BonusDuration { get => bonusDuration; set => bonusDuration = value; }
 
     void Awake()
@@ -50,13 +48,18 @@ public class Cozy : MonoBehaviour
         GameObject go = GameObject.Find("UI");
         if (go) ui = go.GetComponent<UI>();
 
-        if (previewBall != null)
+        if (previewSpriteRenderer != null)
         {
-            previewSpriteRenderer = previewBall.GetComponent<SpriteRenderer>();
-            nextBall = cozyBallPrefabs[Random.Range(0, cozyBallPrefabs.Count)];
-            SpriteRenderer sr = nextBall.GetComponent<SpriteRenderer>();
-            if (sr) nextSprite = sr.sprite;
+            nextBallPrefab = cozyBallPrefabs[Random.Range(0, cozyBallPrefabs.Count)];
+            currentBallPrefab = cozyBallPrefabs[Random.Range(0, cozyBallPrefabs.Count)];
+
+            SpriteRenderer csr = currentBallPrefab.GetComponent<SpriteRenderer>();
+            if (csr) currentSprite = csr.sprite;
+
+            SpriteRenderer nsr = nextBallPrefab.GetComponent<SpriteRenderer>();
+            if (nsr) nextSprite = nsr.sprite;
         }
+
 
         cozyBallMap = new Dictionary<string, GameObject>();
 
@@ -112,8 +115,6 @@ public class Cozy : MonoBehaviour
 
     void Update()
     {
-        UpdateUpgradeValues();
-
         // BONUS
         bool completeBonus = true;
         foreach (bool b in dataObject.PlayerData.GameData.CozyBonus)
@@ -124,30 +125,30 @@ public class Cozy : MonoBehaviour
                 break;
             }
         }
-        if (dataObject.PlayerData.GameData.CozyBonusTimer <= 0) cozyMultiplier = 1f;
+        if (dataObject.PlayerData.GameData.CozyBonusTimer <= 0) values.CozyMultiplier = 1f;
 
-        if (multiplierTextMesh) multiplierTextMesh.text = $"x{cozyMultiplier} Bonus";
+        if (multiplierTextMesh) multiplierTextMesh.text = $"x{values.CozyMultiplier} Bonus";
         if (bonusTimerTextMesh) bonusTimerTextMesh.text = dataObject.PlayerData.GameData.CozyBonusTimer > 0 ? $"{Mathf.RoundToInt(dataObject.PlayerData.GameData.CozyBonusTimer)}" : "";
 
         dataObject.PlayerData.GameData.CozyBonusTimer = Mathf.Max(0, dataObject.PlayerData.GameData.CozyBonusTimer - Time.deltaTime);
-        
+
 
 
         elapsedTime += Time.deltaTime;
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (nextBall == null)
+        if (nextBallPrefab == null)
         {
-            nextBall = cozyBallPrefabs[Random.Range(0, cozyBallPrefabs.Count)];
+            nextBallPrefab = cozyBallPrefabs[Random.Range(0, cozyBallPrefabs.Count)];
         }
 
         Vector2 clampedPosition = ClampToPlayfield(mouseWorldPos);
-        previewBall.transform.position = clampedPosition;
+        previewSpriteRenderer.transform.position = clampedPosition;
 
         if (previewSpriteRenderer)
         {
-            previewSpriteRenderer.sprite = nextSprite;
-            if (elapsedTime >= cooldown)
+            previewSpriteRenderer.sprite = currentSprite;
+            if (elapsedTime >= values.CozyCooldown)
             {
                 previewSpriteRenderer.color = new Color(1f, 1f, 1f, 0.3f);
                 if (Input.GetMouseButtonDown(0))
@@ -155,9 +156,6 @@ public class Cozy : MonoBehaviour
                     elapsedTime = 0;
                     CreateBall(clampedPosition);
                 }
-
-
-
             }
             else
             {
@@ -165,18 +163,27 @@ public class Cozy : MonoBehaviour
             }
         }
 
+        nextUpBox.SetActive(dataObject.PlayerData.GameData.Upgrades[49]);
+        nextUpBinding.SetActive(dataObject.PlayerData.GameData.Upgrades[49]);
 
+        if (Input.GetMouseButtonDown(1) && dataObject.PlayerData.GameData.Upgrades[49])
+        {
+            SwapBall();
+        }
 
+        if (nextSpriteRenderer)
+        {
+            nextSpriteRenderer.sprite = nextSprite;
+        }
 
-
-        if (cozyBalls.Count >= maxCozyBall)
+        if (cozyBalls.Count >= values.MaxCozyBall)
         {
             ResetBasket();
         }
 
         if (capacitySlider)
         {
-            capacitySlider.maxValue = maxCozyBall;
+            capacitySlider.maxValue = values.MaxCozyBall;
             capacitySlider.value = cozyBalls.Count;
         }
 
@@ -198,15 +205,22 @@ public class Cozy : MonoBehaviour
 
     void CreateBall(Vector2 clampedPosition)
     {
-        GameObject newBall = Instantiate(nextBall, clampedPosition, Quaternion.identity);
+        GameObject newBall = Instantiate(currentBallPrefab, clampedPosition, Quaternion.identity);
         newBall.transform.SetParent(transform);
         cozyBalls.Add(newBall);
         CozyBall cb = newBall.GetComponent<CozyBall>();
         if (cb != null) cb.SetOwner(this);
 
-        nextBall = cozyBallPrefabs[Random.Range(0, cozyBallPrefabs.Count)];
-        SpriteRenderer sr = nextBall.GetComponent<SpriteRenderer>();
-        if (sr) nextSprite = sr.sprite;
+        currentBallPrefab = nextBallPrefab;
+
+
+        nextBallPrefab = cozyBallPrefabs[Random.Range(0, cozyBallPrefabs.Count)];
+
+        SpriteRenderer csr = currentBallPrefab.GetComponent<SpriteRenderer>();
+        if (csr) currentSprite = csr.sprite;
+
+        SpriteRenderer nsr = nextBallPrefab.GetComponent<SpriteRenderer>();
+        if (nsr) nextSprite = nsr.sprite;
 
         AudioSource src = newBall.GetComponent<AudioSource>();
         Util.PlaySFX(src, null, 0.2f);
@@ -263,45 +277,14 @@ public class Cozy : MonoBehaviour
         Util.PlaySFX(audioSource, connectionSFX, 0.2f);
     }
 
-    void UpdateUpgradeValues()
+    public void SwapBall()
     {
-        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
+        GameObject temp = nextBallPrefab;
+        Sprite tempSprite = nextSprite;
+        nextBallPrefab = currentBallPrefab;
+        nextSprite = currentSprite;
+        currentBallPrefab = temp;
+        currentSprite = tempSprite;
 
-        if (upgrades[47])
-        {
-            cooldown = 0.25f;
-            maxCozyBall = 60;
-        }
-        else if (upgrades[46])
-        {
-            cooldown = 0.5f;
-            maxCozyBall = 50;
-        }
-        else if (upgrades[45])
-        {
-            cooldown = 0.75f;
-            maxCozyBall = 40;
-        }
-        else
-        {
-            cooldown = 1f;
-            maxCozyBall = 30;
-        }
-        
-        if (upgrades[51])
-        {
-            cozyValue = 200;
-            cozyMultiplier = 4f;
-        }
-        else if (upgrades[50])
-        {
-            cozyValue = 100;
-            cozyMultiplier = 3f;
-        }
-        else 
-        {
-            cozyValue = 50;
-            cozyMultiplier = 2f;
-        }
     }
 }

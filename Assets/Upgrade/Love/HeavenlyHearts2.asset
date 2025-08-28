@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae322050a58b75241b5d8f8b77757a19, type: 3}
   m_Name: HeavenlyHearts2
   m_EditorClassIdentifier: 
-  upgradeName: HeavenlyHearts2
+  upgradeName: Heavenly Hearts II
   id: 6
   sprite: {fileID: 1269711829, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: 'Increases the number of Love Hearts to 3. '
-  cost: 7000
+  cost: 9200
   type: Love
   prerequisites:
   - {fileID: 11400000, guid: 6f85e5d8a2c06244ba9a2132c35884ca, type: 2}

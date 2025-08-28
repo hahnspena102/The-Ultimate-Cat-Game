@@ -3127,6 +3127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
+  audioSource: {fileID: 1907442710}
   boxes:
   - {fileID: 1557903475}
   - {fileID: 540606931}
@@ -3153,9 +3154,9 @@ MonoBehaviour:
   - {fileID: 44055162}
   - {fileID: 783371072}
   - {fileID: 1145874657}
+  values: {fileID: 11400000, guid: 73b6c608ff0c1d54b838663227b0297c, type: 2}
   treatmentCount: 0
   currentTreatmentFound: 0
-  audioSource: {fileID: 1907442710}
   randomizeSFX: {fileID: 8300000, guid: 0f2d8b224026f6a4eb2cbf3900bcb6c3, type: 3}
   randomizeDoneSFX: {fileID: 8300000, guid: 86458ca3fdcc75443b0b38487424da68, type: 3}
 --- !u!82 &1907442710

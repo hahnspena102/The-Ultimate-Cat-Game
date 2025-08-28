@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae322050a58b75241b5d8f8b77757a19, type: 3}
-  m_Name: PreventativeProcedure1
+  m_Name: ProfitPathogen1
   m_EditorClassIdentifier: 
-  upgradeName: Preventative Procedure I
-  id: 57
-  sprite: {fileID: -909998176, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
-  description: 'Reduces Cathogen spawn rates. '
-  cost: 600
+  upgradeName: Preventative Procedure II
+  id: 58
+  sprite: {fileID: -138277207, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
+  description: Allows for a chance to convert Cathogens to Cat Coins.
+  cost: 6100
   type: Health
   prerequisites:
-  - {fileID: 11400000, guid: d4dcfd55d08a9614d8b2a34d081cedda, type: 2}
+  - {fileID: 11400000, guid: 2309e006595b9d943a4969944542d741, type: 2}

@@ -20,6 +20,9 @@ public class UpgradeOrb : MonoBehaviour, ISelectHandler
 
     private bool hasPrerequisites = false;
 
+    public Image Image { get => image; set => image = value; }
+    public Upgrade Upgrade { get => upgrade; set => upgrade = value; }
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

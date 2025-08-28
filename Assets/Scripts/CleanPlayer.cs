@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class CleanPlayer : MonoBehaviour
 {
+    [Header("Basics")]
+    
     [SerializeField] private DataObject dataObject;
-    [SerializeField] private float boostSpeed;
-    [SerializeField] private float boostDecayRate;
     [SerializeField] private Canvas canvas;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip caughtSFX, successSFX;
+    private UI ui;
+    [Header("Values")]
+    [SerializeField] private Values values;
+    [SerializeField] private float boostDecayRate;
     private Rigidbody2D rb;
     private float currentBoost = 0f;
     private Vector2 originalPos;
-    private UI ui;
-    private int cleanValue = 500;
+
+    [Header("Audio Clips & Sprites")]
+    [SerializeField] private AudioClip caughtSFX;
+    [SerializeField] private AudioClip successSFX;
+  
 
     void Awake()
     {
@@ -32,10 +38,8 @@ public class CleanPlayer : MonoBehaviour
 
     void Update()
     {
-        UpdateUpgradeValues();
-
         dataObject.PlayerData.GameData.CleanX = transform.localPosition.x;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.W))
         {
             if (dataObject.PlayerData.GameData.CleanPhase == 2)
             {
@@ -59,7 +63,7 @@ public class CleanPlayer : MonoBehaviour
             }
             else
             {
-                currentBoost = boostSpeed;
+                currentBoost = values.CleanPlayerBoost;
             }
 
         }
@@ -85,11 +89,11 @@ public class CleanPlayer : MonoBehaviour
 
     void CleanCat()
     {
-        dataObject.PlayerData.GameData.UpdateStat("Clean", cleanValue);
+        dataObject.PlayerData.GameData.UpdateStat("Clean", values.CleanValue);
 
-        dataObject.PlayerData.GameData.UpdatePoints(cleanValue);
+        dataObject.PlayerData.GameData.UpdatePoints(values.CleanValue);
 
-        if (ui) ui.SpawnPopup(Camera.main.WorldToScreenPoint(transform.position), "Clean", cleanValue, canvas.transform);
+        if (ui) ui.SpawnPopup(Camera.main.WorldToScreenPoint(transform.position), "Clean", values.CleanValue, canvas.transform);
         if (audioSource)
         {
             audioSource.clip = successSFX;
@@ -100,42 +104,4 @@ public class CleanPlayer : MonoBehaviour
 
 
     }
-
-    void UpdateUpgradeValues()
-    {
-        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
-
-        if (upgrades[38])
-        {
-            boostSpeed = 16;
-        }
-        else if (upgrades[37])
-        {
-            boostSpeed = 12;
-        }
-        else if (upgrades[36])
-        {
-            boostSpeed = 8;
-        }
-        else
-        {
-            boostSpeed = 4;
-        }
-
-        if (upgrades[40])
-        {
-            cleanValue = 1000;
-        }
-        else if (upgrades[39])
-        {
-            cleanValue = 750;
-        }
-        else
-        {
-            cleanValue = 500;
-        }
-        
-    }
-    
-
 }

@@ -5,15 +5,17 @@ using System.Collections.Generic;
 
 public class EnergyPlayer : MonoBehaviour
 {
+    [Header("Basics")]
     [SerializeField] private DataObject dataObject;
-    [SerializeField] private float horizontalSpeed = 6f;
-    [SerializeField] private float verticalSpeed = 8f;
     [SerializeField] private Energy energy;
     [SerializeField] private Canvas canvas;
-
     private Rigidbody2D rb;
-    private float horizontalInput, verticalInput;
     private UI ui;
+    
+    [Header("Values")]
+    [SerializeField] private Values values;
+    private float horizontalInput, verticalInput;
+    
 
     void Start()
     {
@@ -30,15 +32,13 @@ public class EnergyPlayer : MonoBehaviour
 
     void Update()
     {
-        UpdateUpgradeValues();
-
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizontalInput * horizontalSpeed, verticalInput * verticalSpeed);
+        rb.linearVelocity = new Vector2(horizontalInput * values.EnergyPlayerHorizontalSpeed, verticalInput * values.EnergyPlayerVerticalSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -65,24 +65,4 @@ public class EnergyPlayer : MonoBehaviour
     {
         dataObject.PlayerData.GameData.EnergyRespawn.Value = 0;
     }
-
-    void UpdateUpgradeValues()
-    {
-
-        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
-
-        if (upgrades[32])
-        {
-            verticalSpeed = 12f;
-            horizontalSpeed = 10f;
-        }
-        else
-        {
-            verticalSpeed = 8f;
-            horizontalSpeed = 6f;
-        }
-            
-        
-    }
-
 }

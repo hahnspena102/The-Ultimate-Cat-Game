@@ -62,7 +62,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
   cover: {fileID: 3850263444559277415}
+  image: {fileID: 2636379468606325906}
+  button: {fileID: 6254299257117954096}
+  audioSource: {fileID: 5319985351335235285}
+  values: {fileID: 11400000, guid: 73b6c608ff0c1d54b838663227b0297c, type: 2}
+  row: 0
+  col: 0
   type: 
+  isOpen: 0
+  nullSprite: {fileID: 755241994, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
   treatmentSprites:
   - {fileID: 2621152477516197681, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
   - {fileID: -7670132703116832548, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
@@ -71,16 +79,11 @@ MonoBehaviour:
   - {fileID: 1975636261, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
   - {fileID: 1654818166, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
   - {fileID: 266514248, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
-  nullSprite: {fileID: 755241994, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
-  image: {fileID: 2636379468606325906}
-  row: 0
-  col: 0
-  isOpen: 0
-  button: {fileID: 6254299257117954096}
-  audioSource: {fileID: 5319985351335235285}
+  coinSprite: {fileID: -1020573222, guid: 3746be1b1aa4ae240bbca40dfcb91d19, type: 3}
   treatmentSFX: {fileID: 8300000, guid: 65abe5d78b2e789409587934d157bdc4, type: 3}
   cathogenSFX: {fileID: 8300000, guid: 6bb3669707f4b96428b41263fc7f5f85, type: 3}
   nullSFX: {fileID: 8300000, guid: 862675f612aece347ae0a399fc74e913, type: 3}
+  coinSFX: {fileID: 8300000, guid: 5071d5e4495285348ab011184e970fbe, type: 3}
 --- !u!82 &5319985351335235285
 AudioSource:
   m_ObjectHideFlags: 0
@@ -102,7 +105,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.001716733
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

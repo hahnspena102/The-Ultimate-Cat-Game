@@ -559,9 +559,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
   waterDrop: {fileID: 7786340199920335610, guid: 478c3836ca6df5249a59866986389d68, type: 3}
-  lowerBound: -100
-  upperBound: 100
+  values: {fileID: 11400000, guid: 73b6c608ff0c1d54b838663227b0297c, type: 2}
   timeMax: 1
+  spawnWidth: 8
 --- !u!1 &1212179947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,9 +1178,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataObject: {fileID: 11400000, guid: 9a7b335a8ebfe144ca0401c02de89ac1, type: 2}
   audioSource: {fileID: 2037332810}
+  canvas: {fileID: 305117997}
+  values: {fileID: 11400000, guid: 73b6c608ff0c1d54b838663227b0297c, type: 2}
+  jumpHeight: 10
   collectSFX: {fileID: 8300000, guid: 4797886aaeacbf045a322a36daad2fbb, type: 3}
   hurtSFX: {fileID: 8300000, guid: 8bc76b6fa3d7f604bb44204830ac9a44, type: 3}
-  canvas: {fileID: 305117997}
 --- !u!82 &2037332810
 AudioSource:
   m_ObjectHideFlags: 0

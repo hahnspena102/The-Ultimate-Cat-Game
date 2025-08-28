@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Energy : MonoBehaviour
 {
+    [Header("Basics")]
     [SerializeField] private DataObject dataObject;
     [SerializeField] private List<GameObject> projectiles = new List<GameObject>();
     [SerializeField] private GameObject particlePrefab;
@@ -11,15 +12,22 @@ public class Energy : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI respawnTimer;
     [SerializeField] private Canvas canvas;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip sleepSFX, awakenSFX, collectSFX;
+    private UI ui;
+    [Header("Values")]
+    [SerializeField] private Values values;
     private float spawnWidth = 4.5f;
     private float timeMin = 0.1f;
     private float timeMax = 2f;
     private bool isAlive = true;
     private float timeElapsed;
-    private int growthRate = 200;
 
-    private UI ui;
+    [Header("Audio Clips & Sprites")]
+    
+    [SerializeField] private AudioClip sleepSFX;
+    [SerializeField] private AudioClip awakenSFX, collectSFX;
+
+    
+    
 
     void Start()
     {
@@ -58,7 +66,7 @@ public class Energy : MonoBehaviour
 
         if (timeElapsed > 3f)
         {
-            CollectEnergy(growthRate, player.transform.position);
+            CollectEnergy(values.EnergyPassiveValue, player.transform.position);
             timeElapsed = 0;
         }
 
@@ -80,7 +88,7 @@ public class Energy : MonoBehaviour
 
     IEnumerator ParticleGenerator()
     {
-        while (!isAlive || !dataObject.PlayerData.GameData.Upgrades[27])
+        while (!isAlive || values.EnergyParticleValue == 0)
         {
             yield return null;
         }
@@ -90,21 +98,8 @@ public class Energy : MonoBehaviour
         if (particle)
         {
             EnergyParticle ep = particle.GetComponent<EnergyParticle>();
-            if (dataObject.PlayerData.GameData.Upgrades[29])
-            {
-                particle.transform.localScale = new Vector3(0.3f, 0.3f, 1f);
-                ep.EnergyValue = 500;
-            }
-            else if (dataObject.PlayerData.GameData.Upgrades[28])
-            {
-                particle.transform.localScale = new Vector3(0.2f, 0.2f, 1f);
-                ep.EnergyValue = 250;
-            }
-            else
-            {
-                ep.EnergyValue = 100;
-            }
-            
+            ep.EnergyValue = values.EnergyParticleValue;
+            particle.transform.localScale = Vector3.one * values.EnergyParticleScale;
         }
         yield return new WaitForSeconds(Random.Range(timeMin * 2f, timeMax * 2f));
         StartCoroutine(ParticleGenerator());
@@ -140,6 +135,8 @@ public class Energy : MonoBehaviour
 
     public void CollectEnergy(int value, Vector3 pos)
     {
+        int pointChange = dataObject.PlayerData.GameData.Stats[3].MaxValue - dataObject.PlayerData.GameData.Stats[3].Value;
+        if (dataObject.PlayerData.GameData.Upgrades[34] && pointChange > 0) dataObject.PlayerData.GameData.Coins += Mathf.RoundToInt(pointChange * 0.1f);
         dataObject.PlayerData.GameData.UpdateStat("Energy", value);
         dataObject.PlayerData.GameData.UpdatePoints(value);
         if (ui) ui.SpawnPopup(Camera.main.WorldToScreenPoint(pos), "Energy", value, canvas.transform);

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae322050a58b75241b5d8f8b77757a19, type: 3}
+  m_Name: EverlastingEnergy
+  m_EditorClassIdentifier: 
+  upgradeName: Everlasting Energy
+  id: 34
+  sprite: {fileID: -1555598552, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
+  description: 'Increases Max Energy, passive rate of Energy, and Energy gained from
+    Energy Particles. Converts excess energy to Cat Coins. '
+  cost: 7600
+  type: Energy
+  prerequisites:
+  - {fileID: 11400000, guid: 680185e5f12b02b44b7f0421db72e5e5, type: 2}
+  - {fileID: 11400000, guid: 33f8a5d0f7c5f3c47804fda1655c60ee, type: 2}

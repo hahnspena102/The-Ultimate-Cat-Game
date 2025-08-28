@@ -5,26 +5,26 @@ using System.Collections.Generic;
 
 public class HealthBox : MonoBehaviour
 {
+    [Header("Basics")]
+
     [SerializeField] private DataObject dataObject;
     [SerializeField] private CanvasGroup cover;
-
-    [SerializeField] private string type;
-    [SerializeField] private List<Sprite> treatmentSprites;
-    [SerializeField] private List<Sprite> cathogenSprites;
-    [SerializeField] private Sprite nullSprite;
-
     [SerializeField] private Image image;
-
-    [SerializeField] private int row, col;
-    [SerializeField] private bool isOpen;
-
     [SerializeField] private Button button;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip treatmentSFX, cathogenSFX, nullSFX;
-
     private Health health;
-
+    [Header("Values")]
+    [SerializeField] private Values values;
+    [SerializeField] private int row, col;
+    [SerializeField] private string type;
+    [SerializeField] private bool isOpen;
     private float fadeDuration = 0.65f;
+    [Header("Audio Clips & Sprites")]
+    [SerializeField] private Sprite nullSprite;
+    [SerializeField] private List<Sprite> treatmentSprites;
+    [SerializeField] private List<Sprite> cathogenSprites;
+    [SerializeField] private Sprite coinSprite;
+    [SerializeField] private AudioClip treatmentSFX, cathogenSFX, nullSFX, coinSFX;
 
     public global::System.Int32 Row { get => row; set => row = value; }
     public global::System.Int32 Col { get => col; set => col = value; }
@@ -57,15 +57,22 @@ public class HealthBox : MonoBehaviour
         int pointChange = 0;
         if (type == "treatment")
         {
-            pointChange = health.HealValue;
+            pointChange = values.HealValue;
             Util.PlaySFX(audioSource, treatmentSFX, 0.2f);
             health.CurrentTreatmentFound += 1;
         }
         else if (type == "cathogen")
         {
             Util.PlaySFX(audioSource, cathogenSFX);
-            pointChange = health.HurtValue;
+            pointChange = values.HurtValue;
             StartCoroutine(health.ResetGrid());
+        }
+        else if (type == "coin")
+        {
+            Util.PlaySFX(audioSource, coinSFX);
+            int coinChange = Mathf.RoundToInt(values.HealValue * 0.1f);
+            dataObject.PlayerData.GameData.Coins += coinChange;
+            health.CreatePopup(transform.position, coinChange, true);
         }
         else
         {
@@ -125,8 +132,8 @@ public class HealthBox : MonoBehaviour
 
     public void Randomize()
     {
-        List<string> types = new List<string> { "treatment", "cathogen", "none" };
-        List<float> odds = health.Odds;
+        List<string> types = new List<string> { "treatment", "cathogen", "none", "coin" };
+        List<float> odds = values.HealthOdds;
 
         float totalWeight = 0f;
         foreach (float weight in odds)
@@ -158,6 +165,10 @@ public class HealthBox : MonoBehaviour
         else if (type == "cathogen")
         {
             image.sprite = cathogenSprites[Random.Range(0, cathogenSprites.Count)];
+        } 
+        else if (type == "coin")
+        {
+            image.sprite = coinSprite;
         }
         else
         {

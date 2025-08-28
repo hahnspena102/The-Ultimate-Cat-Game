@@ -5,19 +5,26 @@ using System.Collections.Generic;
 
 public class ThirstPlayer : MonoBehaviour
 {
+    [Header("Basics")]
+    
     [SerializeField] private DataObject dataObject;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip collectSFX, hurtSFX;
     [SerializeField] private Canvas canvas;
 
     private Rigidbody2D rb;
     private float verticalInput;
-    private float speed = 8f;
-    private float jumpHeight = 10f;
-    private bool onGround = true;
     private UI ui;
     private Animator animator;
 
+    [Header("Values")]
+    [SerializeField] private Values values;
+    [SerializeField]private float jumpHeight = 10f;
+    private bool onGround = true;
+
+
+    [Header("Audio Clips & Sprites")]
+    [SerializeField] private AudioClip collectSFX;
+    [SerializeField] private AudioClip hurtSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,7 +43,7 @@ public class ThirstPlayer : MonoBehaviour
 
         if (rb)
         {
-            rb.linearVelocity = new Vector2(verticalInput * speed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(verticalInput * values.ThirstPlayerSpeed, rb.linearVelocity.y);
         }
         animator.SetFloat("movement", Mathf.Abs(rb.linearVelocity.magnitude));
         animator.SetFloat("vertical", rb.linearVelocity.y);
@@ -60,7 +67,6 @@ public class ThirstPlayer : MonoBehaviour
 
     void Update()
     {
-        UpdateUpgradeValues();
         if (Input.GetKey(KeyCode.Space) && onGround)
         {
             Jump();
@@ -92,7 +98,12 @@ public class ThirstPlayer : MonoBehaviour
             dataObject.PlayerData.GameData.UpdatePoints(wd.Point);
             if (wd.IsGold)
             {
-                dataObject.PlayerData.GameData.Coins += wd.Point;
+                int coinChange = wd.Point;
+                dataObject.PlayerData.GameData.Coins += coinChange;
+                if (ui) ui.SpawnCoinPopup(coinChange, canvas.transform);
+
+
+                dataObject.PlayerData.GameData.Coins += coinChange;
             }
 
             if (audioSource)
@@ -106,8 +117,7 @@ public class ThirstPlayer : MonoBehaviour
                     audioSource.clip = hurtSFX;
                 }
 
-                audioSource.pitch = Random.Range(1.00f - 0.10f, 1.00f + 0.10f);
-                audioSource.Play();
+                Util.PlaySFX(audioSource);
             }
 
             //Debug.Log(Camera.main.WorldToScreenPoint(transform.position));
@@ -117,19 +127,5 @@ public class ThirstPlayer : MonoBehaviour
 
             Destroy(collider.gameObject, 0.01f);
         }
-    }
-
-    void UpdateUpgradeValues()
-    {
-        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
-        if (upgrades[21])
-        {
-            speed = 12f;
-        }
-        else
-        {
-            speed = 8f;
-        }
-        
     }
 }

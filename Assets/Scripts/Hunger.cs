@@ -6,21 +6,30 @@ using System.Collections.Generic;
 public class Hunger : MonoBehaviour
 
 {
+    [Header("Basics")]
     [SerializeField] private DataObject dataObject;
     [SerializeField] private HungerTable hungerTable;
     [SerializeField] private TMPro.TextMeshProUGUI currentComboText;
-    [SerializeField] private FoodCombo currentFoodCombo, nextFoodCombo;
     [SerializeField] private Transform receipt;
     [SerializeField] private GameObject receiptBlock;
     [SerializeField] private Slider appetiteSlider;
     [SerializeField] private Button feedButton;
-    [SerializeField] private List<AudioClip> noms;
-    [SerializeField] private AudioSource nomSource;
     [SerializeField] private Image nextFoodComboFill;
     [SerializeField] private GameObject futureVision;
+    [SerializeField] private AudioSource audioSource;
+
+    [Header("Values")]
+    [SerializeField] private Values values;
+    [SerializeField] private int feedAppetiteCost;
+    [SerializeField] private int skipAppetiteCost;
+    [SerializeField] private FoodCombo currentFoodCombo, nextFoodCombo;
     private int maxReceiptBlocks = 10;
     private UI ui;
     private float elapsedTime;
+
+    [Header("Audio Clips & Sprites")]
+    [SerializeField] private List<AudioClip> noms;
+
 
     void Awake()
     {
@@ -54,14 +63,14 @@ public class Hunger : MonoBehaviour
             }
 
 
-            targetColor = currentFoodCombo.GetColor(gluttonGazeLevel);
+            targetColor = currentFoodCombo.GetColor(gluttonGazeLevel, values.GoodFoodMultiplier, values.BadFoodMultiplier);
             currentComboText.fontMaterial.SetColor("_OutlineColor", targetColor);
             currentComboText.fontMaterial.SetFloat("_OutlineWidth", 0.12f);
         }
         
         if (nextFoodComboFill)
         {
-            nextFoodComboFill.color = nextFoodCombo.GetColor(gluttonGazeLevel);
+            nextFoodComboFill.color = nextFoodCombo.GetColor(gluttonGazeLevel, values.GoodFoodMultiplier, values.BadFoodMultiplier);
         }
     }
 
@@ -75,10 +84,15 @@ public class Hunger : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-        if (elapsedTime > 1f)
-        {
-            GenerateNewCombo();
+        float currentSpeed = 1f;
+        if (dataObject.PlayerData.GameData.Upgrades[16]) {
+            currentSpeed = currentFoodCombo.Calculate(values.GoodFoodMultiplier, values.BadFoodMultiplier) > 0 ||
+            currentFoodCombo.Food.Effect == "Miscellaneous" ? 2f : 0.5f;
         }
+        if (elapsedTime > currentSpeed)
+            {
+                GenerateNewCombo();
+            }
         
         UpdateComboVisuals();
 
@@ -159,7 +173,7 @@ public class Hunger : MonoBehaviour
 
     public void Feed()
     {
-        int pointChange = currentFoodCombo.Calculate();
+        int pointChange = currentFoodCombo.Calculate(values.GoodFoodMultiplier, values.BadFoodMultiplier);
         if (dataObject)
         {
             dataObject.PlayerData.GameData.UpdateStat("Hunger", pointChange);
@@ -258,22 +272,17 @@ public class Hunger : MonoBehaviour
             }
         }
 
-        dataObject.PlayerData.GameData.Appetite.Update(-25);
+        dataObject.PlayerData.GameData.Appetite.Update(feedAppetiteCost);
 
         // SFX
-        if (nomSource)
-        {
-            nomSource.clip = noms[Random.Range(0, noms.Count)];
-            nomSource.pitch = Random.Range(1.00f - 0.10f, 1.00f + 0.10f);
-            nomSource.Play();
-        }
+        if (audioSource) Util.PlaySFX(audioSource, noms[Random.Range(0, noms.Count)]);
 
         CreatePopup("Hunger", pointChange);
     }
 
     public void NextFood()
     {
-        dataObject.PlayerData.GameData.Appetite.Update(-100);
+        dataObject.PlayerData.GameData.Appetite.Update(skipAppetiteCost);
         GenerateNewCombo();
     }
 

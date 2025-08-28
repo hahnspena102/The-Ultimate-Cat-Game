@@ -5,17 +5,16 @@ using UnityEngine;
 
 public class Clean : MonoBehaviour
 {
+    [Header("Basics")]
     [SerializeField] private DataObject dataObject;
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip redLightSFX, greenLightSFX, yellowLightSFX;
+    [Header("Values")]
+    [SerializeField] private Values values;
 
-    private float greenLower = 1f;
-    private float greenUpper = 8f;
-
-    private float redLower = 1f;
-    private float redUpper = 3f;
-
+    [Header("Audio Clips & Sprites")]
+    [SerializeField] private AudioClip redLightSFX;
+    [SerializeField] private AudioClip greenLightSFX, yellowLightSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,35 +31,24 @@ public class Clean : MonoBehaviour
             // GREEN
             if (dataObject.PlayerData.GameData.CleanPhase == 0)
             {
-                dataObject.PlayerData.GameData.CleanTimer = 1f;
+                dataObject.PlayerData.GameData.CleanTimer = values.YellowLight;
                 dataObject.PlayerData.GameData.CleanPhase = 1;
-                if (audioSource)
-                {
-                    audioSource.clip = yellowLightSFX;
-                    PlaySFX();
-                }
+                if (audioSource) Util.PlaySFX(audioSource, yellowLightSFX);
             }
             // YELLOW
             else if (dataObject.PlayerData.GameData.CleanPhase == 1)
             {
-                dataObject.PlayerData.GameData.CleanTimer = Random.Range(redLower, redUpper);
+                dataObject.PlayerData.GameData.CleanTimer = Random.Range(values.RedLightLower, values.RedLightUpper);
                 dataObject.PlayerData.GameData.CleanPhase = 2;
-                if (audioSource)
-                {
-                    audioSource.clip = redLightSFX;
-                    PlaySFX();
-                }
+                if (audioSource) Util.PlaySFX(audioSource, redLightSFX);
             }
             // RED
             else if (dataObject.PlayerData.GameData.CleanPhase == 2)
             {
-                dataObject.PlayerData.GameData.CleanTimer = Random.Range(greenLower, greenUpper);
+                dataObject.PlayerData.GameData.CleanTimer = Random.Range(values.GreenLightLower, values.GreenLightUpper);
                 dataObject.PlayerData.GameData.CleanPhase = 0;
-                if (audioSource)
-                {
-                    audioSource.clip = greenLightSFX;
-                    PlaySFX();
-                }
+                if (audioSource) Util.PlaySFX(audioSource, greenLightSFX);
+                
             }
         }
 
@@ -73,31 +61,6 @@ public class Clean : MonoBehaviour
         audioSource.pitch = Random.Range(1.00f - 0.10f, 1.00f + 0.10f);
         audioSource.Play();
     }
-    
-    void UpdateUpgradeValues()
-    {
-        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
-
-        if (upgrades[41])
-        {
-            greenLower = 4f;
-            greenUpper = 10f;
-
-            redLower = 0.5f;
-            redUpper = 1f;
-        }
-        else
-        {
-            greenLower = 1f;
-            greenUpper = 8f;
-
-            redLower = 1f;
-            redUpper = 3f;
-        }
-            
-        
-    }
-
 }
 
 

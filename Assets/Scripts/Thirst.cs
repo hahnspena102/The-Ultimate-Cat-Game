@@ -5,13 +5,18 @@ using System.Collections.Generic;
 
 public class Thirst : MonoBehaviour
 {
+    [Header("Basics")]
     [SerializeField] private DataObject dataObject;
     [SerializeField] private GameObject waterDrop;
-    [SerializeField] private int lowerBound = -100;
-    [SerializeField] private int upperBound = 100;
-    [SerializeField] private float timeMax = 0.5f;
 
-    private float spawnWidth = 8f;
+    [Header("Values")]
+    [SerializeField] private Values values;
+    [SerializeField] private float timeMax = 0.5f;
+    [SerializeField] private float spawnWidth = 8f;
+    
+    //[Header("Audio Clips & Sprites")]
+
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,7 +27,7 @@ public class Thirst : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateUpgradeValues();
+
     }
 
     IEnumerator WaterGenerator()
@@ -43,7 +48,7 @@ public class Thirst : MonoBehaviour
 
         if (wd)
         {
-            wd.Point = Random.Range(lowerBound, upperBound + 1);
+            wd.Point = Random.Range(values.WaterDropLowerBound, values.WaterDropUpperBound + 1);
 
             // Aquatic Alchemy 1
             if (dataObject.PlayerData.GameData.Upgrades[22])
@@ -64,28 +69,5 @@ public class Thirst : MonoBehaviour
        );
 
         newDrop.transform.localPosition = randomScreenPoint;
-    }
-    
-    void UpdateUpgradeValues()
-    {
-        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
-        Stat love = dataObject.PlayerData.GameData.Stats[0];
-        if (upgrades[20])
-        {
-            upperBound = 500;
-        }
-        else if (upgrades[19])
-        {
-            upperBound = 300;
-        }
-        else if (upgrades[18])
-        {
-            upperBound = 200;
-        }
-        else
-        {
-            upperBound = 100;
-        }
-        
     }
 }

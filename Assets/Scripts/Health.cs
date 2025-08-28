@@ -5,26 +5,26 @@ using System.Collections.Generic;
 
 public class Health : MonoBehaviour
 {
+    [Header("Basics")]
     [SerializeField] private DataObject dataObject;
+    [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private List<GameObject> boxes;
 
+    [Header("Values")]
+    [SerializeField] private Values values;
     [SerializeField] private int treatmentCount = 1;
     [SerializeField] private int currentTreatmentFound;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip randomizeSFX, randomizeDoneSFX;
-    int completionBonus = 150;
-    private int healValue = 50;
-    private int hurtValue = -200;
-    List<float> odds = new List<float> { 20f, 30f, 50f };
+
+    [Header("Audio Clips & Sprites")]
+    [SerializeField] private AudioClip randomizeSFX;
+    [SerializeField] private AudioClip randomizeDoneSFX;
+
+
     private UI ui;
     private bool isResetting = false;
     public global::System.Int32 TreatmentCount { get => treatmentCount; set => treatmentCount = value; }
     public global::System.Int32 CurrentTreatmentFound { get => currentTreatmentFound; set => currentTreatmentFound = value; }
-    public global::System.Int32 HealValue { get => healValue; set => healValue = value; }
-    public global::System.Int32 HurtValue { get => hurtValue; set => hurtValue = value; }
-    public List<global::System.Single> Odds { get => odds; set => odds = value; }
-
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,15 +55,14 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateUpgradeValues();
         if (currentTreatmentFound >= treatmentCount && !isResetting)
         {
-            dataObject.PlayerData.GameData.UpdateStat("Health", completionBonus);
+            dataObject.PlayerData.GameData.UpdateStat("Health", values.HealthCompletionBonus);
             float pw = 16f;
             float ph = 16f;
             Vector2 spawnPosition = new Vector2(Random.Range(transform.position.x - pw, transform.position.x + pw),
                                                 Random.Range(transform.position.y - ph, transform.position.y + ph));
-            CreatePopup(spawnPosition, completionBonus * treatmentCount);
+            CreatePopup(spawnPosition, values.HealthCompletionBonus * treatmentCount);
 
             StartCoroutine(ResetGrid());
 
@@ -146,51 +145,16 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void CreatePopup(Vector3 spawnPosition, int pointChange)
+    public void CreatePopup(Vector3 spawnPosition, int pointChange, bool isCoin = false)
     {
-        if (ui) ui.SpawnPopup(spawnPosition, "Health", pointChange, transform);
-    }
-
-    void UpdateUpgradeValues()
-    {
-        List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
-
-        if (upgrades[56])
+        if (isCoin)
         {
-            completionBonus = 500;
-            healValue = 500;
-        }
-        else if (upgrades[55])
-        {
-            completionBonus = 300;
-            healValue = 250;
-        }
-        else if (upgrades[54])
-        {
-            completionBonus = 200;
-            healValue = 100;
+            if (ui) ui.SpawnCoinPopup(pointChange, transform);
         }
         else
         {
-            completionBonus = 150;
-            healValue = 50;
-
+            if (ui) ui.SpawnPopup(spawnPosition, "Health", pointChange, transform);
         }
-
-        if (upgrades[58])
-        {
-            odds[1] = 10f;
-        }
-        else if (upgrades[57])
-        {
-            odds[1] = 20f;
-        }
-        else
-        {
-            odds[1] = 30f;
-
-        }
-        odds[2] = 80f - odds[1];
+        
     }
-
 }

@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private DataObject dataObject;
+    [SerializeField] private Values values;
     [SerializeField] private float decayRate = 1; // Occurrences per second
     [SerializeField] private HungerTable hungerTable;
 
-    private float decayMultiplier = 0.2f; //The higher, the faster
+    private float decayMultiplier = 0.12f; //The higher, the faster
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         dataObject.PlayerData.GameData.UpdateLevel();
         UpdateStatLocks();
-        UpdateUpgradeValues();
+        UpdateValues();
 
         decayRate = Mathf.Max(1, dataObject.PlayerData.GameData.Level * decayMultiplier);
 
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         {
             if (stat.Value == 0)
             {
-               Lose();
+               //Lose();
             }
         }
         
@@ -76,7 +77,7 @@ public class GameManager : MonoBehaviour
 
         dataObject.PlayerData.GameData.SoulBullets.Update(1);
 
-        dataObject.PlayerData.GameData.UpdatePoints(10);
+        dataObject.PlayerData.GameData.UpdatePoints(100);
         //dataObject.PlayerData.GameData.Coins += 1;
 
         yield return new WaitForSeconds(1f);
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(AppetiteCoroutine());
     }
 
-    private List<int> levelThresholds = new List<int> { 0, 2, 3, 5, 10, 20, 30, 1000, 1000 };
+    private List<int> levelThresholds = new List<int> { 0, 3, 6, 10, 15, 20, 30, 40, 1000 };
     private void UpdateStatLocks()
     {
         List<Stat> stats = dataObject.PlayerData.GameData.Stats;
@@ -116,142 +117,34 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GameOverScene");
     }
 
-    void UpdateUpgradeValues()
+    void UpdateValues()
     {
         List<bool> upgrades = dataObject.PlayerData.GameData.Upgrades;
 
+        values.UpdateUpgradeValues(upgrades);
+
         // Love
-        Stat love = dataObject.PlayerData.GameData.Stats[0];
-        if (upgrades[2])
-        {
-            love.MaxValue = 2000;
-        }
-        else if (upgrades[1])
-        {
-            love.MaxValue = 1500;
-        }
-        else if (upgrades[0])
-        {
-            love.MaxValue = 1000;
-        }
-        else
-        {
-            love.MaxValue = 750;
-        }
-
-        if (upgrades[4])
-        {
-            love.MaxValue = 5000;
-        }
-
+        dataObject.PlayerData.GameData.Stats[0].MaxValue = values.LoveMaxValue;
 
         // Hunger
-        Stat hunger = dataObject.PlayerData.GameData.Stats[1];
-        if (upgrades[13])
-        {
-            hunger.MaxValue = 9000;
-            dataObject.PlayerData.GameData.Appetite.MaxValue = 300;
-        }
-        else if (upgrades[12])
-        {
-            hunger.MaxValue = 3000;
-            dataObject.PlayerData.GameData.Appetite.MaxValue = 200;
-        }
-        else
-        {
-            hunger.MaxValue = 1000;
-            dataObject.PlayerData.GameData.Appetite.MaxValue = 100;
-        }
-
+        dataObject.PlayerData.GameData.Stats[1].MaxValue = values.HungerMaxValue;
+        dataObject.PlayerData.GameData.Appetite.MaxValue = values.AppetiteMaxValue;
 
         // Thirst
-        Stat thirst = dataObject.PlayerData.GameData.Stats[2];
-        if (upgrades[20])
-        {
-            thirst.MaxValue = 4800;
-        }
-        else if (upgrades[19])
-        {
-            thirst.MaxValue = 2400;
-        }
-        else if (upgrades[18])
-        {
-            thirst.MaxValue = 1200;
-        }
-        else
-        {
-            thirst.MaxValue = 600;
-        }
+        dataObject.PlayerData.GameData.Stats[2].MaxValue = values.ThirstMaxValue;
 
         // Energy
-        Stat energy = dataObject.PlayerData.GameData.Stats[3];
-        if (upgrades[31])
-        {
-            dataObject.PlayerData.GameData.EnergyRespawn.MaxValue = 5;
+         dataObject.PlayerData.GameData.Stats[3].MaxValue = values.EnergyMaxValue;
+        dataObject.PlayerData.GameData.EnergyRespawn.MaxValue = values.EnergyRespawnMaxValue;
 
-        }
-        else if (upgrades[30])
-        {
-            dataObject.PlayerData.GameData.EnergyRespawn.MaxValue = 10;
-        }
-        else
-        {
-            dataObject.PlayerData.GameData.EnergyRespawn.MaxValue = 15;
-        }
-
-        // Clean
-        Stat clean = dataObject.PlayerData.GameData.Stats[4];
-        if (upgrades[40])
-        {
-            clean.MaxValue = 8000;
-        }
-        else if (upgrades[39])
-        {
-            clean.MaxValue = 4000;
-        }
-        else
-        {
-            clean.MaxValue = 2000;
-        }
+        // Clean 
+        dataObject.PlayerData.GameData.Stats[4].MaxValue = values.CleanMaxValue;
 
         // Cozy
-        Stat cozy = dataObject.PlayerData.GameData.Stats[5];
-        if (upgrades[47])
-        {
-            cozy.MaxValue = 12000;
-        }
-        else if (upgrades[46])
-        {
-            cozy.MaxValue = 9600;
-        } 
-        else if (upgrades[45])
-        {
-            cozy.MaxValue = 4800;
-        }
-        else
-        {
-            cozy.MaxValue = 2400;
-        }
+        dataObject.PlayerData.GameData.Stats[5].MaxValue = values.CozyMaxValue;    
 
         // Health
-        Stat health = dataObject.PlayerData.GameData.Stats[6];
-        if (upgrades[56])
-        {
-            health.MaxValue = 15000;
-        }
-        else if (upgrades[55])
-        {
-            health.MaxValue = 8000;
-        }
-        else if (upgrades[54])
-        {
-            health.MaxValue = 5000;
-        }
-        else
-        {
-            health.MaxValue = 3000;
-        }
-        
+        dataObject.PlayerData.GameData.Stats[6].MaxValue = values.HealthMaxValue;
     
     }
 }

@@ -3,15 +3,23 @@ using System.Collections.Generic;
 
 public class CozyBall : MonoBehaviour
 {
+    [Header("Basics")]
     [SerializeField] private DataObject dataObject;
-    [SerializeField] private string type;
+    private Cozy cozyOwner;
 
+    [Header("Values")]
+    [SerializeField] private Values values;
     private HashSet<CozyBall> connectedBalls = new HashSet<CozyBall>();
     private bool checkedConnections = false;
-    private Cozy cozyOwner;
-    private UI ui;
+    [SerializeField] private string type;
 
-    private int cozyValue;
+    [Header("Audio Clips & Sprites")]
+    
+  
+
+    
+
+
 
     public global::System.String Type { get => type; set => type = value; }
 
@@ -65,9 +73,9 @@ public class CozyBall : MonoBehaviour
 
                     
 
-                    float pointChange =  cozyOwner.CozyValue* connectedBalls.Count;
+                    float pointChange = values.CozyValue* connectedBalls.Count;
 
-                    pointChange *= cozyOwner.CozyMultiplier;
+                    pointChange *= values.CozyMultiplier;
 
                     cozyOwner.CreatePopup(Camera.main.WorldToScreenPoint(transform.position), Mathf.FloorToInt(pointChange));
                     dataObject.PlayerData.GameData.UpdateStat("Cozy", Mathf.FloorToInt(pointChange));

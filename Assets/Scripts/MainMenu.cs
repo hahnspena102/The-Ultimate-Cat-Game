@@ -35,14 +35,14 @@ public class MainMenu : MonoBehaviour
             if (gd.IsAlive)
             {
                 if (continueButton) continueButton.interactable = true;
-                nameInputField.interactable = false;
+                //nameInputField.interactable = false;
             }
             else
             {
                 //Debug.Log("no game data");
                 dataObject.PlayerData.GameData = new GameData();
                 if (continueButton) continueButton.interactable = false;
-                nameInputField.interactable = true;
+                //nameInputField.interactable = true;
             }
         }
 

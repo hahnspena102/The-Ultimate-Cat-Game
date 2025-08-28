@@ -20,4 +20,4 @@ MonoBehaviour:
   cost: 5000
   type: Love
   prerequisites:
-  - {fileID: 11400000, guid: 19030a7b6159fcb43b1628bb5f706749, type: 2}
+  - {fileID: 11400000, guid: 5025fac9dd5d89344ae7f77c406fbbbe, type: 2}

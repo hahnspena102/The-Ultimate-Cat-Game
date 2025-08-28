@@ -4,10 +4,10 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Food
 {
-    [SerializeField] private string foodName;
-    [SerializeField] private string type;
-    [SerializeField] private int basePoints;
-    [SerializeField] private string effect;
+    [ReadOnly, SerializeField] private string foodName;
+    [ReadOnly, SerializeField] private string type;
+    [ReadOnly, SerializeField] private int basePoints;
+    [ReadOnly, SerializeField] private string effect;
 
     public global::System.String FoodName { get => foodName; set => foodName = value; }
     public global::System.String Type { get => type; set => type = value; }
@@ -18,9 +18,9 @@ public class Food
 [System.Serializable]
 public class Adjective
 {
-    [SerializeField] private string adjectiveName;
-    [SerializeField] private int multiplier;
-    [SerializeField] private string type;
+    [ReadOnly, SerializeField] private string adjectiveName;
+    [ReadOnly, SerializeField] private int multiplier;
+    [ReadOnly, SerializeField] private string type;
 
     public global::System.String AdjectiveName { get => adjectiveName; set => adjectiveName = value; }
     public global::System.Int32 Multiplier { get => multiplier; set => multiplier = value; }
@@ -42,24 +42,31 @@ public class FoodCombo
 
     public Food Food { get => food; set => food = value; }
 
-    public int Calculate()
+    public int Calculate(int goodFoodMultiplier, int badFoodMultiplier)
     {
         int output = 0;
 
         if (food.Effect == "Good")
         {
-            output = adjective.Multiplier * 25 * food.BasePoints;
+            if (adjective.Multiplier >= 0)
+            {
+                output = adjective.Multiplier * goodFoodMultiplier * food.BasePoints;
+            }
+            else if (adjective.Multiplier < 0)
+            {
+                output = adjective.Multiplier * badFoodMultiplier * food.BasePoints;
+            }
         }
 
         else if (food.Effect == "Bad")
         {
             if (adjective.Multiplier >= 0)
             {
-                output = -Mathf.Abs(25 * food.BasePoints);
+                output = -Mathf.Abs(badFoodMultiplier * food.BasePoints);
             }
             else if (adjective.Multiplier < 0)
             {
-                output = -Mathf.Abs(adjective.Multiplier * 25 * food.BasePoints);
+                output = -Mathf.Abs(adjective.Multiplier * badFoodMultiplier * food.BasePoints);
             }
         }
         else if (food.Effect == "Miscellaneous")
@@ -107,9 +114,9 @@ public class FoodCombo
         return $"{adjective.AdjectiveName} {food.FoodName}";
     }
 
-    public Color GetColor(int gluttonGazeLevel)
+    public Color GetColor(int gluttonGazeLevel, int goodFoodMultiplier, int badFoodMultiplier)
     {
-        int pointChange = this.Calculate();
+        int pointChange = this.Calculate(goodFoodMultiplier, badFoodMultiplier);
         Color targetColor = new Color(0f, 0f, 0f, 0f);
 
         if (gluttonGazeLevel >= 1) // Glutton Gaze 1
