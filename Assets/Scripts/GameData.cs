@@ -23,6 +23,7 @@ public class GameData
     [SerializeField] private float cozyBonusTimer;
     [SerializeField] private float soulX, soulY;
     [SerializeField] private Stat soulBullets;
+     [SerializeField] private List<SavedSoulGhost> savedSoulGhosts;
 
     public GameData()
     {
@@ -57,8 +58,9 @@ public class GameData
         this.EnergyRespawn = new Stat("EnergyRespawn", 15);
         this.CozySavedBalls = new List<CozySavedBall>();
         this.CozyBonusTimer = 0f;
-        this.cozyBonus = new List<bool> { false, false, false, false, false, false, false, false};
+        this.cozyBonus = new List<bool> { false, false, false, false, false, false, false, false };
         this.soulBullets = new Stat("SoulBullets", 7);
+        this.SavedSoulGhosts = new List<SavedSoulGhost>();
 
 
     }
@@ -154,4 +156,5 @@ public class GameData
     public Stat Appetite { get => appetite; set => appetite = value; }
     public List<global::System.Boolean> CozyBonus { get => cozyBonus; set => cozyBonus = value; }
     public global::System.Single CozyBonusTimer { get => cozyBonusTimer; set => cozyBonusTimer = value; }
+    public List<SavedSoulGhost> SavedSoulGhosts { get => savedSoulGhosts; set => savedSoulGhosts = value; }
 }

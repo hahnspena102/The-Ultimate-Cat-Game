@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae322050a58b75241b5d8f8b77757a19, type: 3}
-  m_Name: SpiritStrength1
+  m_Name: SpiritStrength2
   m_EditorClassIdentifier: 
-  upgradeName: Spirit Strength I
-  id: 63
-  sprite: {fileID: -513124502, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
+  upgradeName: Spirit Strength II
+  id: 64
+  sprite: {fileID: 667684520, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: 'Increases maximum Soul and increases Soul gained. '
-  cost: 1000
+  cost: 4500
   type: Soul
-  prerequisites: []
+  prerequisites:
+  - {fileID: 11400000, guid: 077bf79147b4df44aa851ba26d285128, type: 2}

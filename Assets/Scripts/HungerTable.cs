@@ -18,6 +18,8 @@ public class HungerTable : ScriptableObject
 
     void LoadFoodCSV(string filename)
     {
+        foods = new List<Food>();
+
         TextAsset fileData = Resources.Load<TextAsset>(filename);
         if (fileData == null)
         {
@@ -49,6 +51,8 @@ public class HungerTable : ScriptableObject
 
     void LoadAdjectiveCSV(string filename)
     {
+        adjectives = new List<Adjective>();
+        
         TextAsset fileData = Resources.Load<TextAsset>(filename);
         if (fileData == null)
         {

@@ -20,6 +20,8 @@ MonoBehaviour:
   cleanMaxValues: d0070000a00f0000401f0000
   cozyMaxValues: 60090000c012000080250000e02e0000
   healthMaxValues: b80b000088130000401f0000983a0000
+  soulMaxValues: a00f0000401f0000e02e0000803e0000
+  lifeforceMaxValues: 8813000010270000983a0000204e0000
   LoveMaxValue: 6000
   HungerMaxValue: 9000
   ThirstMaxValue: 4800
@@ -28,6 +30,8 @@ MonoBehaviour:
   CleanMaxValue: 8000
   CozyMaxValue: 12000
   HealthMaxValue: 15000
+  SoulMaxValue: 16000
+  LifeforceMaxValue: 0
   loveHeartValues: 19000000320000004b00000064000000
   loveCoinValues: 0000000019000000
   loveCanvasXPaddings:
@@ -105,11 +109,11 @@ MonoBehaviour:
   - 8
   - 12
   - 16
-  RedLightUpper: 1
-  RedLightLower: 0.5
-  GreenLightUpper: 10
-  GreenLightLower: 4
-  YellowLight: 0
+  RedLightUpper: 3
+  RedLightLower: 1
+  GreenLightUpper: 8
+  GreenLightLower: 1
+  YellowLight: 0.5
   CleanValue: 1000
   CleanPlayerBoost: 16
   cozyCooldowns:
@@ -143,6 +147,14 @@ MonoBehaviour:
   HurtValue: -200
   HealthOdds:
   - 20
-  - 30
+  - 10
   - 50
-  - 0
+  - 10
+  soulValues: fa000000f4010000ee020000e8030000
+  reloadRates:
+  - 1
+  - 0.5
+  maxAmmos: 070000000c00000012000000
+  SoulValue: 1000
+  ReloadRate: 0.5
+  MaxAmmo: 7

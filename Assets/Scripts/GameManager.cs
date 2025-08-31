@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         {
             if (stat.Value == 0)
             {
-               //Lose();
+               Lose();
             }
         }
         
@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
 
         dataObject.PlayerData.GameData.EnergyRespawn.Update(1);
 
-        dataObject.PlayerData.GameData.SoulBullets.Update(1);
 
         dataObject.PlayerData.GameData.UpdatePoints(100);
         //dataObject.PlayerData.GameData.Coins += 1;
@@ -134,17 +133,21 @@ public class GameManager : MonoBehaviour
         dataObject.PlayerData.GameData.Stats[2].MaxValue = values.ThirstMaxValue;
 
         // Energy
-         dataObject.PlayerData.GameData.Stats[3].MaxValue = values.EnergyMaxValue;
+        dataObject.PlayerData.GameData.Stats[3].MaxValue = values.EnergyMaxValue;
         dataObject.PlayerData.GameData.EnergyRespawn.MaxValue = values.EnergyRespawnMaxValue;
 
         // Clean 
         dataObject.PlayerData.GameData.Stats[4].MaxValue = values.CleanMaxValue;
 
         // Cozy
-        dataObject.PlayerData.GameData.Stats[5].MaxValue = values.CozyMaxValue;    
+        dataObject.PlayerData.GameData.Stats[5].MaxValue = values.CozyMaxValue;
 
         // Health
         dataObject.PlayerData.GameData.Stats[6].MaxValue = values.HealthMaxValue;
+
+        // Soul
+        dataObject.PlayerData.GameData.Stats[7].MaxValue = values.SoulMaxValue;
+        dataObject.PlayerData.GameData.SoulBullets.MaxValue = values.MaxAmmo;
     
     }
 }
