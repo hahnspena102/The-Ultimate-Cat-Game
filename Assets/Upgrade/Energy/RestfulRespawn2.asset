@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 31
   sprite: {fileID: 1110878278, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Decreases the respawn timer.
-  cost: 4500
+  cost: 3500
   type: Energy
   prerequisites:
   - {fileID: 11400000, guid: 4c4a9e4cb1f614844b3c3ee7eba8ca46, type: 2}

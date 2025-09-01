@@ -13,6 +13,8 @@ public class GameData
     [SerializeField] private bool isAlive;
     [SerializeField] private List<Stat> stats;
     [SerializeField] private List<bool> upgrades;
+    [SerializeField] private FoodCombo currentFoodCombo, nextFoodCombo;
+    [SerializeField] private float foodTimer;
     [SerializeField] private Stat appetite;
     [SerializeField] private Stat energyRespawn;
     [SerializeField] private float cleanTimer;
@@ -39,7 +41,7 @@ public class GameData
             new Stat ("Love", 750),
             new Stat ("Hunger", 1000),
             new Stat ("Thirst", 600),
-            new Stat ("Energy", 1600),
+            new Stat ("Energy", 3200),
             new Stat ("Clean", 2000),
             new Stat ("Cozy", 2400),
             new Stat ("Health", 3000),
@@ -157,4 +159,7 @@ public class GameData
     public List<global::System.Boolean> CozyBonus { get => cozyBonus; set => cozyBonus = value; }
     public global::System.Single CozyBonusTimer { get => cozyBonusTimer; set => cozyBonusTimer = value; }
     public List<SavedSoulGhost> SavedSoulGhosts { get => savedSoulGhosts; set => savedSoulGhosts = value; }
+    public FoodCombo CurrentFoodCombo { get => currentFoodCombo; set => currentFoodCombo = value; }
+    public FoodCombo NextFoodCombo { get => nextFoodCombo; set => nextFoodCombo = value; }
+    public global::System.Single FoodTimer { get => foodTimer; set => foodTimer = value; }
 }

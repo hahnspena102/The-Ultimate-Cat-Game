@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 38
   sprite: {fileID: -1062778370, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Increases the speed of the soap.
-  cost: 6000
+  cost: 5000
   type: Clean
   prerequisites:
   - {fileID: 11400000, guid: 7140147bcea2523459fda1c05e63477a, type: 2}

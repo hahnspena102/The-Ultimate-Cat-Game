@@ -17,7 +17,7 @@ MonoBehaviour:
   sprite: {fileID: 64868952, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Significantly increases the maximum love and creates a tighter bound
     on Love Heart spawn positioning.
-  cost: 5000
+  cost: 2000
   type: Love
   prerequisites:
   - {fileID: 11400000, guid: 5025fac9dd5d89344ae7f77c406fbbbe, type: 2}

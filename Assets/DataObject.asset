@@ -14,248 +14,98 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData:
     username: user
-    highScore: 9525
+    highScore: 403901
     deathCount: 0
     gameData:
-      catName: wa
+      catName: Meowser
       breed: breed
-      points: 316583
-      level: 62
-      coins: 75292
+      points: 33302
+      level: 13
+      coins: 5983
       isAlive: 1
       stats:
       - name: Love
-        value: 387
+        value: 5686
         maxValue: 6000
         locked: 0
       - name: Hunger
-        value: 6700
-        maxValue: 9000
+        value: 435
+        maxValue: 1000
         locked: 0
       - name: Thirst
-        value: 2302
-        maxValue: 4800
+        value: 227
+        maxValue: 600
         locked: 0
       - name: Energy
-        value: 9020
-        maxValue: 12800
+        value: 2945
+        maxValue: 3200
         locked: 0
       - name: Clean
-        value: 7401
-        maxValue: 8000
-        locked: 0
+        value: 1998
+        maxValue: 2000
+        locked: 1
       - name: Cozy
-        value: 10536
-        maxValue: 12000
-        locked: 0
+        value: 2399
+        maxValue: 2400
+        locked: 1
       - name: Health
-        value: 14238
-        maxValue: 15000
-        locked: 0
+        value: 2998
+        maxValue: 3000
+        locked: 1
       - name: Soul
-        value: 0
+        value: 3998
         maxValue: 4000
-        locked: 0
+        locked: 1
       - name: Lifeforce
         value: 4998
         maxValue: 5000
         locked: 1
-      upgrades: 010101010100000000010101010100010100010101010101000000010101010101000100010101010100000000010101000101010000010101010100000000010000000000000000000000000000000000
+      upgrades: 000001010101010101010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      currentFoodCombo:
+        food:
+          foodName: Mysterious Essence
+          type: None
+          basePoints: 0
+          effect: Miscellaneous
+        adjective:
+          adjectiveName: None
+          multiplier: 0
+          type: None
+      nextFoodCombo:
+        food:
+          foodName: Pizza
+          type: Generic
+          basePoints: -1
+          effect: Bad
+        adjective:
+          adjectiveName: Okay
+          multiplier: 1
+          type: Generic
+      foodTimer: 0.13394962
       appetite:
         name: Appetite
-        value: 300
-        maxValue: 300
+        value: 100
+        maxValue: 100
         locked: 0
       energyRespawn:
         name: EnergyRespawn
-        value: 5
-        maxValue: 5
+        value: 15
+        maxValue: 15
         locked: 0
-      cleanTimer: 1.109378
+      cleanTimer: 0
       cleanPhase: 0
-      cleanX: -2.6902878
-      cozySavedBalls:
-      - xPos: -3.1596224
-        yPos: 2.2011309
-        rotation: 57.66132
-        type: brush
-      - xPos: -2.4653218
-        yPos: 2.2012866
-        rotation: 61.36115
-        type: warmth
-      - xPos: 2.2535658
-        yPos: 2.2018065
-        rotation: 25.764029
-        type: aroma
-      - xPos: -1.0706713
-        yPos: 2.2017121
-        rotation: 64.388245
-        type: tower
-      - xPos: 3.6359956
-        yPos: 2.201818
-        rotation: 0.9136108
-        type: aroma
-      - xPos: -1.7709439
-        yPos: 2.2009258
-        rotation: 62.355415
-        type: aroma
-      - xPos: 1.5620395
-        yPos: 2.2010522
-        rotation: -15.692699
-        type: brush
-      - xPos: 2.9446046
-        yPos: 2.2017748
-        rotation: -10.953035
-        type: warmth
-      - xPos: -2.1181462
-        yPos: 2.802284
-        rotation: -73.14929
-        type: yarn
-      - xPos: 2.8899446
-        yPos: 2.894569
-        rotation: -135.05904
-        type: blanket
-      - xPos: -2.8128116
-        yPos: 2.8025663
-        rotation: -53.083103
-        type: yarn
-      - xPos: 3.5855057
-        yPos: 2.8967004
-        rotation: -30.485973
-        type: aroma
-      - xPos: -0.37600547
-        yPos: 2.2017298
-        rotation: 39.20858
-        type: brush
-      - xPos: 0.31816226
-        yPos: 2.2013588
-        rotation: 28.528069
-        type: mouse
-      - xPos: -3.6347725
-        yPos: 2.706441
-        rotation: 41.981594
-        type: brush
-      - xPos: -0.025584772
-        yPos: 2.8049529
-        rotation: -1.5695355
-        type: brush
-      - xPos: -1.4232526
-        yPos: 2.8003747
-        rotation: 110.04236
-        type: mouse
-      - xPos: -0.7230735
-        yPos: 2.8036113
-        rotation: 0.8837666
-        type: yarn
-      - xPos: 2.1946595
-        yPos: 2.8944402
-        rotation: -122.572105
-        type: blanket
-      - xPos: -3.634783
-        yPos: 3.400861
-        rotation: 53.494293
-        type: bed
-      - xPos: -1.7739775
-        yPos: 3.4048991
-        rotation: -139.04503
-        type: mouse
-      - xPos: 2.937064
-        yPos: 3.5879383
-        rotation: -145.78896
-        type: mouse
-      - xPos: -2.9456334
-        yPos: 3.484018
-        rotation: -62.048546
-        type: brush
-      - xPos: 0.6043163
-        yPos: 3.1098506
-        rotation: 13.366507
-        type: brush
-      - xPos: -2.3348567
-        yPos: 3.814279
-        rotation: -154.47537
-        type: brush
-      - xPos: -1.0799965
-        yPos: 3.4024255
-        rotation: 140.67737
-        type: tower
-      - xPos: 0.13537653
-        yPos: 3.6189835
-        rotation: -44.737564
-        type: bed
-      - xPos: -3.6270292
-        yPos: 4.0954976
-        rotation: -43.462833
-        type: aroma
-      - xPos: -1.695776
-        yPos: 4.095006
-        rotation: -111.86331
-        type: warmth
-      - xPos: 0.94129914
-        yPos: 2.5057693
-        rotation: -153.70044
-        type: yarn
-      - xPos: 1.5004013
-        yPos: 2.9264603
-        rotation: 25.351192
-        type: blanket
-      - xPos: -2.931976
-        yPos: 4.178495
-        rotation: -50.32097
-        type: warmth
-      - xPos: 3.632471
-        yPos: 3.5915282
-        rotation: -80.531876
-        type: yarn
-      - xPos: 2.2420363
-        yPos: 3.5878537
-        rotation: 169.5525
-        type: yarn
-      - xPos: -0.52738047
-        yPos: 3.8200357
-        rotation: 167.4855
-        type: brush
-      - xPos: 1.6765347
-        yPos: 3.9918325
-        rotation: 124.736305
-        type: aroma
-      - xPos: 1.1565976
-        yPos: 3.5309813
-        rotation: -89.79704
-        type: mouse
-      - xPos: 0.683352
-        yPos: 4.0457697
-        rotation: -23.679823
-        type: bed
-      - xPos: 0.02608639
-        yPos: 4.3048635
-        rotation: -59.733906
-        type: bed
-      - xPos: -1.3140963
-        yPos: 4.6754875
-        rotation: 42.241356
-        type: aroma
-      - xPos: -0.6408511
-        yPos: 4.50428
-        rotation: -27.934319
-        type: mouse
-      - xPos: -0.38661307
-        yPos: 5.150853
-        rotation: -71.03555
-        type: mouse
-      - xPos: 0.29524636
-        yPos: 5.7929745
-        rotation: -0
-        type: mouse
-      cozyBonus: 0101010101010001
+      cleanX: -6.3
+      cozySavedBalls: []
+      cozyBonus: 0000000000000000
       cozyBonusTimer: 0
-      soulX: 0.75434285
-      soulY: -1.296473
+      soulX: 0
+      soulY: 0
       soulBullets:
         name: SoulBullets
-        value: 1
+        value: 7
         maxValue: 7
         locked: 0
-  currentStat: Soul
-  selectedUpgrade: {fileID: 11400000, guid: 19030a7b6159fcb43b1628bb5f706749, type: 2}
+      savedSoulGhosts: []
+  currentStat: Thirst
+  selectedUpgrade: {fileID: 0}
   isPaused: 0

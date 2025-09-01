@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 13
   sprite: {fileID: -74274846, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Increases maximum Hunger and maximum Appetite.
-  cost: 8000
+  cost: 4300
   type: Hunger
   prerequisites:
   - {fileID: 11400000, guid: a565368b3aa850e4b8e80ebaea291d6c, type: 2}

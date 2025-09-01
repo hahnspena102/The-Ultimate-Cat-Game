@@ -15,9 +15,10 @@ MonoBehaviour:
   upgradeName: Verified Value
   id: 16
   sprite: {fileID: 1825575189, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
-  description: 'Increases the value of beneficial food items, decreases the value
-    of harmful food items, and slows down the randomizer. '
-  cost: 12000
+  description: Increases the value of beneficial food items, decreases the value
+    of harmful food items. Beneficial food items stay for a longer time and harmful
+    food items stay for a shorter time.
+  cost: 10000
   type: Hunger
   prerequisites:
   - {fileID: 11400000, guid: b177f7239cecdb94a93877b059a14335, type: 2}

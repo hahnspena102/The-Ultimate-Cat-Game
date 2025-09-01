@@ -23,23 +23,23 @@ MonoBehaviour:
   soulMaxValues: a00f0000401f0000e02e0000803e0000
   lifeforceMaxValues: 8813000010270000983a0000204e0000
   LoveMaxValue: 6000
-  HungerMaxValue: 9000
-  ThirstMaxValue: 4800
-  EnergyMaxValue: 12800
-  EnergyRespawnMaxValue: 5
-  CleanMaxValue: 8000
-  CozyMaxValue: 12000
-  HealthMaxValue: 15000
-  SoulMaxValue: 16000
+  HungerMaxValue: 1000
+  ThirstMaxValue: 600
+  EnergyMaxValue: 3200
+  EnergyRespawnMaxValue: 15
+  CleanMaxValue: 2000
+  CozyMaxValue: 2400
+  HealthMaxValue: 3000
+  SoulMaxValue: 4000
   LifeforceMaxValue: 0
   loveHeartValues: 19000000320000004b00000064000000
   loveCoinValues: 0000000019000000
-  loveCanvasXPaddings:
-  - 64
-  - 300
-  loveCanvasYPaddings:
-  - 400
-  - 400
+  loveRectXScales:
+  - 1
+  - 0.2
+  loveRectYScales:
+  - 1
+  - 0.75
   loveHeartSizeMultipliers:
   - 1
   - 1.25
@@ -54,24 +54,24 @@ MonoBehaviour:
   - 3
   LoveHeartValue: 100
   LoveCoinValue: 25
-  LoveCanvasXPadding: 300
-  LoveCanvasYPadding: 400
+  LoveRectXScale: 0.2
+  LoveRectYScale: 0.75
   LoveHeartSizeMultiplier: 2
   LoveLimitMultiplier: 3
-  LoveHeartCount: 1
+  LoveHeartCount: 3
   appetiteMaxValues: 64000000c80000002c010000
   goodFoodMultipliers: 1900000032000000
   badFoodMultipliers: 190000000a000000
-  AppetiteMaxValue: 300
-  GoodFoodMultiplier: 50
-  BadFoodMultiplier: 10
+  AppetiteMaxValue: 100
+  GoodFoodMultiplier: 25
+  BadFoodMultiplier: 25
   waterDropUpperBounds: 64000000c80000002c010000f4010000
   waterDropLowerBounds: 9cffffff01000000
   thirstPlayerSpeeds: 080000000c000000
-  WaterDropUpperBound: 500
-  WaterDropLowerBound: 1
-  ThirstPlayerSpeed: 12
-  energyParticleValues: 64000000fa000000f4010000
+  WaterDropUpperBound: 100
+  WaterDropLowerBound: -300
+  ThirstPlayerSpeed: 8
+  energyParticleValues: 0000000064000000fa000000f4010000
   energyParticleScales:
   - 0.1
   - 0.15
@@ -83,11 +83,11 @@ MonoBehaviour:
   energyPlayerHorizontalSpeeds:
   - 6
   - 10
-  EnergyParticleValue: 1000
-  EnergyParticleScale: 0.2
-  EnergyPassiveValue: 500
-  EnergyPlayerHorizontalSpeed: 10
-  EnergyPlayerVerticalSpeed: 12
+  EnergyParticleValue: 0
+  EnergyParticleScale: 0.1
+  EnergyPassiveValue: 250
+  EnergyPlayerHorizontalSpeed: 6
+  EnergyPlayerVerticalSpeed: 8
   redLightUppers:
   - 3
   - 1
@@ -114,8 +114,8 @@ MonoBehaviour:
   GreenLightUpper: 8
   GreenLightLower: 1
   YellowLight: 0.5
-  CleanValue: 1000
-  CleanPlayerBoost: 16
+  CleanValue: 500
+  CleanPlayerBoost: 4
   cozyCooldowns:
   - 1
   - 0.75
@@ -127,10 +127,10 @@ MonoBehaviour:
   - 1.5
   - 2
   - 3
-  CozyCooldown: 0.25
-  MaxCozyBall: 60
-  CozyValue: 600
-  CozyMultiplier: 3
+  CozyCooldown: 1
+  MaxCozyBall: 30
+  CozyValue: 200
+  CozyMultiplier: 1.5
   healthCompletionBonuses: fa000000f4010000e8030000d0070000
   healValues: 64000000c80000002c010000f4010000
   healthCoinOdds:
@@ -142,19 +142,19 @@ MonoBehaviour:
   - 20
   - 10
   - 0
-  HealthCompletionBonus: 2000
-  HealValue: 500
+  HealthCompletionBonus: 250
+  HealValue: 100
   HurtValue: -200
   HealthOdds:
   - 20
-  - 10
+  - 30
   - 50
-  - 10
+  - 0
   soulValues: fa000000f4010000ee020000e8030000
   reloadRates:
   - 1
   - 0.5
   maxAmmos: 070000000c00000012000000
-  SoulValue: 1000
-  ReloadRate: 0.5
+  SoulValue: 250
+  ReloadRate: 1
   MaxAmmo: 7

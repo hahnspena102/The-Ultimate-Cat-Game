@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 5
   sprite: {fileID: 497223851, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: 'Increases the number of Love Hearts to 2. '
-  cost: 6500
+  cost: 5500
   type: Love
   prerequisites:
   - {fileID: 11400000, guid: 038360ea9dea42843b725e118ba4e4a2, type: 2}

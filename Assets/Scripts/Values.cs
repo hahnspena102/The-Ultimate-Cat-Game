@@ -34,16 +34,16 @@ public class Values : ScriptableObject
 
     [SerializeField] private List<int> loveHeartValues = new List<int> { 0, 0, 0, 0 };
     [SerializeField] private List<int> loveCoinValues = new List<int> { 0, 0 };
-    [SerializeField] private List<float> loveCanvasXPaddings = new List<float> { 0, 0 };
-    [SerializeField] private List<float> loveCanvasYPaddings = new List<float> { 0, 0 };
+    [SerializeField] private List<float> loveRectXScales = new List<float> { 0, 0 };
+    [SerializeField] private List<float> loveRectYScales = new List<float> { 0, 0 };
     [SerializeField] private List<float> loveHeartSizeMultipliers = new List<float> { 0, 0, 0, 0 };
     [SerializeField] private List<float> loveLimitMultipliers = new List<float> { 0, 0};
     [SerializeField] private List<float> loveHeartCounts = new List<float> { 1, 2, 3};
 
     [ReadOnly] public int LoveHeartValue;
     [ReadOnly]public int LoveCoinValue;
-    [ReadOnly]public float LoveCanvasXPadding;
-    [ReadOnly]public float LoveCanvasYPadding;
+    [ReadOnly]public float LoveRectXScale;
+    [ReadOnly]public float LoveRectYScale;
     [ReadOnly]public float LoveHeartSizeMultiplier;
     [ReadOnly]public float LoveLimitMultiplier;
     [ReadOnly]public float LoveHeartCount;
@@ -155,8 +155,8 @@ public class Values : ScriptableObject
         LoveCoinValue = GetValue(3, loveCoinValues, upgrades);
 
         // Love Limit
-        LoveCanvasXPadding = GetValue(4, loveCanvasXPaddings, upgrades);
-        LoveCanvasYPadding = GetValue(4, loveCanvasYPaddings, upgrades);
+        LoveRectXScale = GetValue(4, loveRectXScales, upgrades);
+        LoveRectYScale = GetValue(4, loveRectYScales, upgrades);
         LoveLimitMultiplier = GetValue(4, loveLimitMultipliers, upgrades);
 
         // HUNGER

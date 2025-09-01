@@ -35,21 +35,28 @@ public class LoveHeart : MonoBehaviour
 
         love = GameObject.FindFirstObjectByType<Love>();
 
-        Vector2 randomScreenPoint = NewRandomScreenPoint();
+        //Vector2 randomScreenPoint = NewRandomScreenPoint();
 
-        Vector2 localPoint;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(love.CanvasRectTransform, randomScreenPoint, null, out localPoint);
+        //Vector2 localPoint;
+        // RectTransformUtility.ScreenPointToLocalPointInRectangle(love.CanvasRectTransform, randomScreenPoint, null, out localPoint);
 
-        heartTransform.localPosition = new Vector3(localPoint.x, localPoint.y, 0f);
+        heartTransform.localPosition = (Vector3)NewRandomScreenPoint();
     }
 
-    Vector2 NewRandomScreenPoint()
-    {
-        return new Vector2(
-            Random.Range(values.LoveCanvasXPadding, Screen.width - values.LoveCanvasXPadding),
-            Random.Range(values.LoveCanvasYPadding, Screen.height - values.LoveCanvasYPadding)
-        );
-    }
+ Vector2 NewRandomScreenPoint()
+{
+ 
+    Rect rect = love.SpawningRect.rect;
+
+    // Pick random local point inside the rect
+    float x = Random.Range(rect.xMin, rect.xMax);
+    float y = Random.Range(rect.yMin, rect.yMax);
+    Vector2 localPoint = new Vector2(x, y);
+
+        return localPoint;
+
+}
+
 
     void Update()
     {
@@ -94,14 +101,14 @@ public class LoveHeart : MonoBehaviour
 
     private void StartHeartMove()
     {
-        Vector2 randomScreenPoint = NewRandomScreenPoint();
+        //Vector2 randomScreenPoint = NewRandomScreenPoint();
 
-        Vector2 localPoint = randomScreenPoint;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(love.CanvasRectTransform, randomScreenPoint, null, out localPoint);
+        //Vector2 localPoint = randomScreenPoint;
+        //RectTransformUtility.ScreenPointToLocalPointInRectangle(love.CanvasRectTransform, randomScreenPoint, null, out localPoint);
 
         if (heartTransform != null)
         {
-            targetPosition = new Vector3(localPoint.x, localPoint.y, 0f);
+            targetPosition = (Vector3)NewRandomScreenPoint();
             moveTimer = 0f;
             isMoving = true;
         }

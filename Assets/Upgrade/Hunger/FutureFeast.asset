@@ -17,7 +17,7 @@ MonoBehaviour:
   sprite: {fileID: 546441815, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: 'Grants future vision on upcoming food items and allows the user to
     skip the current food item at the cost of Appetite. '
-  cost: 4000
+  cost: 5000
   type: Hunger
   prerequisites:
   - {fileID: 11400000, guid: b177f7239cecdb94a93877b059a14335, type: 2}

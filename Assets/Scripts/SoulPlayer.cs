@@ -83,7 +83,7 @@ public class SoulPlayer : MonoBehaviour
             Shoot(1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && dataObject.PlayerData.GameData.SoulBullets.Value > 2)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && dataObject.PlayerData.GameData.SoulBullets.Value > 2 && dataObject.PlayerData.GameData.Upgrades[66])
         {
             Shoot(3);
         }

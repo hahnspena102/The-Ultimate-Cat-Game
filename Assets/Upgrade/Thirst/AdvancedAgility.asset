@@ -17,7 +17,7 @@ MonoBehaviour:
   sprite: {fileID: 313801645, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Enhances the agility of the cat, granting it increased speed and leaping
     power.
-  cost: 2200
+  cost: 1600
   type: Thirst
   prerequisites:
   - {fileID: 11400000, guid: ee3c07198d3268c418b2b364441d3190, type: 2}

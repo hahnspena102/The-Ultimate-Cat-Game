@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(AppetiteCoroutine());
     }
 
-    private List<int> levelThresholds = new List<int> { 0, 3, 6, 10, 15, 20, 30, 40, 1000 };
+    private List<int> levelThresholds = new List<int> { 0, 3, 6, 10, 15, 20, 30, 40, 50 };
     private void UpdateStatLocks()
     {
         List<Stat> stats = dataObject.PlayerData.GameData.Stats;

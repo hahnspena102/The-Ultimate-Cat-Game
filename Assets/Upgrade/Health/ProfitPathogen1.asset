@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae322050a58b75241b5d8f8b77757a19, type: 3}
   m_Name: ProfitPathogen1
   m_EditorClassIdentifier: 
-  upgradeName: Preventative Procedure II
+  upgradeName: Profit Pathogen I
   id: 58
   sprite: {fileID: -138277207, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Allows for a chance to convert Cathogens to Cat Coins.

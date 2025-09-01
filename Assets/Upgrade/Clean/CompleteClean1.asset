@@ -17,7 +17,7 @@ MonoBehaviour:
   sprite: {fileID: 515793331, guid: 44ba98d3b2e452f4fabcbec8a8417aca, type: 3}
   description: Increases maximum Clean and increases cleanliness for each successful
     clean.
-  cost: 3000
+  cost: 1500
   type: Clean
   prerequisites:
   - {fileID: 11400000, guid: 0ba4aee9fab3543498de12ce693d9286, type: 2}
